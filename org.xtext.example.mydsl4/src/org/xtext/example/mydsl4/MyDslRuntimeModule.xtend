@@ -11,7 +11,7 @@ import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
  */
 class MyDslRuntimeModule extends AbstractMyDslRuntimeModule {
 	
-/* 	@Override
+ 	/* @Override
      override Class<? extends DefaultDeclarativeQualifiedNameProvider> bindIQualifiedNameProvider() {
         MyQNP;
     }*/

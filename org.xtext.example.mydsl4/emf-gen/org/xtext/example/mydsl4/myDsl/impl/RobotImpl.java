@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl4.myDsl.Joint;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
 import org.xtext.example.mydsl4.myDsl.Robot;
@@ -33,6 +34,7 @@ import org.xtext.example.mydsl4.myDsl.Robot;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.RobotImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.RobotImpl#getLinks <em>Links</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.RobotImpl#getJoint <em>Joint</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +69,16 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @ordered
 	 */
 	protected EList<Link> links;
+
+	/**
+	 * The cached value of the '{@link #getJoint() <em>Joint</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Joint> joint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,11 +137,25 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Joint> getJoint() {
+		if (joint == null) {
+			joint = new EObjectContainmentEList<Joint>(Joint.class, this, MyDslPackage.ROBOT__JOINT);
+		}
+		return joint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MyDslPackage.ROBOT__LINKS:
 				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
+			case MyDslPackage.ROBOT__JOINT:
+				return ((InternalEList<?>)getJoint()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -146,6 +172,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return getName();
 			case MyDslPackage.ROBOT__LINKS:
 				return getLinks();
+			case MyDslPackage.ROBOT__JOINT:
+				return getJoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,6 +194,10 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				getLinks().clear();
 				getLinks().addAll((Collection<? extends Link>)newValue);
 				return;
+			case MyDslPackage.ROBOT__JOINT:
+				getJoint().clear();
+				getJoint().addAll((Collection<? extends Joint>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -184,6 +216,9 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			case MyDslPackage.ROBOT__LINKS:
 				getLinks().clear();
 				return;
+			case MyDslPackage.ROBOT__JOINT:
+				getJoint().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -200,6 +235,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MyDslPackage.ROBOT__LINKS:
 				return links != null && !links.isEmpty();
+			case MyDslPackage.ROBOT__JOINT:
+				return joint != null && !joint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

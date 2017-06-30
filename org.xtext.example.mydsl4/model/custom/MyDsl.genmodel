@@ -6,9 +6,13 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="MyDsl" basePackage="org.xtext.example.mydsl4" disposableProviderFactory="true"
       fileExtensions="mydsl4" ecorePackage="MyDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MyDsl.ecore#//JointType">
+      <genEnumLiterals ecoreEnumLiteral="MyDsl.ecore#//JointType/fixed"/>
+    </genEnums>
     <genClasses ecoreClass="MyDsl.ecore#//Robot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Robot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Robot/links"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Robot/joint"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReUseAble">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReUseAble/name"/>
@@ -55,6 +59,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//Visual">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Visual/origin"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Visual/geometry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Visual/material"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Inertia">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Inertia/ixx"/>
@@ -94,6 +99,22 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Sphere">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Sphere/radius"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Material"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Texture">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Texture/pathToFile"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Color">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Color/red"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Color/green"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Color/blue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Color/alpha"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Joint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/isReuseOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/childOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/parentOf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Joint/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

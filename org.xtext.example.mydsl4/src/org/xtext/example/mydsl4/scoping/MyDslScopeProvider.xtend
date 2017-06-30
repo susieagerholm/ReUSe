@@ -16,6 +16,7 @@ import org.xtext.example.mydsl4.myDsl.ReUsableRef
 import org.xtext.example.mydsl4.myDsl.ReUseAble
 import org.xtext.example.mydsl4.myDsl.Reuse
 import org.xtext.example.mydsl4.myDsl.Robot
+import org.xtext.example.mydsl4.myDsl.Geometry
 
 /**
  * This class contains custom scoping description.
@@ -25,6 +26,7 @@ import org.xtext.example.mydsl4.myDsl.Robot
  */
 class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 	override IScope getScope(EObject context, EReference reference) {
+				
 		//SOMEHOW THIS LINK SCOPING RULE IS NOT USED - EXIST VIA SUPER.GETSCOPE?? 
 		if (context instanceof Link) {
 			val robot = EcoreUtil2.getContainerOfType(context, Robot)
@@ -50,13 +52,13 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 			//SEEMS TO BE WORKING...
 		 	switch (head) {
             	ReUsableRef : {
-            		val ggg = head.reuseable.eContents
+            		//val ggg = head.reuseable.eContents
             		Scopes::scopeFor(head.reuseable.eContents) 
             	}	
             	DotExpression : {
                 	val tail = head.tail
                 	switch (tail) {
-                    	ReUseAble : Scopes::scopeFor(tail.eContents) 
+                		ReUseAble : Scopes::scopeFor(tail.eContents) 
                     	default: IScope::NULLSCOPE
                 	}
             	}

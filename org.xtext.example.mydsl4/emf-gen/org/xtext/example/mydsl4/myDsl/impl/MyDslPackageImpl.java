@@ -5,6 +5,7 @@ package org.xtext.example.mydsl4.myDsl.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -12,13 +13,17 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.mydsl4.myDsl.Box;
 import org.xtext.example.mydsl4.myDsl.Collision;
+import org.xtext.example.mydsl4.myDsl.Color;
 import org.xtext.example.mydsl4.myDsl.Cylinder;
 import org.xtext.example.mydsl4.myDsl.DotExpression;
 import org.xtext.example.mydsl4.myDsl.Geometry;
 import org.xtext.example.mydsl4.myDsl.Inertia;
 import org.xtext.example.mydsl4.myDsl.Inertial;
+import org.xtext.example.mydsl4.myDsl.Joint;
+import org.xtext.example.mydsl4.myDsl.JointType;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.Mass;
+import org.xtext.example.mydsl4.myDsl.Material;
 import org.xtext.example.mydsl4.myDsl.Mesh;
 import org.xtext.example.mydsl4.myDsl.MyDslFactory;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
@@ -29,6 +34,7 @@ import org.xtext.example.mydsl4.myDsl.Ref;
 import org.xtext.example.mydsl4.myDsl.Reuse;
 import org.xtext.example.mydsl4.myDsl.Robot;
 import org.xtext.example.mydsl4.myDsl.Sphere;
+import org.xtext.example.mydsl4.myDsl.Texture;
 import org.xtext.example.mydsl4.myDsl.URDFAttrFloat;
 import org.xtext.example.mydsl4.myDsl.URDFAttrINT;
 import org.xtext.example.mydsl4.myDsl.URDFAttrNumeric;
@@ -205,6 +211,41 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	private EClass sphereEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass materialEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass colorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum jointTypeEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -290,6 +331,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 */
 	public EReference getRobot_Links() {
 		return (EReference)robotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRobot_Joint() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -603,6 +653,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getVisual_Material() {
+		return (EReference)visualEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInertia() {
 		return inertiaEClass;
 	}
@@ -882,6 +941,132 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMaterial() {
+		return materialEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTexture() {
+		return textureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTexture_PathToFile() {
+		return (EReference)textureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getColor() {
+		return colorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColor_Red() {
+		return (EReference)colorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColor_Green() {
+		return (EReference)colorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColor_Blue() {
+		return (EReference)colorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColor_Alpha() {
+		return (EReference)colorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getJoint() {
+		return jointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_IsReuseOf() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_ChildOf() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_ParentOf() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJoint_Type() {
+		return (EAttribute)jointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getJointType() {
+		return jointTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MyDslFactory getMyDslFactory() {
 		return (MyDslFactory)getEFactoryInstance();
 	}
@@ -908,6 +1093,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		robotEClass = createEClass(ROBOT);
 		createEAttribute(robotEClass, ROBOT__NAME);
 		createEReference(robotEClass, ROBOT__LINKS);
+		createEReference(robotEClass, ROBOT__JOINT);
 
 		reUseAbleEClass = createEClass(RE_USE_ABLE);
 		createEAttribute(reUseAbleEClass, RE_USE_ABLE__NAME);
@@ -955,6 +1141,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		visualEClass = createEClass(VISUAL);
 		createEReference(visualEClass, VISUAL__ORIGIN);
 		createEReference(visualEClass, VISUAL__GEOMETRY);
+		createEReference(visualEClass, VISUAL__MATERIAL);
 
 		inertiaEClass = createEClass(INERTIA);
 		createEReference(inertiaEClass, INERTIA__IXX);
@@ -995,6 +1182,26 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		sphereEClass = createEClass(SPHERE);
 		createEReference(sphereEClass, SPHERE__RADIUS);
+
+		materialEClass = createEClass(MATERIAL);
+
+		textureEClass = createEClass(TEXTURE);
+		createEReference(textureEClass, TEXTURE__PATH_TO_FILE);
+
+		colorEClass = createEClass(COLOR);
+		createEReference(colorEClass, COLOR__RED);
+		createEReference(colorEClass, COLOR__GREEN);
+		createEReference(colorEClass, COLOR__BLUE);
+		createEReference(colorEClass, COLOR__ALPHA);
+
+		jointEClass = createEClass(JOINT);
+		createEReference(jointEClass, JOINT__IS_REUSE_OF);
+		createEReference(jointEClass, JOINT__CHILD_OF);
+		createEReference(jointEClass, JOINT__PARENT_OF);
+		createEAttribute(jointEClass, JOINT__TYPE);
+
+		// Create enums
+		jointTypeEEnum = createEEnum(JOINT_TYPE);
 	}
 
 	/**
@@ -1040,11 +1247,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		cylinderEClass.getESuperTypes().add(this.getGeometry());
 		meshEClass.getESuperTypes().add(this.getGeometry());
 		sphereEClass.getESuperTypes().add(this.getGeometry());
+		materialEClass.getESuperTypes().add(this.getReUseAble());
+		textureEClass.getESuperTypes().add(this.getMaterial());
+		colorEClass.getESuperTypes().add(this.getMaterial());
+		jointEClass.getESuperTypes().add(this.getReUseAble());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Links(), this.getLink(), null, "links", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_Joint(), this.getJoint(), null, "joint", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reUseAbleEClass, ReUseAble.class, "ReUseAble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReUseAble_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReUseAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1092,6 +1304,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEClass(visualEClass, Visual.class, "Visual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVisual_Origin(), this.getOrigin(), null, "origin", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVisual_Geometry(), this.getGeometry(), null, "geometry", null, 0, -1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVisual_Material(), this.getMaterial(), null, "material", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inertiaEClass, Inertia.class, "Inertia", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInertia_Ixx(), this.getURDFAttrSignedNumeric(), null, "ixx", null, 1, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1132,6 +1345,27 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		initEClass(sphereEClass, Sphere.class, "Sphere", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSphere_Radius(), this.getURDFAttrNumeric(), null, "radius", null, 1, 1, Sphere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(materialEClass, Material.class, "Material", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(textureEClass, Texture.class, "Texture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTexture_PathToFile(), this.getURDFAttrSTRING(), null, "pathToFile", null, 1, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(colorEClass, Color.class, "Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColor_Red(), this.getURDFAttrFloat(), null, "red", null, 1, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColor_Green(), this.getURDFAttrFloat(), null, "green", null, 1, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColor_Blue(), this.getURDFAttrFloat(), null, "blue", null, 1, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColor_Alpha(), this.getURDFAttrFloat(), null, "alpha", null, 1, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJoint_IsReuseOf(), this.getJoint(), null, "isReuseOf", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_ChildOf(), this.getLink(), null, "childOf", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_ParentOf(), this.getLink(), null, "parentOf", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJoint_Type(), this.getJointType(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(jointTypeEEnum, JointType.class, "JointType");
+		addEEnumLiteral(jointTypeEEnum, JointType.FIXED);
 
 		// Create resource
 		createResource(eNS_URI);

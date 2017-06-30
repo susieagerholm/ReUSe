@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl4.myDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -80,8 +81,42 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 			case MyDslPackage.CYLINDER: return createCylinder();
 			case MyDslPackage.MESH: return createMesh();
 			case MyDslPackage.SPHERE: return createSphere();
+			case MyDslPackage.MATERIAL: return createMaterial();
+			case MyDslPackage.TEXTURE: return createTexture();
+			case MyDslPackage.COLOR: return createColor();
+			case MyDslPackage.JOINT: return createJoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case MyDslPackage.JOINT_TYPE:
+				return createJointTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case MyDslPackage.JOINT_TYPE:
+				return convertJointTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -313,6 +348,66 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 	public Sphere createSphere() {
 		SphereImpl sphere = new SphereImpl();
 		return sphere;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Material createMaterial() {
+		MaterialImpl material = new MaterialImpl();
+		return material;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Texture createTexture() {
+		TextureImpl texture = new TextureImpl();
+		return texture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color createColor() {
+		ColorImpl color = new ColorImpl();
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Joint createJoint() {
+		JointImpl joint = new JointImpl();
+		return joint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JointType createJointTypeFromString(EDataType eDataType, String initialValue) {
+		JointType result = JointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJointTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

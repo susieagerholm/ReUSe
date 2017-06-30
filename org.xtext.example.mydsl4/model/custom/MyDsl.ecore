@@ -5,6 +5,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
+        eType="#//Joint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReUseAble">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -60,6 +62,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" upperBound="-1"
         eType="#//Geometry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="material" eType="#//Material"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Inertia" eSuperTypes="#//ReUseAble">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ixx" lowerBound="1" eType="#//URDFAttrSignedNumeric"
@@ -121,5 +125,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="Sphere" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="radius" lowerBound="1"
         eType="#//URDFAttrNumeric" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Material" eSuperTypes="#//ReUseAble"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Texture" eSuperTypes="#//Material">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pathToFile" lowerBound="1"
+        eType="#//URDFAttrSTRING" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Color" eSuperTypes="#//Material">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="red" lowerBound="1" eType="#//URDFAttrFloat"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="green" lowerBound="1" eType="#//URDFAttrFloat"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blue" lowerBound="1" eType="#//URDFAttrFloat"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alpha" lowerBound="1" eType="#//URDFAttrFloat"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//ReUseAble">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isReuseOf" eType="#//Joint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childOf" lowerBound="1"
+        eType="#//Link"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentOf" lowerBound="1"
+        eType="#//Link"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//JointType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JointType">
+    <eLiterals name="fixed" literal="fixed"/>
   </eClassifiers>
 </ecore:EPackage>

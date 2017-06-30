@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -100,21 +101,43 @@ ruleRobot returns [EObject current=null]
 		)
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_0());
-				}
-				lv_links_2_0=ruleLink
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRobotRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_0_0());
 					}
-					add(
-						$current,
-						"links",
-						lv_links_2_0,
-						"org.xtext.example.mydsl4.MyDsl.Link");
-					afterParserOrEnumRuleCall();
-				}
+					lv_links_2_0=ruleLink
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
+						}
+						add(
+							$current,
+							"links",
+							lv_links_2_0,
+							"org.xtext.example.mydsl4.MyDsl.Link");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRobotAccess().getJointJointParserRuleCall_2_1_0());
+					}
+					lv_joint_3_0=ruleJoint
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
+						}
+						add(
+							$current,
+							"joint",
+							lv_joint_3_0,
+							"org.xtext.example.mydsl4.MyDsl.Joint");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)*
 	)
@@ -164,11 +187,11 @@ ruleReUseAble returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getReUseAbleAccess().getInertiaParserRuleCall_3());
+			newCompositeNode(grammarAccess.getReUseAbleAccess().getCollisionParserRuleCall_3());
 		}
-		this_Inertia_3=ruleInertia
+		this_Collision_3=ruleCollision
 		{
-			$current = $this_Inertia_3.current;
+			$current = $this_Collision_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -877,6 +900,31 @@ ruleVisual returns [EObject current=null]
 						"org.xtext.example.mydsl4.MyDsl.Origin");
 					afterParserOrEnumRuleCall();
 				}
+			)
+		)?
+		(
+			otherlv_6='Material'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getVisualAccess().getMaterialKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getVisualAccess().getMaterialMaterialParserRuleCall_6_1_0());
+					}
+					lv_material_7_0=ruleMaterial
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVisualRule());
+						}
+						set(
+							$current,
+							"material",
+							lv_material_7_0,
+							"org.xtext.example.mydsl4.MyDsl.Material");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)?
 	)
@@ -1607,6 +1655,356 @@ ruleSphere returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleMaterial
+entryRuleMaterial returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMaterialRule()); }
+	iv_ruleMaterial=ruleMaterial
+	{ $current=$iv_ruleMaterial.current; }
+	EOF;
+
+// Rule Material
+ruleMaterial returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getMaterialAccess().getTextureParserRuleCall_0());
+		}
+		this_Texture_0=ruleTexture
+		{
+			$current = $this_Texture_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getMaterialAccess().getColorParserRuleCall_1());
+		}
+		this_Color_1=ruleColor
+		{
+			$current = $this_Color_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleTexture
+entryRuleTexture returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTextureRule()); }
+	iv_ruleTexture=ruleTexture
+	{ $current=$iv_ruleTexture.current; }
+	EOF;
+
+// Rule Texture
+ruleTexture returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Texture'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTextureAccess().getTextureKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getTextureAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTextureRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)?
+		otherlv_2='pathToFile'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getTextureAccess().getPathToFileKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTextureAccess().getPathToFileURDFAttrSTRINGParserRuleCall_3_0());
+				}
+				lv_pathToFile_3_0=ruleURDFAttrSTRING
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTextureRule());
+					}
+					set(
+						$current,
+						"pathToFile",
+						lv_pathToFile_3_0,
+						"org.xtext.example.mydsl4.MyDsl.URDFAttrSTRING");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleColor
+entryRuleColor returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getColorRule()); }
+	iv_ruleColor=ruleColor
+	{ $current=$iv_ruleColor.current; }
+	EOF;
+
+// Rule Color
+ruleColor returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Color'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getColorAccess().getColorKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getColorAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getColorRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)?
+		otherlv_2='red'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getColorAccess().getRedKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getColorAccess().getRedURDFAttrFloatParserRuleCall_3_0());
+				}
+				lv_red_3_0=ruleURDFAttrFloat
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getColorRule());
+					}
+					set(
+						$current,
+						"red",
+						lv_red_3_0,
+						"org.xtext.example.mydsl4.MyDsl.URDFAttrFloat");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='green'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getColorAccess().getGreenKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getColorAccess().getGreenURDFAttrFloatParserRuleCall_5_0());
+				}
+				lv_green_5_0=ruleURDFAttrFloat
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getColorRule());
+					}
+					set(
+						$current,
+						"green",
+						lv_green_5_0,
+						"org.xtext.example.mydsl4.MyDsl.URDFAttrFloat");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6='blue'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getColorAccess().getBlueKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getColorAccess().getBlueURDFAttrFloatParserRuleCall_7_0());
+				}
+				lv_blue_7_0=ruleURDFAttrFloat
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getColorRule());
+					}
+					set(
+						$current,
+						"blue",
+						lv_blue_7_0,
+						"org.xtext.example.mydsl4.MyDsl.URDFAttrFloat");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_8='alpha'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getColorAccess().getAlphaKeyword_8());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getColorAccess().getAlphaURDFAttrFloatParserRuleCall_9_0());
+				}
+				lv_alpha_9_0=ruleURDFAttrFloat
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getColorRule());
+					}
+					set(
+						$current,
+						"alpha",
+						lv_alpha_9_0,
+						"org.xtext.example.mydsl4.MyDsl.URDFAttrFloat");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleJoint
+entryRuleJoint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getJointRule()); }
+	iv_ruleJoint=ruleJoint
+	{ $current=$iv_ruleJoint.current; }
+	EOF;
+
+// Rule Joint
+ruleJoint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Joint'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getJointAccess().getJointKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getJointAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getJointRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='ChildOf'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getJointAccess().getChildOfKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getJointRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getJointAccess().getChildOfLinkCrossReference_3_0());
+				}
+			)
+		)
+		otherlv_4='ParentOf'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getJointAccess().getParentOfKeyword_4());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getJointRule());
+					}
+				}
+				otherlv_5=RULE_ID
+				{
+					newLeafNode(otherlv_5, grammarAccess.getJointAccess().getParentOfLinkCrossReference_5_0());
+				}
+			)
+		)
+		otherlv_6='Type'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getJointAccess().getTypeKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getJointAccess().getTypeJointTypeEnumRuleCall_7_0());
+				}
+				lv_type_7_0=ruleJointType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getJointRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_7_0,
+						"org.xtext.example.mydsl4.MyDsl.JointType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_8='isReuseOf'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getJointAccess().getIsReuseOfKeyword_8_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getJointRule());
+						}
+					}
+					otherlv_9=RULE_ID
+					{
+						newLeafNode(otherlv_9, grammarAccess.getJointAccess().getIsReuseOfJointCrossReference_8_1_0());
+					}
+				)
+			)
+		)?
+	)
+;
+
 // Entry rule entryRuleURDFAttrSignedNumeric
 entryRuleURDFAttrSignedNumeric returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getURDFAttrSignedNumericRule()); }
@@ -1637,6 +2035,42 @@ ruleURDFAttrSignedNumeric returns [EObject current=null]
 					"value",
 					lv_value_0_0,
 					"org.xtext.example.mydsl4.MyDsl.SIGNED_NUMERIC");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleURDFAttrFloat
+entryRuleURDFAttrFloat returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getURDFAttrFloatRule()); }
+	iv_ruleURDFAttrFloat=ruleURDFAttrFloat
+	{ $current=$iv_ruleURDFAttrFloat.current; }
+	EOF;
+
+// Rule URDFAttrFloat
+ruleURDFAttrFloat returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getURDFAttrFloatAccess().getValueFLOATParserRuleCall_0());
+			}
+			lv_value_0_0=ruleFLOAT
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getURDFAttrFloatRule());
+				}
+				set(
+					$current,
+					"value",
+					lv_value_0_0,
+					"org.xtext.example.mydsl4.MyDsl.FLOAT");
 				afterParserOrEnumRuleCall();
 			}
 		)
@@ -1907,6 +2341,23 @@ ruleNUMERIC returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 		}
 		{
 			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Rule JointType
+ruleJointType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		enumLiteral_0='fixed'
+		{
+			$current = grammarAccess.getJointTypeAccess().getFixedEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getJointTypeAccess().getFixedEnumLiteralDeclaration());
 		}
 	)
 ;

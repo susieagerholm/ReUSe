@@ -5,6 +5,7 @@ package org.xtext.example.mydsl4.myDsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -85,13 +86,22 @@ public interface MyDslPackage extends EPackage {
 	int ROBOT__LINKS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Joint</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__JOINT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 2;
+	int ROBOT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.ReUseAbleImpl <em>Re Use Able</em>}' class.
@@ -557,13 +567,22 @@ public interface MyDslPackage extends EPackage {
 	int VISUAL__GEOMETRY = RE_USE_ABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VISUAL__MATERIAL = RE_USE_ABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Visual</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VISUAL_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 2;
+	int VISUAL_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 3;
 
 
 	/**
@@ -1024,6 +1043,213 @@ public interface MyDslPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.MaterialImpl <em>Material</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MaterialImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getMaterial()
+	 * @generated
+	 */
+	int MATERIAL = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATERIAL__NAME = RE_USE_ABLE__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Material</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATERIAL_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.TextureImpl <em>Texture</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.TextureImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getTexture()
+	 * @generated
+	 */
+	int TEXTURE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXTURE__NAME = MATERIAL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path To File</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXTURE__PATH_TO_FILE = MATERIAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Texture</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXTURE_FEATURE_COUNT = MATERIAL_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.ColorImpl <em>Color</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.ColorImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getColor()
+	 * @generated
+	 */
+	int COLOR = 25;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__NAME = MATERIAL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Red</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__RED = MATERIAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Green</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__GREEN = MATERIAL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Blue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__BLUE = MATERIAL_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR__ALPHA = MATERIAL_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Color</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_FEATURE_COUNT = MATERIAL_FEATURE_COUNT + 4;
+
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl <em>Joint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.JointImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJoint()
+	 * @generated
+	 */
+	int JOINT = 26;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__NAME = RE_USE_ABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Is Reuse Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__IS_REUSE_OF = RE_USE_ABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Child Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__CHILD_OF = RE_USE_ABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__PARENT_OF = RE_USE_ABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__TYPE = RE_USE_ABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Joint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 4;
+
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.JointType
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
+	 * @generated
+	 */
+	int JOINT_TYPE = 27;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1054,6 +1280,17 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRobot_Links();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.Robot#getJoint <em>Joint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Joint</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Robot#getJoint()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EReference getRobot_Joint();
 
 	/**
 	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.ReUseAble <em>Re Use Able</em>}'.
@@ -1417,6 +1654,17 @@ public interface MyDslPackage extends EPackage {
 	EReference getVisual_Geometry();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Visual#getMaterial <em>Material</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Material</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Visual#getMaterial()
+	 * @see #getVisual()
+	 * @generated
+	 */
+	EReference getVisual_Material();
+
+	/**
 	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Inertia <em>Inertia</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1749,6 +1997,155 @@ public interface MyDslPackage extends EPackage {
 	EReference getSphere_Radius();
 
 	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Material <em>Material</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Material</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Material
+	 * @generated
+	 */
+	EClass getMaterial();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Texture <em>Texture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Texture</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Texture
+	 * @generated
+	 */
+	EClass getTexture();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Texture#getPathToFile <em>Path To File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Path To File</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Texture#getPathToFile()
+	 * @see #getTexture()
+	 * @generated
+	 */
+	EReference getTexture_PathToFile();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Color <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Color</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Color
+	 * @generated
+	 */
+	EClass getColor();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Color#getRed <em>Red</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Red</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Color#getRed()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EReference getColor_Red();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Color#getGreen <em>Green</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Green</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Color#getGreen()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EReference getColor_Green();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Color#getBlue <em>Blue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Blue</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Color#getBlue()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EReference getColor_Blue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Color#getAlpha <em>Alpha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Alpha</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Color#getAlpha()
+	 * @see #getColor()
+	 * @generated
+	 */
+	EReference getColor_Alpha();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Joint <em>Joint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Joint</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint
+	 * @generated
+	 */
+	EClass getJoint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getIsReuseOf <em>Is Reuse Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Is Reuse Of</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getIsReuseOf()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_IsReuseOf();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getChildOf <em>Child Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Child Of</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getChildOf()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_ChildOf();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getParentOf <em>Parent Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent Of</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getParentOf()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_ParentOf();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.xtext.example.mydsl4.myDsl.Joint#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getType()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EAttribute getJoint_Type();
+
+	/**
+	 * Returns the meta object for enum '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Joint Type</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.JointType
+	 * @generated
+	 */
+	EEnum getJointType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1795,6 +2192,14 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROBOT__LINKS = eINSTANCE.getRobot_Links();
+
+		/**
+		 * The meta object literal for the '<em><b>Joint</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__JOINT = eINSTANCE.getRobot_Joint();
 
 		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.ReUseAbleImpl <em>Re Use Able</em>}' class.
@@ -2095,6 +2500,14 @@ public interface MyDslPackage extends EPackage {
 		EReference VISUAL__GEOMETRY = eINSTANCE.getVisual_Geometry();
 
 		/**
+		 * The meta object literal for the '<em><b>Material</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VISUAL__MATERIAL = eINSTANCE.getVisual_Material();
+
+		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.InertiaImpl <em>Inertia</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2359,6 +2772,128 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SPHERE__RADIUS = eINSTANCE.getSphere_Radius();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.MaterialImpl <em>Material</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MaterialImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getMaterial()
+		 * @generated
+		 */
+		EClass MATERIAL = eINSTANCE.getMaterial();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.TextureImpl <em>Texture</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.TextureImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getTexture()
+		 * @generated
+		 */
+		EClass TEXTURE = eINSTANCE.getTexture();
+
+		/**
+		 * The meta object literal for the '<em><b>Path To File</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXTURE__PATH_TO_FILE = eINSTANCE.getTexture_PathToFile();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.ColorImpl <em>Color</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.ColorImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getColor()
+		 * @generated
+		 */
+		EClass COLOR = eINSTANCE.getColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Red</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLOR__RED = eINSTANCE.getColor_Red();
+
+		/**
+		 * The meta object literal for the '<em><b>Green</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLOR__GREEN = eINSTANCE.getColor_Green();
+
+		/**
+		 * The meta object literal for the '<em><b>Blue</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLOR__BLUE = eINSTANCE.getColor_Blue();
+
+		/**
+		 * The meta object literal for the '<em><b>Alpha</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLOR__ALPHA = eINSTANCE.getColor_Alpha();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl <em>Joint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.JointImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJoint()
+		 * @generated
+		 */
+		EClass JOINT = eINSTANCE.getJoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Reuse Of</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__IS_REUSE_OF = eINSTANCE.getJoint_IsReuseOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Child Of</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__CHILD_OF = eINSTANCE.getJoint_ChildOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Of</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__PARENT_OF = eINSTANCE.getJoint_ParentOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOINT__TYPE = eINSTANCE.getJoint_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.JointType
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
+		 * @generated
+		 */
+		EEnum JOINT_TYPE = eINSTANCE.getJointType();
 
 	}
 

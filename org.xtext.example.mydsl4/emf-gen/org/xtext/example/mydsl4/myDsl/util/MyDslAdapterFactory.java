@@ -161,6 +161,22 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 				return createSphereAdapter();
 			}
 			@Override
+			public Adapter caseMaterial(Material object) {
+				return createMaterialAdapter();
+			}
+			@Override
+			public Adapter caseTexture(Texture object) {
+				return createTextureAdapter();
+			}
+			@Override
+			public Adapter caseColor(Color object) {
+				return createColorAdapter();
+			}
+			@Override
+			public Adapter caseJoint(Joint object) {
+				return createJointAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -499,6 +515,62 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSphereAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Material <em>Material</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Material
+	 * @generated
+	 */
+	public Adapter createMaterialAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Texture <em>Texture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Texture
+	 * @generated
+	 */
+	public Adapter createTextureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Color <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Color
+	 * @generated
+	 */
+	public Adapter createColorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Joint <em>Joint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint
+	 * @generated
+	 */
+	public Adapter createJointAdapter() {
 		return null;
 	}
 

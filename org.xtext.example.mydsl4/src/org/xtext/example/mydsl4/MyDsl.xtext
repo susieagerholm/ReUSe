@@ -5,24 +5,22 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Robot:
 	'Robot' name=ID
-	 links += Link* 
+	 (links += Link | joint+=Joint)* 
 ;
 
 ReUseAble: 
- 	Link | Visual | Inertial | Inertia
+ 	Link | Visual | Inertial | Collision
 ;
 
   
 Link:
 	{Link} 'Link' name=ID
 	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*) | ('reuse' link=[Link] reuse=Reuse))?
-	//('def' inertial=Inertial | visual+=Visual*)?  
-	//('reuse' link=[Link] reuse=Reuse)?
-	// ('def' decorator+=ReUseAble* | 'reuse' link=[Link] test=Test)?
+	
 ;
 
 Reuse:
-	{Reuse} ( 'edit' ref=DotExpression | 'add' add=ReUseAble)?
+	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble)?
 ;
 
 
@@ -33,11 +31,6 @@ DotExpression returns Ref:
 ReUsableRef returns Ref: 
 	{ReUsableRef} reuseable=[ReUseAble]
 ;
-
-
-/*LinkDecorator returns ReUseAble:
-	Inertial | Visual | Inertia | Mass   
-;*/
 
 Inertial:
 	{Inertial} 'Inertial' (name=ID)?
@@ -61,7 +54,7 @@ Visual:
 	{Visual} 'Visual' (name=ID)? 
 	'Geometry' geometry+=Geometry*
 	(origin=Origin)?
-	//'Material' (material=Material)?
+	('Material' material=Material)?
 	
 ;
 
@@ -117,8 +110,8 @@ Sphere:
 	'radius' radius=URDFAttrNumeric	
 ;
 
-/*Material:
-	Texture //| Color 
+Material:
+	Texture | Color 
 ;
 
 
@@ -127,7 +120,8 @@ Texture:
 	'pathToFile' pathToFile=URDFAttrSTRING
 ;
 
- RGBA values must be floats between 0 and 1 incl 
+
+// RGBA values must be floats between 0 and 1 incl 
 Color:
 	'Color' (name=ID)?
 	'red' red=URDFAttrFloat 
@@ -135,8 +129,29 @@ Color:
 	'blue' blue=URDFAttrFloat 
 	'alpha' alpha=URDFAttrFloat	
 ;
-*/
 
+Joint:
+	'Joint' name=ID
+	'ChildOf' childOf=[Link]
+	'ParentOf' parentOf=[Link]
+	'Type' type=JointType
+	//(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*) | ('reuse' link=[Link] reuse=Reuse))?
+	('isReuseOf' isReuseOf=[Joint])?
+;
+
+enum JointType:
+		fixed = 'fixed' //|revolute = 'Revolute' |  prismatic = 'Prismatic' | continuous = 'Continuous';
+;
+
+/* Binary values must be 0 or 1 - 
+ * digitsum must be 1*/
+//keyword aliases: 'xyz' or 'x', 'y', 'z'
+/*Axis:
+	'Axis' (name=ID)?
+	'x' x=URDFAttrINT
+	'y' y=URDFAttrINT
+	'z' z=URDFAttrINT 
+;*/
 
 URDFAttrSignedNumeric:
 	value = SIGNED_NUMERIC

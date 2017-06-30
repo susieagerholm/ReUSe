@@ -16,10 +16,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.mydsl4.myDsl.Box;
 import org.xtext.example.mydsl4.myDsl.Collision;
+import org.xtext.example.mydsl4.myDsl.Color;
 import org.xtext.example.mydsl4.myDsl.Cylinder;
 import org.xtext.example.mydsl4.myDsl.DotExpression;
 import org.xtext.example.mydsl4.myDsl.Inertia;
 import org.xtext.example.mydsl4.myDsl.Inertial;
+import org.xtext.example.mydsl4.myDsl.Joint;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.Mass;
 import org.xtext.example.mydsl4.myDsl.Mesh;
@@ -29,6 +31,7 @@ import org.xtext.example.mydsl4.myDsl.ReUsableRef;
 import org.xtext.example.mydsl4.myDsl.Reuse;
 import org.xtext.example.mydsl4.myDsl.Robot;
 import org.xtext.example.mydsl4.myDsl.Sphere;
+import org.xtext.example.mydsl4.myDsl.Texture;
 import org.xtext.example.mydsl4.myDsl.URDFAttrFloat;
 import org.xtext.example.mydsl4.myDsl.URDFAttrINT;
 import org.xtext.example.mydsl4.myDsl.URDFAttrNumeric;
@@ -57,6 +60,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.COLLISION:
 				sequence_Collision(context, (Collision) semanticObject); 
 				return; 
+			case MyDslPackage.COLOR:
+				sequence_Color(context, (Color) semanticObject); 
+				return; 
 			case MyDslPackage.CYLINDER:
 				sequence_Cylinder(context, (Cylinder) semanticObject); 
 				return; 
@@ -68,6 +74,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.INERTIAL:
 				sequence_Inertial(context, (Inertial) semanticObject); 
+				return; 
+			case MyDslPackage.JOINT:
+				sequence_Joint(context, (Joint) semanticObject); 
 				return; 
 			case MyDslPackage.LINK:
 				sequence_Link(context, (Link) semanticObject); 
@@ -92,6 +101,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.SPHERE:
 				sequence_Sphere(context, (Sphere) semanticObject); 
+				return; 
+			case MyDslPackage.TEXTURE:
+				sequence_Texture(context, (Texture) semanticObject); 
 				return; 
 			case MyDslPackage.URDF_ATTR_FLOAT:
 				sequence_URDFAttrFloat(context, (URDFAttrFloat) semanticObject); 
@@ -131,12 +143,26 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReUseAble returns Collision
 	 *     Collision returns Collision
 	 *
 	 * Constraint:
 	 *     (name=ID geometry+=Geometry* origin=Origin?)
 	 */
 	protected void sequence_Collision(ISerializationContext context, Collision semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Material returns Color
+	 *     Color returns Color
+	 *
+	 * Constraint:
+	 *     (name=ID? red=URDFAttrFloat green=URDFAttrFloat blue=URDFAttrFloat alpha=URDFAttrFloat)
+	 */
+	protected void sequence_Color(ISerializationContext context, Color semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -178,7 +204,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     ReUseAble returns Inertia
 	 *     Inertia returns Inertia
 	 *
 	 * Constraint:
@@ -206,6 +231,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID? inertia=Inertia mass=Mass origin=Origin?)
 	 */
 	protected void sequence_Inertial(ISerializationContext context, Inertial semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Joint returns Joint
+	 *
+	 * Constraint:
+	 *     (name=ID childOf=[Link|ID] parentOf=[Link|ID] type=JointType isReuseOf=[Joint|ID]?)
+	 */
+	protected void sequence_Joint(ISerializationContext context, Joint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -305,7 +342,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=ID links+=Link*)
+	 *     (name=ID (links+=Link | joint+=Joint)*)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -321,6 +358,19 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID? radius=URDFAttrNumeric)
 	 */
 	protected void sequence_Sphere(ISerializationContext context, Sphere semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Material returns Texture
+	 *     Texture returns Texture
+	 *
+	 * Constraint:
+	 *     (name=ID? pathToFile=URDFAttrSTRING)
+	 */
+	protected void sequence_Texture(ISerializationContext context, Texture semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -421,7 +471,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Visual returns Visual
 	 *
 	 * Constraint:
-	 *     (name=ID? geometry+=Geometry* origin=Origin?)
+	 *     (name=ID? geometry+=Geometry* origin=Origin? material=Material?)
 	 */
 	protected void sequence_Visual(ISerializationContext context, Visual semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

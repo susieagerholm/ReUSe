@@ -230,6 +230,42 @@ public interface MyDslFactory extends EFactory {
 	Sphere createSphere();
 
 	/**
+	 * Returns a new object of class '<em>Material</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Material</em>'.
+	 * @generated
+	 */
+	Material createMaterial();
+
+	/**
+	 * Returns a new object of class '<em>Texture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Texture</em>'.
+	 * @generated
+	 */
+	Texture createTexture();
+
+	/**
+	 * Returns a new object of class '<em>Color</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Color</em>'.
+	 * @generated
+	 */
+	Color createColor();
+
+	/**
+	 * Returns a new object of class '<em>Joint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Joint</em>'.
+	 * @generated
+	 */
+	Joint createJoint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

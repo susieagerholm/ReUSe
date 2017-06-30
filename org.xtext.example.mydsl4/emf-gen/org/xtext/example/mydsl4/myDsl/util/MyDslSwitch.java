@@ -224,6 +224,36 @@ public class MyDslSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MyDslPackage.MATERIAL: {
+				Material material = (Material)theEObject;
+				T result = caseMaterial(material);
+				if (result == null) result = caseReUseAble(material);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.TEXTURE: {
+				Texture texture = (Texture)theEObject;
+				T result = caseTexture(texture);
+				if (result == null) result = caseMaterial(texture);
+				if (result == null) result = caseReUseAble(texture);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.COLOR: {
+				Color color = (Color)theEObject;
+				T result = caseColor(color);
+				if (result == null) result = caseMaterial(color);
+				if (result == null) result = caseReUseAble(color);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.JOINT: {
+				Joint joint = (Joint)theEObject;
+				T result = caseJoint(joint);
+				if (result == null) result = caseReUseAble(joint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -570,6 +600,66 @@ public class MyDslSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSphere(Sphere object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Material</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Material</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMaterial(Material object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Texture</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Texture</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTexture(Texture object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Color</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Color</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColor(Color object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Joint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Joint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJoint(Joint object) {
 		return null;
 	}
 

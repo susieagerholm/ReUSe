@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.example.mydsl4.myDsl.Geometry;
+import org.xtext.example.mydsl4.myDsl.Material;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
 import org.xtext.example.mydsl4.myDsl.Origin;
 import org.xtext.example.mydsl4.myDsl.Visual;
@@ -28,6 +29,7 @@ import org.xtext.example.mydsl4.myDsl.Visual;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.VisualImpl#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.VisualImpl#getGeometry <em>Geometry</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.VisualImpl#getMaterial <em>Material</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +54,16 @@ public class VisualImpl extends ReUseAbleImpl implements Visual {
 	 * @ordered
 	 */
 	protected EList<Geometry> geometry;
+
+	/**
+	 * The cached value of the '{@link #getMaterial() <em>Material</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaterial()
+	 * @generated
+	 * @ordered
+	 */
+	protected Material material;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +144,49 @@ public class VisualImpl extends ReUseAbleImpl implements Visual {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Material getMaterial() {
+		return material;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMaterial(Material newMaterial, NotificationChain msgs) {
+		Material oldMaterial = material;
+		material = newMaterial;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.VISUAL__MATERIAL, oldMaterial, newMaterial);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaterial(Material newMaterial) {
+		if (newMaterial != material) {
+			NotificationChain msgs = null;
+			if (material != null)
+				msgs = ((InternalEObject)material).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VISUAL__MATERIAL, null, msgs);
+			if (newMaterial != null)
+				msgs = ((InternalEObject)newMaterial).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VISUAL__MATERIAL, null, msgs);
+			msgs = basicSetMaterial(newMaterial, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VISUAL__MATERIAL, newMaterial, newMaterial));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -139,6 +194,8 @@ public class VisualImpl extends ReUseAbleImpl implements Visual {
 				return basicSetOrigin(null, msgs);
 			case MyDslPackage.VISUAL__GEOMETRY:
 				return ((InternalEList<?>)getGeometry()).basicRemove(otherEnd, msgs);
+			case MyDslPackage.VISUAL__MATERIAL:
+				return basicSetMaterial(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -155,6 +212,8 @@ public class VisualImpl extends ReUseAbleImpl implements Visual {
 				return getOrigin();
 			case MyDslPackage.VISUAL__GEOMETRY:
 				return getGeometry();
+			case MyDslPackage.VISUAL__MATERIAL:
+				return getMaterial();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,6 +234,9 @@ public class VisualImpl extends ReUseAbleImpl implements Visual {
 				getGeometry().clear();
 				getGeometry().addAll((Collection<? extends Geometry>)newValue);
 				return;
+			case MyDslPackage.VISUAL__MATERIAL:
+				setMaterial((Material)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -193,6 +255,9 @@ public class VisualImpl extends ReUseAbleImpl implements Visual {
 			case MyDslPackage.VISUAL__GEOMETRY:
 				getGeometry().clear();
 				return;
+			case MyDslPackage.VISUAL__MATERIAL:
+				setMaterial((Material)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -209,6 +274,8 @@ public class VisualImpl extends ReUseAbleImpl implements Visual {
 				return origin != null;
 			case MyDslPackage.VISUAL__GEOMETRY:
 				return geometry != null && !geometry.isEmpty();
+			case MyDslPackage.VISUAL__MATERIAL:
+				return material != null;
 		}
 		return super.eIsSet(featureID);
 	}
