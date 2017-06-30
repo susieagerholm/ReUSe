@@ -1,0 +1,178 @@
+grammar org.xtext.example.mydsl4.MyDsl with org.eclipse.xtext.common.Terminals
+
+import "http://www.xtext.org/example/mydsl4/MyDsl"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Robot:
+	'Robot' name=ID
+	 links += Link* 
+;
+
+ReUseAble: 
+ 	Link | Visual | Inertial | Inertia
+;
+
+  
+Link:
+	{Link} 'Link' name=ID
+	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*) | ('reuse' link=[Link] reuse=Reuse))?
+	//('def' inertial=Inertial | visual+=Visual*)?  
+	//('reuse' link=[Link] reuse=Reuse)?
+	// ('def' decorator+=ReUseAble* | 'reuse' link=[Link] test=Test)?
+;
+
+Reuse:
+	{Reuse} ( 'edit' ref=DotExpression | 'add' add=ReUseAble)?
+;
+
+
+DotExpression returns Ref:
+    ReUsableRef ({DotExpression.ref=current}  "." tail=[ReUseAble])*
+;
+
+ReUsableRef returns Ref: 
+	{ReUsableRef} reuseable=[ReUseAble]
+;
+
+
+/*LinkDecorator returns ReUseAble:
+	Inertial | Visual | Inertia | Mass   
+;*/
+
+Inertial:
+	{Inertial} 'Inertial' (name=ID)?
+	inertia=Inertia
+	mass=Mass
+	(origin=Origin)?
+;
+
+Inertia:
+	{Inertia} 'Inertia' (name=ID)?
+	'ixx' ixx=URDFAttrSignedNumeric 
+	'ixy' ixy=URDFAttrSignedNumeric
+	'ixz' ixz=URDFAttrSignedNumeric
+	'iyy' iyy=URDFAttrSignedNumeric
+	'iyz' iyz=URDFAttrSignedNumeric
+	'izz' izz=URDFAttrSignedNumeric
+;
+
+
+Visual:
+	{Visual} 'Visual' (name=ID)? 
+	'Geometry' geometry+=Geometry*
+	(origin=Origin)?
+	//'Material' (material=Material)?
+	
+;
+
+Origin:
+    {Origin} 'Origin' (name=ID)?
+    'x' x=URDFAttrSignedNumeric 
+	'y' y=URDFAttrSignedNumeric
+	'z' z=URDFAttrSignedNumeric
+    ('roll' roll=URDFAttrSignedNumeric)?
+	('pitch' pitch=URDFAttrSignedNumeric)? 
+	('yaw' yaw=URDFAttrSignedNumeric)?
+;
+
+Mass:
+	{Mass} 'Mass' (name=ID)?
+	'massKilogram' massKilogram=URDFAttrSignedNumeric
+;
+
+Collision:
+	'Collision' name=ID
+	'Geometry' geometry+=Geometry*
+	(origin=Origin)?
+;
+
+Geometry:
+	Box | Cylinder | Mesh | Sphere
+	
+;
+
+//Tjek spec: order listing of dimensions?
+Box:
+	'Box' (name=ID)?
+	'height' height=URDFAttrNumeric 
+	'length' length=URDFAttrNumeric
+	'width' width=URDFAttrNumeric 
+;
+
+Cylinder:
+	'Cylinder' (name=ID)?
+	'radius' radius=URDFAttrNumeric
+	'length' length=URDFAttrNumeric	
+;
+
+//TODO: create ValueConverter to convert scale to Box
+Mesh:
+	'Mesh' (name=ID)?
+	'pathToFile' pathToFile=URDFAttrSTRING
+	//('scale' dimension=Box)?
+;
+
+Sphere:
+	'Sphere' (name=ID)?
+	'radius' radius=URDFAttrNumeric	
+;
+
+/*Material:
+	Texture //| Color 
+;
+
+
+Texture:
+	'Texture' (name=ID)?
+	'pathToFile' pathToFile=URDFAttrSTRING
+;
+
+ RGBA values must be floats between 0 and 1 incl 
+Color:
+	'Color' (name=ID)?
+	'red' red=URDFAttrFloat 
+	'green' green=URDFAttrFloat 
+	'blue' blue=URDFAttrFloat 
+	'alpha' alpha=URDFAttrFloat	
+;
+*/
+
+
+URDFAttrSignedNumeric:
+	value = SIGNED_NUMERIC
+;
+
+URDFAttrFloat:
+	value = FLOAT
+;
+
+URDFAttrINT:
+	value = INT
+;
+
+URDFAttrNumeric:
+	value = NUMERIC
+;
+
+URDFAttrSTRING:
+	value = STRING
+;
+
+FLOAT returns ecore::EFloat: 
+	INT '.' INT
+;
+
+SCIENTIFIC returns ecore::EBigDecimal:
+	FLOAT 'e' ('+' | '-')? INT 
+;
+
+SIGNED_NUMERIC:
+	('-')? (INT | FLOAT | SCIENTIFIC)
+;
+
+NUMERIC:
+	INT | FLOAT | SCIENTIFIC
+;
+
+
+
