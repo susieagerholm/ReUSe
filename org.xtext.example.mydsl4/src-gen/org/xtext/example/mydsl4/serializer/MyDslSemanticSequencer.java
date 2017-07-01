@@ -312,7 +312,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *                     safetycontroller=SafetyController
 	 *                 )*
 	 *             ) | 
-	 *             (isReuseOf=[Joint|ID] reuse=Reuse)
+	 *             (isReuseOf=[Joint|ID] childOf=[Link|ID] parentOf=[Link|ID] reuse=Reuse)
 	 *         )?
 	 *     )
 	 */
@@ -556,16 +556,10 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     URDFAttrSignedNumeric returns URDFAttrSignedNumeric
 	 *
 	 * Constraint:
-	 *     value=SIGNED_NUMERIC
+	 *     (name=ID? value=SIGNED_NUMERIC)
 	 */
 	protected void sequence_URDFAttrSignedNumeric(ISerializationContext context, URDFAttrSignedNumeric semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.URDF_ATTR_SIGNED_NUMERIC__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.URDF_ATTR_SIGNED_NUMERIC__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getURDFAttrSignedNumericAccess().getValueSIGNED_NUMERICParserRuleCall_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

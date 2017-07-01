@@ -90,6 +90,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSafetyControllerAccess().getGroup_4(), "rule__SafetyController__Group_4__0");
 					put(grammarAccess.getSafetyControllerAccess().getGroup_5(), "rule__SafetyController__Group_5__0");
 					put(grammarAccess.getSafetyControllerAccess().getGroup_6(), "rule__SafetyController__Group_6__0");
+					put(grammarAccess.getURDFAttrSignedNumericAccess().getGroup(), "rule__URDFAttrSignedNumeric__Group__0");
 					put(grammarAccess.getFLOATAccess().getGroup(), "rule__FLOAT__Group__0");
 					put(grammarAccess.getSCIENTIFICAccess().getGroup(), "rule__SCIENTIFIC__Group__0");
 					put(grammarAccess.getSIGNED_NUMERICAccess().getGroup(), "rule__SIGNED_NUMERIC__Group__0");
@@ -162,7 +163,9 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJointAccess().getDynamicsAssignment_2_0_1_4(), "rule__Joint__DynamicsAssignment_2_0_1_4");
 					put(grammarAccess.getJointAccess().getSafetycontrollerAssignment_2_0_1_5(), "rule__Joint__SafetycontrollerAssignment_2_0_1_5");
 					put(grammarAccess.getJointAccess().getIsReuseOfAssignment_2_1_1(), "rule__Joint__IsReuseOfAssignment_2_1_1");
-					put(grammarAccess.getJointAccess().getReuseAssignment_2_1_2(), "rule__Joint__ReuseAssignment_2_1_2");
+					put(grammarAccess.getJointAccess().getChildOfAssignment_2_1_3(), "rule__Joint__ChildOfAssignment_2_1_3");
+					put(grammarAccess.getJointAccess().getParentOfAssignment_2_1_5(), "rule__Joint__ParentOfAssignment_2_1_5");
+					put(grammarAccess.getJointAccess().getReuseAssignment_2_1_6(), "rule__Joint__ReuseAssignment_2_1_6");
 					put(grammarAccess.getAxisAccess().getNameAssignment_1(), "rule__Axis__NameAssignment_1");
 					put(grammarAccess.getAxisAccess().getXAssignment_3(), "rule__Axis__XAssignment_3");
 					put(grammarAccess.getAxisAccess().getYAssignment_5(), "rule__Axis__YAssignment_5");
@@ -183,7 +186,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSafetyControllerAccess().getK_positionAssignment_4_1(), "rule__SafetyController__K_positionAssignment_4_1");
 					put(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitAssignment_5_1(), "rule__SafetyController__SoftLowerLimitAssignment_5_1");
 					put(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitAssignment_6_1(), "rule__SafetyController__SoftUpperLimitAssignment_6_1");
-					put(grammarAccess.getURDFAttrSignedNumericAccess().getValueAssignment(), "rule__URDFAttrSignedNumeric__ValueAssignment");
+					put(grammarAccess.getURDFAttrSignedNumericAccess().getNameAssignment_1(), "rule__URDFAttrSignedNumeric__NameAssignment_1");
+					put(grammarAccess.getURDFAttrSignedNumericAccess().getValueAssignment_2(), "rule__URDFAttrSignedNumeric__ValueAssignment_2");
 					put(grammarAccess.getURDFAttrFloatAccess().getValueAssignment(), "rule__URDFAttrFloat__ValueAssignment");
 					put(grammarAccess.getURDFAttrINTAccess().getValueAssignment(), "rule__URDFAttrINT__ValueAssignment");
 					put(grammarAccess.getURDFAttrNumericAccess().getValueAssignment(), "rule__URDFAttrNumeric__ValueAssignment");

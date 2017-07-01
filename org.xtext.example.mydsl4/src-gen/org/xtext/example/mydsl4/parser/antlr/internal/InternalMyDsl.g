@@ -2132,12 +2132,46 @@ ruleJoint returns [EObject current=null]
 						}
 					)
 				)
+				otherlv_17='ChildOf'
+				{
+					newLeafNode(otherlv_17, grammarAccess.getJointAccess().getChildOfKeyword_2_1_2());
+				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getJointAccess().getReuseReuseParserRuleCall_2_1_2_0());
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getJointRule());
+							}
 						}
-						lv_reuse_17_0=ruleReuse
+						otherlv_18=RULE_ID
+						{
+							newLeafNode(otherlv_18, grammarAccess.getJointAccess().getChildOfLinkCrossReference_2_1_3_0());
+						}
+					)
+				)
+				otherlv_19='ParentOf'
+				{
+					newLeafNode(otherlv_19, grammarAccess.getJointAccess().getParentOfKeyword_2_1_4());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getJointRule());
+							}
+						}
+						otherlv_20=RULE_ID
+						{
+							newLeafNode(otherlv_20, grammarAccess.getJointAccess().getParentOfLinkCrossReference_2_1_5_0());
+						}
+					)
+				)
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getJointAccess().getReuseReuseParserRuleCall_2_1_6_0());
+						}
+						lv_reuse_21_0=ruleReuse
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getJointRule());
@@ -2145,7 +2179,7 @@ ruleJoint returns [EObject current=null]
 							set(
 								$current,
 								"reuse",
-								lv_reuse_17_0,
+								lv_reuse_21_0,
 								"org.xtext.example.mydsl4.MyDsl.Reuse");
 							afterParserOrEnumRuleCall();
 						}
@@ -2752,20 +2786,47 @@ ruleURDFAttrSignedNumeric returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getURDFAttrSignedNumericAccess().getValueSIGNED_NUMERICParserRuleCall_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getURDFAttrSignedNumericAccess().getURDFAttrSignedNumericAction_0(),
+					$current);
 			}
-			lv_value_0_0=ruleSIGNED_NUMERIC
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getURDFAttrSignedNumericRule());
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getURDFAttrSignedNumericAccess().getNameIDTerminalRuleCall_1_0());
 				}
-				set(
-					$current,
-					"value",
-					lv_value_0_0,
-					"org.xtext.example.mydsl4.MyDsl.SIGNED_NUMERIC");
-				afterParserOrEnumRuleCall();
-			}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getURDFAttrSignedNumericRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getURDFAttrSignedNumericAccess().getValueSIGNED_NUMERICParserRuleCall_2_0());
+				}
+				lv_value_2_0=ruleSIGNED_NUMERIC
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getURDFAttrSignedNumericRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_2_0,
+						"org.xtext.example.mydsl4.MyDsl.SIGNED_NUMERIC");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 	)
 ;

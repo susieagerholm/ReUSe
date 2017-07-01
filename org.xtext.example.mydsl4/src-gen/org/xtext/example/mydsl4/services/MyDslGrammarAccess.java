@@ -1123,19 +1123,29 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIsReuseOfAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
 		private final CrossReference cIsReuseOfJointCrossReference_2_1_1_0 = (CrossReference)cIsReuseOfAssignment_2_1_1.eContents().get(0);
 		private final RuleCall cIsReuseOfJointIDTerminalRuleCall_2_1_1_0_1 = (RuleCall)cIsReuseOfJointCrossReference_2_1_1_0.eContents().get(1);
-		private final Assignment cReuseAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
-		private final RuleCall cReuseReuseParserRuleCall_2_1_2_0 = (RuleCall)cReuseAssignment_2_1_2.eContents().get(0);
+		private final Keyword cChildOfKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
+		private final Assignment cChildOfAssignment_2_1_3 = (Assignment)cGroup_2_1.eContents().get(3);
+		private final CrossReference cChildOfLinkCrossReference_2_1_3_0 = (CrossReference)cChildOfAssignment_2_1_3.eContents().get(0);
+		private final RuleCall cChildOfLinkIDTerminalRuleCall_2_1_3_0_1 = (RuleCall)cChildOfLinkCrossReference_2_1_3_0.eContents().get(1);
+		private final Keyword cParentOfKeyword_2_1_4 = (Keyword)cGroup_2_1.eContents().get(4);
+		private final Assignment cParentOfAssignment_2_1_5 = (Assignment)cGroup_2_1.eContents().get(5);
+		private final CrossReference cParentOfLinkCrossReference_2_1_5_0 = (CrossReference)cParentOfAssignment_2_1_5.eContents().get(0);
+		private final RuleCall cParentOfLinkIDTerminalRuleCall_2_1_5_0_1 = (RuleCall)cParentOfLinkCrossReference_2_1_5_0.eContents().get(1);
+		private final Assignment cReuseAssignment_2_1_6 = (Assignment)cGroup_2_1.eContents().get(6);
+		private final RuleCall cReuseReuseParserRuleCall_2_1_6_0 = (RuleCall)cReuseAssignment_2_1_6.eContents().get(0);
 		
 		//Joint:
 		//	'Joint' name=ID (('def' 'ChildOf' childOf=[Link]
 		//	'ParentOf' parentOf=[Link]
 		//	'Type' type=JointType) (origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics |
-		//	safetycontroller=SafetyController)* | 'reuse' isReuseOf=[Joint] reuse=Reuse)?;
+		//	safetycontroller=SafetyController)* | 'reuse' isReuseOf=[Joint]
+		//	'ChildOf' childOf=[Link]
+		//	'ParentOf' parentOf=[Link] reuse=Reuse)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Joint' name=ID (('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin |
 		//axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 'reuse'
-		//isReuseOf=[Joint] reuse=Reuse)?
+		//isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse)?
 		public Group getGroup() { return cGroup; }
 		
 		//'Joint'
@@ -1149,7 +1159,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//(('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin | axis=Axis |
 		//limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 'reuse'
-		//isReuseOf=[Joint] reuse=Reuse)?
+		//isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse)?
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin | axis=Axis |
@@ -1236,7 +1246,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getSafetycontrollerSafetyControllerParserRuleCall_2_0_1_5_0() { return cSafetycontrollerSafetyControllerParserRuleCall_2_0_1_5_0; }
 		
 		////HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
-		//'reuse' isReuseOf=[Joint] reuse=Reuse
+		//'reuse' isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
 		//'reuse'
@@ -1251,11 +1261,35 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIsReuseOfJointIDTerminalRuleCall_2_1_1_0_1() { return cIsReuseOfJointIDTerminalRuleCall_2_1_1_0_1; }
 		
+		//'ChildOf'
+		public Keyword getChildOfKeyword_2_1_2() { return cChildOfKeyword_2_1_2; }
+		
+		//childOf=[Link]
+		public Assignment getChildOfAssignment_2_1_3() { return cChildOfAssignment_2_1_3; }
+		
+		//[Link]
+		public CrossReference getChildOfLinkCrossReference_2_1_3_0() { return cChildOfLinkCrossReference_2_1_3_0; }
+		
+		//ID
+		public RuleCall getChildOfLinkIDTerminalRuleCall_2_1_3_0_1() { return cChildOfLinkIDTerminalRuleCall_2_1_3_0_1; }
+		
+		//'ParentOf'
+		public Keyword getParentOfKeyword_2_1_4() { return cParentOfKeyword_2_1_4; }
+		
+		//parentOf=[Link]
+		public Assignment getParentOfAssignment_2_1_5() { return cParentOfAssignment_2_1_5; }
+		
+		//[Link]
+		public CrossReference getParentOfLinkCrossReference_2_1_5_0() { return cParentOfLinkCrossReference_2_1_5_0; }
+		
+		//ID
+		public RuleCall getParentOfLinkIDTerminalRuleCall_2_1_5_0_1() { return cParentOfLinkIDTerminalRuleCall_2_1_5_0_1; }
+		
 		//reuse=Reuse
-		public Assignment getReuseAssignment_2_1_2() { return cReuseAssignment_2_1_2; }
+		public Assignment getReuseAssignment_2_1_6() { return cReuseAssignment_2_1_6; }
 		
 		//Reuse
-		public RuleCall getReuseReuseParserRuleCall_2_1_2_0() { return cReuseReuseParserRuleCall_2_1_2_0; }
+		public RuleCall getReuseReuseParserRuleCall_2_1_6_0() { return cReuseReuseParserRuleCall_2_1_6_0; }
 	}
 	public class AxisElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.Axis");
@@ -1605,8 +1639,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class URDFAttrSignedNumericElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueSIGNED_NUMERICParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cURDFAttrSignedNumericAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSIGNED_NUMERICParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		////Should we cut Mimic from the spec - NEED TO GET INTERPRETATION OF ATTRS??
 		/// *Mimic:
@@ -1616,14 +1654,27 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	('offSet' offSet=URDFAttrSignedNumeric)?
 		//;* / / *Constant:
 		//;* / URDFAttrSignedNumeric:
+		//	{URDFAttrSignedNumeric} name=ID?
 		//	value=SIGNED_NUMERIC;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//{URDFAttrSignedNumeric} name=ID? value=SIGNED_NUMERIC
+		public Group getGroup() { return cGroup; }
+		
+		//{URDFAttrSignedNumeric}
+		public Action getURDFAttrSignedNumericAction_0() { return cURDFAttrSignedNumericAction_0; }
+		
+		//name=ID?
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
 		//value=SIGNED_NUMERIC
-		public Assignment getValueAssignment() { return cValueAssignment; }
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
 		//SIGNED_NUMERIC
-		public RuleCall getValueSIGNED_NUMERICParserRuleCall_0() { return cValueSIGNED_NUMERICParserRuleCall_0; }
+		public RuleCall getValueSIGNED_NUMERICParserRuleCall_2_0() { return cValueSIGNED_NUMERICParserRuleCall_2_0; }
 	}
 	public class URDFAttrFloatElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.URDFAttrFloat");
@@ -2193,7 +2244,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'Joint' name=ID (('def' 'ChildOf' childOf=[Link]
 	//	'ParentOf' parentOf=[Link]
 	//	'Type' type=JointType) (origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics |
-	//	safetycontroller=SafetyController)* | 'reuse' isReuseOf=[Joint] reuse=Reuse)?;
+	//	safetycontroller=SafetyController)* | 'reuse' isReuseOf=[Joint]
+	//	'ChildOf' childOf=[Link]
+	//	'ParentOf' parentOf=[Link] reuse=Reuse)?;
 	public JointElements getJointAccess() {
 		return pJoint;
 	}
@@ -2282,6 +2335,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	('offSet' offSet=URDFAttrSignedNumeric)?
 	//;* / / *Constant:
 	//;* / URDFAttrSignedNumeric:
+	//	{URDFAttrSignedNumeric} name=ID?
 	//	value=SIGNED_NUMERIC;
 	public URDFAttrSignedNumericElements getURDFAttrSignedNumericAccess() {
 		return pURDFAttrSignedNumeric;

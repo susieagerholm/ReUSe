@@ -18,6 +18,8 @@ import org.xtext.example.mydsl4.myDsl.Reuse
 import org.xtext.example.mydsl4.myDsl.Robot
 import org.xtext.example.mydsl4.myDsl.Geometry
 import org.xtext.example.mydsl4.myDsl.Joint
+import org.xtext.example.mydsl4.MyQNP
+import org.eclipse.xtext.naming.QualifiedName
 
 /**
  * This class contains custom scoping description.
@@ -64,6 +66,7 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 	    
  		else if (context instanceof DotExpression) {
 			val head = context.ref
+			
 			//SEEMS TO BE WORKING...
 		 	switch (head) {
             	ReUsableRef : {
@@ -72,8 +75,12 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
             	}	
             	DotExpression : {
                 	val tail = head.tail
+					val test = tail.eClass.EAllAttributes
+					val test2 = tail.eGet(tail.eClass.getEStructuralFeature("name"))
+
                 	switch (tail) {
                 		ReUseAble : Scopes::scopeFor(tail.eContents) 
+            //    		Scopes::scopeFor(tail.eContents, [x | if(tail.eGet(tail.eClass.getEStructuralFeature("name")) != null) QualifiedName.create(tail.eGet(tail.eClass.getEStructuralFeature("name")) as String)  else QualifiedName.create(x.eContainmentFeature().getName())], IScope::NULLSCOPE) 
                     	default: IScope::NULLSCOPE
                 	}
             	}

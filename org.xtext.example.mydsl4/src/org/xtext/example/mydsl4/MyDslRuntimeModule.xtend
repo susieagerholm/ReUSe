@@ -3,18 +3,17 @@
  */
 package org.xtext.example.mydsl4
 
-import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
-
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class MyDslRuntimeModule extends AbstractMyDslRuntimeModule {
 	
- 	/* @Override
-     override Class<? extends DefaultDeclarativeQualifiedNameProvider> bindIQualifiedNameProvider() {
+ 	@Override
+    override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
         MyQNP;
-    }*/
+    }
 		
 		
 	

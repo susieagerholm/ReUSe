@@ -142,7 +142,11 @@ Joint:
 			 'Type' type=JointType) 
 			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 
 	 //HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
-	 ('reuse' isReuseOf=[Joint] reuse=Reuse)
+	 ('reuse' isReuseOf=[Joint] 
+	 	'ChildOf' childOf=[Link] 
+		'ParentOf' parentOf=[Link] 
+	 	reuse=Reuse
+	 )
 	)?
 ;
 
@@ -202,6 +206,8 @@ SafetyController:
 ;*/
 
 URDFAttrSignedNumeric:
+	{URDFAttrSignedNumeric}
+	(name=ID)?
 	value = SIGNED_NUMERIC
 ;
 
