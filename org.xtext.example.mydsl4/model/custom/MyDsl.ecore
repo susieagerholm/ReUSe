@@ -148,8 +148,64 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentOf" lowerBound="1"
         eType="#//Link"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//JointType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="axis" eType="#//Axis" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="limit" eType="#//Limit"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calibration" eType="#//Calibration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dynamics" eType="#//Dynamics"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//Origin"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reuse" eType="#//Reuse"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="safetycontroller" eType="#//SafetyController"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="JointType">
     <eLiterals name="fixed" literal="fixed"/>
+    <eLiterals name="revolute" value="1"/>
+    <eLiterals name="prismatic" value="2"/>
+    <eLiterals name="continuous" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Axis" eSuperTypes="#//ReUseAble">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="x" lowerBound="1" eType="#//URDFAttrINT"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="y" lowerBound="1" eType="#//URDFAttrINT"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="z" lowerBound="1" eType="#//URDFAttrINT"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Limit" eSuperTypes="#//ReUseAble">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effort" lowerBound="1"
+        eType="#//URDFAttrSignedNumeric" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="velocity" lowerBound="1"
+        eType="#//URDFAttrSignedNumeric" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lower" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upper" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Calibration" eSuperTypes="#//ReUseAble">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rising" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="falling" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dynamics" eSuperTypes="#//ReUseAble">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="friction" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="damping" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SafetyController" eSuperTypes="#//ReUseAble">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="k_velocity" lowerBound="1"
+        eType="#//URDFAttrSignedNumeric" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="k_position" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="softLowerLimit" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="softUpperLimit" eType="#//URDFAttrSignedNumeric"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

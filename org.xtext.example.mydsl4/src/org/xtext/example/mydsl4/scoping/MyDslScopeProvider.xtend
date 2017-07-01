@@ -17,6 +17,7 @@ import org.xtext.example.mydsl4.myDsl.ReUseAble
 import org.xtext.example.mydsl4.myDsl.Reuse
 import org.xtext.example.mydsl4.myDsl.Robot
 import org.xtext.example.mydsl4.myDsl.Geometry
+import org.xtext.example.mydsl4.myDsl.Joint
 
 /**
  * This class contains custom scoping description.
@@ -40,11 +41,25 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 		
 		if (context instanceof Reuse) {		
 			//RETURN SCOPE FOR EDIT	
-			val curr_link = EcoreUtil2.getContainerOfType(context, Link)
+			/*
+			 * val curr_link = EcoreUtil2.getContainerOfType(context, Link)
 			var BasicEList<Link> list = new BasicEList<Link>()
 			list.add(curr_link.link)
 			return Scopes.scopeFor(list)
-			//RETURN SCOPE FOR ADD??
+			* */
+			//val BasicEList<? extends ReUseAble> list = new BasicEList()
+			if (context.eContainer instanceof Link) {
+				val curr = EcoreUtil2.getContainerOfType(context, Link)
+				//val res = newArrayList(curr.link).toList
+				//list.add(curr.link)
+				return Scopes.scopeFor(newArrayList(curr.link).toList)
+			} else {
+				val curr = EcoreUtil2.getContainerOfType(context, Joint)
+				//var BasicEList<Joint> list = new BasicEList<Joint>()
+				//list.add(curr.isReuseOf)
+				return Scopes.scopeFor(newArrayList(curr.isReuseOf).toList)
+			}
+			
 	    }
 	    
  		else if (context instanceof DotExpression) {

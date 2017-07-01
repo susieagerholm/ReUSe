@@ -18,6 +18,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getChildOf <em>Child Of</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getParentOf <em>Parent Of</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getAxis <em>Axis</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getLimit <em>Limit</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getCalibration <em>Calibration</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getDynamics <em>Dynamics</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getReuse <em>Reuse</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Joint#getSafetycontroller <em>Safetycontroller</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint()
@@ -131,5 +138,187 @@ public interface Joint extends ReUseAble {
 	 * @generated
 	 */
 	void setType(JointType value);
+
+	/**
+	 * Returns the value of the '<em><b>Axis</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Axis</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Axis</em>' containment reference.
+	 * @see #setAxis(Axis)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint_Axis()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Axis getAxis();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Joint#getAxis <em>Axis</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Axis</em>' containment reference.
+	 * @see #getAxis()
+	 * @generated
+	 */
+	void setAxis(Axis value);
+
+	/**
+	 * Returns the value of the '<em><b>Limit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Limit</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Limit</em>' containment reference.
+	 * @see #setLimit(Limit)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint_Limit()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Limit getLimit();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Joint#getLimit <em>Limit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Limit</em>' containment reference.
+	 * @see #getLimit()
+	 * @generated
+	 */
+	void setLimit(Limit value);
+
+	/**
+	 * Returns the value of the '<em><b>Calibration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Calibration</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Calibration</em>' containment reference.
+	 * @see #setCalibration(Calibration)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint_Calibration()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Calibration getCalibration();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Joint#getCalibration <em>Calibration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Calibration</em>' containment reference.
+	 * @see #getCalibration()
+	 * @generated
+	 */
+	void setCalibration(Calibration value);
+
+	/**
+	 * Returns the value of the '<em><b>Dynamics</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dynamics</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dynamics</em>' containment reference.
+	 * @see #setDynamics(Dynamics)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint_Dynamics()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Dynamics getDynamics();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Joint#getDynamics <em>Dynamics</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dynamics</em>' containment reference.
+	 * @see #getDynamics()
+	 * @generated
+	 */
+	void setDynamics(Dynamics value);
+
+	/**
+	 * Returns the value of the '<em><b>Origin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Origin</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Origin</em>' containment reference.
+	 * @see #setOrigin(Origin)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint_Origin()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Origin getOrigin();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Joint#getOrigin <em>Origin</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Origin</em>' containment reference.
+	 * @see #getOrigin()
+	 * @generated
+	 */
+	void setOrigin(Origin value);
+
+	/**
+	 * Returns the value of the '<em><b>Reuse</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reuse</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reuse</em>' containment reference.
+	 * @see #setReuse(Reuse)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint_Reuse()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Reuse getReuse();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Joint#getReuse <em>Reuse</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reuse</em>' containment reference.
+	 * @see #getReuse()
+	 * @generated
+	 */
+	void setReuse(Reuse value);
+
+	/**
+	 * Returns the value of the '<em><b>Safetycontroller</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Safetycontroller</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Safetycontroller</em>' containment reference.
+	 * @see #setSafetycontroller(SafetyController)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getJoint_Safetycontroller()
+	 * @model containment="true"
+	 * @generated
+	 */
+	SafetyController getSafetycontroller();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Joint#getSafetycontroller <em>Safetycontroller</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Safetycontroller</em>' containment reference.
+	 * @see #getSafetycontroller()
+	 * @generated
+	 */
+	void setSafetycontroller(SafetyController value);
 
 } // Joint

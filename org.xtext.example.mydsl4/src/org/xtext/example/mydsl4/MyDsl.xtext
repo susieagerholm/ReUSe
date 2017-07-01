@@ -15,7 +15,9 @@ ReUseAble:
   
 Link:
 	{Link} 'Link' name=ID
-	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*) | ('reuse' link=[Link] reuse=Reuse))?
+	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*) 
+		| ('reuse' link=[Link] reuse=Reuse)
+	)?
 	
 ;
 
@@ -132,25 +134,71 @@ Color:
 
 Joint:
 	'Joint' name=ID
-	'ChildOf' childOf=[Link]
-	'ParentOf' parentOf=[Link]
-	'Type' type=JointType
-	//(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*) | ('reuse' link=[Link] reuse=Reuse))?
-	('isReuseOf' isReuseOf=[Joint])?
+	//'ChildOf' childOf=[Link]
+	//'ParentOf' parentOf=[Link]
+	//'Type' type=JointType
+	(('def'  'ChildOf' childOf=[Link] 
+			 'ParentOf' parentOf=[Link] 
+			 'Type' type=JointType) 
+			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 
+	 //HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
+	 ('reuse' isReuseOf=[Joint] reuse=Reuse)
+	)?
 ;
 
 enum JointType:
-		fixed = 'fixed' //|revolute = 'Revolute' |  prismatic = 'Prismatic' | continuous = 'Continuous';
+		fixed = 'fixed' |revolute = 'revolute' |  prismatic = 'prismatic' | continuous = 'continuous'
 ;
 
-/* Binary values must be 0 or 1 - 
- * digitsum must be 1*/
+/* Binary values must be 0 or 1 - digitsum must be 1, WHY NEED TO DEFINE ALL THREE?? */
 //keyword aliases: 'xyz' or 'x', 'y', 'z'
-/*Axis:
+Axis:
 	'Axis' (name=ID)?
 	'x' x=URDFAttrINT
 	'y' y=URDFAttrINT
 	'z' z=URDFAttrINT 
+;
+
+Limit:
+	'Limit' (name=ID)?
+	'effort' effort=URDFAttrSignedNumeric 
+	'velocity' velocity=URDFAttrSignedNumeric 
+	'lower' lower=(URDFAttrSignedNumeric)?
+	'upper' upper=(URDFAttrSignedNumeric)? 
+;
+
+Calibration:
+	 {Calibration} 'Calibration' (name=ID)?
+	 ('rising' rising=URDFAttrSignedNumeric)? 
+	 ('falling' falling=URDFAttrSignedNumeric)? 
+;
+
+Dynamics:
+	{Dynamics} 'Dynamics' (name=ID)?
+	('friction' friction=URDFAttrSignedNumeric)?
+	('damping' damping=URDFAttrSignedNumeric)?
+;
+
+
+SafetyController:
+	'SafetyController' (name=ID)?
+	'k_velocity' k_velocity=URDFAttrSignedNumeric
+	('k_position' k_position=URDFAttrSignedNumeric)?
+	('softLowerLimit' softLowerLimit=URDFAttrSignedNumeric)?
+	('softUpperLimit' softUpperLimit=URDFAttrSignedNumeric)?
+;
+
+
+//Should we cut Mimic from the spec - NEED TO GET INTERPRETATION OF ATTRS??
+/*Mimic:
+	'Mimic' (name=ID)?
+	'mimics' mimics=[Joint]
+	('multiplier' multiplier=URDFAttrSignedNumeric)?
+	('offSet' offSet=URDFAttrSignedNumeric)?
+;*/
+
+
+/*Constant:
 ;*/
 
 URDFAttrSignedNumeric:

@@ -14,14 +14,18 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl4.myDsl.Axis;
 import org.xtext.example.mydsl4.myDsl.Box;
+import org.xtext.example.mydsl4.myDsl.Calibration;
 import org.xtext.example.mydsl4.myDsl.Collision;
 import org.xtext.example.mydsl4.myDsl.Color;
 import org.xtext.example.mydsl4.myDsl.Cylinder;
 import org.xtext.example.mydsl4.myDsl.DotExpression;
+import org.xtext.example.mydsl4.myDsl.Dynamics;
 import org.xtext.example.mydsl4.myDsl.Inertia;
 import org.xtext.example.mydsl4.myDsl.Inertial;
 import org.xtext.example.mydsl4.myDsl.Joint;
+import org.xtext.example.mydsl4.myDsl.Limit;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.Mass;
 import org.xtext.example.mydsl4.myDsl.Mesh;
@@ -30,6 +34,7 @@ import org.xtext.example.mydsl4.myDsl.Origin;
 import org.xtext.example.mydsl4.myDsl.ReUsableRef;
 import org.xtext.example.mydsl4.myDsl.Reuse;
 import org.xtext.example.mydsl4.myDsl.Robot;
+import org.xtext.example.mydsl4.myDsl.SafetyController;
 import org.xtext.example.mydsl4.myDsl.Sphere;
 import org.xtext.example.mydsl4.myDsl.Texture;
 import org.xtext.example.mydsl4.myDsl.URDFAttrFloat;
@@ -54,8 +59,14 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.AXIS:
+				sequence_Axis(context, (Axis) semanticObject); 
+				return; 
 			case MyDslPackage.BOX:
 				sequence_Box(context, (Box) semanticObject); 
+				return; 
+			case MyDslPackage.CALIBRATION:
+				sequence_Calibration(context, (Calibration) semanticObject); 
 				return; 
 			case MyDslPackage.COLLISION:
 				sequence_Collision(context, (Collision) semanticObject); 
@@ -69,6 +80,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.DOT_EXPRESSION:
 				sequence_DotExpression(context, (DotExpression) semanticObject); 
 				return; 
+			case MyDslPackage.DYNAMICS:
+				sequence_Dynamics(context, (Dynamics) semanticObject); 
+				return; 
 			case MyDslPackage.INERTIA:
 				sequence_Inertia(context, (Inertia) semanticObject); 
 				return; 
@@ -77,6 +91,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.JOINT:
 				sequence_Joint(context, (Joint) semanticObject); 
+				return; 
+			case MyDslPackage.LIMIT:
+				sequence_Limit(context, (Limit) semanticObject); 
 				return; 
 			case MyDslPackage.LINK:
 				sequence_Link(context, (Link) semanticObject); 
@@ -98,6 +115,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.ROBOT:
 				sequence_Robot(context, (Robot) semanticObject); 
+				return; 
+			case MyDslPackage.SAFETY_CONTROLLER:
+				sequence_SafetyController(context, (SafetyController) semanticObject); 
 				return; 
 			case MyDslPackage.SPHERE:
 				sequence_Sphere(context, (Sphere) semanticObject); 
@@ -130,6 +150,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Axis returns Axis
+	 *
+	 * Constraint:
+	 *     (name=ID? x=URDFAttrINT y=URDFAttrINT z=URDFAttrINT)
+	 */
+	protected void sequence_Axis(ISerializationContext context, Axis semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Geometry returns Box
 	 *     Box returns Box
 	 *
@@ -137,6 +169,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID? height=URDFAttrNumeric length=URDFAttrNumeric width=URDFAttrNumeric)
 	 */
 	protected void sequence_Box(ISerializationContext context, Box semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Calibration returns Calibration
+	 *
+	 * Constraint:
+	 *     (name=ID? rising=URDFAttrSignedNumeric? falling=URDFAttrSignedNumeric?)
+	 */
+	protected void sequence_Calibration(ISerializationContext context, Calibration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -204,6 +248,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Dynamics returns Dynamics
+	 *
+	 * Constraint:
+	 *     (name=ID? friction=URDFAttrSignedNumeric? damping=URDFAttrSignedNumeric?)
+	 */
+	protected void sequence_Dynamics(ISerializationContext context, Dynamics semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Inertia returns Inertia
 	 *
 	 * Constraint:
@@ -240,9 +296,39 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Joint returns Joint
 	 *
 	 * Constraint:
-	 *     (name=ID childOf=[Link|ID] parentOf=[Link|ID] type=JointType isReuseOf=[Joint|ID]?)
+	 *     (
+	 *         name=ID 
+	 *         (
+	 *             (
+	 *                 childOf=[Link|ID] 
+	 *                 parentOf=[Link|ID] 
+	 *                 type=JointType 
+	 *                 (
+	 *                     origin=Origin | 
+	 *                     axis=Axis | 
+	 *                     limit=Limit | 
+	 *                     calibration=Calibration | 
+	 *                     dynamics=Dynamics | 
+	 *                     safetycontroller=SafetyController
+	 *                 )*
+	 *             ) | 
+	 *             (isReuseOf=[Joint|ID] reuse=Reuse)
+	 *         )?
+	 *     )
 	 */
 	protected void sequence_Joint(ISerializationContext context, Joint semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Limit returns Limit
+	 *
+	 * Constraint:
+	 *     (name=ID? effort=URDFAttrSignedNumeric velocity=URDFAttrSignedNumeric lower=URDFAttrSignedNumeric? upper=URDFAttrSignedNumeric?)
+	 */
+	protected void sequence_Limit(ISerializationContext context, Limit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -345,6 +431,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID (links+=Link | joint+=Joint)*)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SafetyController returns SafetyController
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=ID? 
+	 *         k_velocity=URDFAttrSignedNumeric 
+	 *         k_position=URDFAttrSignedNumeric? 
+	 *         softLowerLimit=URDFAttrSignedNumeric? 
+	 *         softUpperLimit=URDFAttrSignedNumeric?
+	 *     )
+	 */
+	protected void sequence_SafetyController(ISerializationContext context, SafetyController semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

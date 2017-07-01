@@ -85,6 +85,11 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 			case MyDslPackage.TEXTURE: return createTexture();
 			case MyDslPackage.COLOR: return createColor();
 			case MyDslPackage.JOINT: return createJoint();
+			case MyDslPackage.AXIS: return createAxis();
+			case MyDslPackage.LIMIT: return createLimit();
+			case MyDslPackage.CALIBRATION: return createCalibration();
+			case MyDslPackage.DYNAMICS: return createDynamics();
+			case MyDslPackage.SAFETY_CONTROLLER: return createSafetyController();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -388,6 +393,56 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 	public Joint createJoint() {
 		JointImpl joint = new JointImpl();
 		return joint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Axis createAxis() {
+		AxisImpl axis = new AxisImpl();
+		return axis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Limit createLimit() {
+		LimitImpl limit = new LimitImpl();
+		return limit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Calibration createCalibration() {
+		CalibrationImpl calibration = new CalibrationImpl();
+		return calibration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Dynamics createDynamics() {
+		DynamicsImpl dynamics = new DynamicsImpl();
+		return dynamics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SafetyController createSafetyController() {
+		SafetyControllerImpl safetyController = new SafetyControllerImpl();
+		return safetyController;
 	}
 
 	/**

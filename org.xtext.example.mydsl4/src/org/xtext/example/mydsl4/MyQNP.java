@@ -6,6 +6,6 @@ import org.xtext.example.mydsl4.myDsl.URDFAttrSignedNumeric;
 public class MyQNP extends DefaultDeclarativeQualifiedNameProvider {
 	
 	public String qualifiedName(URDFAttrSignedNumeric a) {
-		return a.eContainingFeature().getName();
+		return a.eContainmentFeature().getName();
 	}
 }

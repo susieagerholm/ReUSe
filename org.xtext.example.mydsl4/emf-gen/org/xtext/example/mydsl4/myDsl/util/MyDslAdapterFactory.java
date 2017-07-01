@@ -177,6 +177,26 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 				return createJointAdapter();
 			}
 			@Override
+			public Adapter caseAxis(Axis object) {
+				return createAxisAdapter();
+			}
+			@Override
+			public Adapter caseLimit(Limit object) {
+				return createLimitAdapter();
+			}
+			@Override
+			public Adapter caseCalibration(Calibration object) {
+				return createCalibrationAdapter();
+			}
+			@Override
+			public Adapter caseDynamics(Dynamics object) {
+				return createDynamicsAdapter();
+			}
+			@Override
+			public Adapter caseSafetyController(SafetyController object) {
+				return createSafetyControllerAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -571,6 +591,76 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Axis <em>Axis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Axis
+	 * @generated
+	 */
+	public Adapter createAxisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Limit <em>Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Limit
+	 * @generated
+	 */
+	public Adapter createLimitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Calibration <em>Calibration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Calibration
+	 * @generated
+	 */
+	public Adapter createCalibrationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Dynamics <em>Dynamics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Dynamics
+	 * @generated
+	 */
+	public Adapter createDynamicsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.SafetyController <em>Safety Controller</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.SafetyController
+	 * @generated
+	 */
+	public Adapter createSafetyControllerAdapter() {
 		return null;
 	}
 

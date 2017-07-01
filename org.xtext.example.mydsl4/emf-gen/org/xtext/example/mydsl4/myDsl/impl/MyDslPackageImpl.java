@@ -11,16 +11,20 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl4.myDsl.Axis;
 import org.xtext.example.mydsl4.myDsl.Box;
+import org.xtext.example.mydsl4.myDsl.Calibration;
 import org.xtext.example.mydsl4.myDsl.Collision;
 import org.xtext.example.mydsl4.myDsl.Color;
 import org.xtext.example.mydsl4.myDsl.Cylinder;
 import org.xtext.example.mydsl4.myDsl.DotExpression;
+import org.xtext.example.mydsl4.myDsl.Dynamics;
 import org.xtext.example.mydsl4.myDsl.Geometry;
 import org.xtext.example.mydsl4.myDsl.Inertia;
 import org.xtext.example.mydsl4.myDsl.Inertial;
 import org.xtext.example.mydsl4.myDsl.Joint;
 import org.xtext.example.mydsl4.myDsl.JointType;
+import org.xtext.example.mydsl4.myDsl.Limit;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.Mass;
 import org.xtext.example.mydsl4.myDsl.Material;
@@ -33,6 +37,7 @@ import org.xtext.example.mydsl4.myDsl.ReUseAble;
 import org.xtext.example.mydsl4.myDsl.Ref;
 import org.xtext.example.mydsl4.myDsl.Reuse;
 import org.xtext.example.mydsl4.myDsl.Robot;
+import org.xtext.example.mydsl4.myDsl.SafetyController;
 import org.xtext.example.mydsl4.myDsl.Sphere;
 import org.xtext.example.mydsl4.myDsl.Texture;
 import org.xtext.example.mydsl4.myDsl.URDFAttrFloat;
@@ -237,6 +242,41 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * @generated
 	 */
 	private EClass jointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass axisEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass limitEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass calibrationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dynamicsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass safetyControllerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1058,6 +1098,249 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJoint_Axis() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_Limit() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_Calibration() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_Dynamics() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_Origin() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_Reuse() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_Safetycontroller() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAxis() {
+		return axisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAxis_X() {
+		return (EReference)axisEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAxis_Y() {
+		return (EReference)axisEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAxis_Z() {
+		return (EReference)axisEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLimit() {
+		return limitEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLimit_Effort() {
+		return (EReference)limitEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLimit_Velocity() {
+		return (EReference)limitEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLimit_Lower() {
+		return (EReference)limitEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLimit_Upper() {
+		return (EReference)limitEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCalibration() {
+		return calibrationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCalibration_Rising() {
+		return (EReference)calibrationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCalibration_Falling() {
+		return (EReference)calibrationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDynamics() {
+		return dynamicsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDynamics_Friction() {
+		return (EReference)dynamicsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDynamics_Damping() {
+		return (EReference)dynamicsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSafetyController() {
+		return safetyControllerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSafetyController_K_velocity() {
+		return (EReference)safetyControllerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSafetyController_K_position() {
+		return (EReference)safetyControllerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSafetyController_SoftLowerLimit() {
+		return (EReference)safetyControllerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSafetyController_SoftUpperLimit() {
+		return (EReference)safetyControllerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getJointType() {
 		return jointTypeEEnum;
 	}
@@ -1199,6 +1482,38 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		createEReference(jointEClass, JOINT__CHILD_OF);
 		createEReference(jointEClass, JOINT__PARENT_OF);
 		createEAttribute(jointEClass, JOINT__TYPE);
+		createEReference(jointEClass, JOINT__AXIS);
+		createEReference(jointEClass, JOINT__LIMIT);
+		createEReference(jointEClass, JOINT__CALIBRATION);
+		createEReference(jointEClass, JOINT__DYNAMICS);
+		createEReference(jointEClass, JOINT__ORIGIN);
+		createEReference(jointEClass, JOINT__REUSE);
+		createEReference(jointEClass, JOINT__SAFETYCONTROLLER);
+
+		axisEClass = createEClass(AXIS);
+		createEReference(axisEClass, AXIS__X);
+		createEReference(axisEClass, AXIS__Y);
+		createEReference(axisEClass, AXIS__Z);
+
+		limitEClass = createEClass(LIMIT);
+		createEReference(limitEClass, LIMIT__EFFORT);
+		createEReference(limitEClass, LIMIT__VELOCITY);
+		createEReference(limitEClass, LIMIT__LOWER);
+		createEReference(limitEClass, LIMIT__UPPER);
+
+		calibrationEClass = createEClass(CALIBRATION);
+		createEReference(calibrationEClass, CALIBRATION__RISING);
+		createEReference(calibrationEClass, CALIBRATION__FALLING);
+
+		dynamicsEClass = createEClass(DYNAMICS);
+		createEReference(dynamicsEClass, DYNAMICS__FRICTION);
+		createEReference(dynamicsEClass, DYNAMICS__DAMPING);
+
+		safetyControllerEClass = createEClass(SAFETY_CONTROLLER);
+		createEReference(safetyControllerEClass, SAFETY_CONTROLLER__KVELOCITY);
+		createEReference(safetyControllerEClass, SAFETY_CONTROLLER__KPOSITION);
+		createEReference(safetyControllerEClass, SAFETY_CONTROLLER__SOFT_LOWER_LIMIT);
+		createEReference(safetyControllerEClass, SAFETY_CONTROLLER__SOFT_UPPER_LIMIT);
 
 		// Create enums
 		jointTypeEEnum = createEEnum(JOINT_TYPE);
@@ -1251,6 +1566,11 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		textureEClass.getESuperTypes().add(this.getMaterial());
 		colorEClass.getESuperTypes().add(this.getMaterial());
 		jointEClass.getESuperTypes().add(this.getReUseAble());
+		axisEClass.getESuperTypes().add(this.getReUseAble());
+		limitEClass.getESuperTypes().add(this.getReUseAble());
+		calibrationEClass.getESuperTypes().add(this.getReUseAble());
+		dynamicsEClass.getESuperTypes().add(this.getReUseAble());
+		safetyControllerEClass.getESuperTypes().add(this.getReUseAble());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1362,10 +1682,45 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEReference(getJoint_ChildOf(), this.getLink(), null, "childOf", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_ParentOf(), this.getLink(), null, "parentOf", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoint_Type(), this.getJointType(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Axis(), this.getAxis(), null, "axis", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Limit(), this.getLimit(), null, "limit", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Calibration(), this.getCalibration(), null, "calibration", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Dynamics(), this.getDynamics(), null, "dynamics", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Origin(), this.getOrigin(), null, "origin", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Reuse(), this.getReuse(), null, "reuse", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Safetycontroller(), this.getSafetyController(), null, "safetycontroller", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(axisEClass, Axis.class, "Axis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAxis_X(), this.getURDFAttrINT(), null, "x", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAxis_Y(), this.getURDFAttrINT(), null, "y", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAxis_Z(), this.getURDFAttrINT(), null, "z", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLimit_Effort(), this.getURDFAttrSignedNumeric(), null, "effort", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLimit_Velocity(), this.getURDFAttrSignedNumeric(), null, "velocity", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLimit_Lower(), this.getURDFAttrSignedNumeric(), null, "lower", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLimit_Upper(), this.getURDFAttrSignedNumeric(), null, "upper", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(calibrationEClass, Calibration.class, "Calibration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalibration_Rising(), this.getURDFAttrSignedNumeric(), null, "rising", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCalibration_Falling(), this.getURDFAttrSignedNumeric(), null, "falling", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dynamicsEClass, Dynamics.class, "Dynamics", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDynamics_Friction(), this.getURDFAttrSignedNumeric(), null, "friction", null, 0, 1, Dynamics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDynamics_Damping(), this.getURDFAttrSignedNumeric(), null, "damping", null, 0, 1, Dynamics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(safetyControllerEClass, SafetyController.class, "SafetyController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSafetyController_K_velocity(), this.getURDFAttrSignedNumeric(), null, "k_velocity", null, 1, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSafetyController_K_position(), this.getURDFAttrSignedNumeric(), null, "k_position", null, 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSafetyController_SoftLowerLimit(), this.getURDFAttrSignedNumeric(), null, "softLowerLimit", null, 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSafetyController_SoftUpperLimit(), this.getURDFAttrSignedNumeric(), null, "softUpperLimit", null, 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jointTypeEEnum, JointType.class, "JointType");
 		addEEnumLiteral(jointTypeEEnum, JointType.FIXED);
+		addEEnumLiteral(jointTypeEEnum, JointType.REVOLUTE);
+		addEEnumLiteral(jointTypeEEnum, JointType.PRISMATIC);
+		addEEnumLiteral(jointTypeEEnum, JointType.CONTINUOUS);
 
 		// Create resource
 		createResource(eNS_URI);

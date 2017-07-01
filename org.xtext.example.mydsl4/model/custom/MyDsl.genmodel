@@ -8,6 +8,9 @@
       fileExtensions="mydsl4" ecorePackage="MyDsl.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="MyDsl.ecore#//JointType">
       <genEnumLiterals ecoreEnumLiteral="MyDsl.ecore#//JointType/fixed"/>
+      <genEnumLiterals ecoreEnumLiteral="MyDsl.ecore#//JointType/revolute"/>
+      <genEnumLiterals ecoreEnumLiteral="MyDsl.ecore#//JointType/prismatic"/>
+      <genEnumLiterals ecoreEnumLiteral="MyDsl.ecore#//JointType/continuous"/>
     </genEnums>
     <genClasses ecoreClass="MyDsl.ecore#//Robot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Robot/name"/>
@@ -115,6 +118,38 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/childOf"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/parentOf"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Joint/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/axis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/limit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/calibration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/dynamics"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/origin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/reuse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Joint/safetycontroller"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Axis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Axis/x"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Axis/y"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Axis/z"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Limit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Limit/effort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Limit/velocity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Limit/lower"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Limit/upper"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Calibration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Calibration/rising"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Calibration/falling"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Dynamics">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Dynamics/friction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Dynamics/damping"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SafetyController">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SafetyController/k_velocity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SafetyController/k_position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SafetyController/softLowerLimit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SafetyController/softUpperLimit"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

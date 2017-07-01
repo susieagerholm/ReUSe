@@ -27,7 +27,31 @@ public enum JointType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FIXED(0, "fixed", "fixed");
+	FIXED(0, "fixed", "fixed"), /**
+	 * The '<em><b>Revolute</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REVOLUTE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REVOLUTE(1, "revolute", "revolute"), /**
+	 * The '<em><b>Prismatic</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PRISMATIC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PRISMATIC(2, "prismatic", "prismatic"), /**
+	 * The '<em><b>Continuous</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CONTINUOUS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CONTINUOUS(3, "continuous", "continuous");
 
 	/**
 	 * The '<em><b>Fixed</b></em>' literal value.
@@ -45,6 +69,51 @@ public enum JointType implements Enumerator {
 	public static final int FIXED_VALUE = 0;
 
 	/**
+	 * The '<em><b>Revolute</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Revolute</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #REVOLUTE
+	 * @model name="revolute"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REVOLUTE_VALUE = 1;
+
+	/**
+	 * The '<em><b>Prismatic</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Prismatic</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PRISMATIC
+	 * @model name="prismatic"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PRISMATIC_VALUE = 2;
+
+	/**
+	 * The '<em><b>Continuous</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Continuous</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CONTINUOUS
+	 * @model name="continuous"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CONTINUOUS_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Joint Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,6 +122,9 @@ public enum JointType implements Enumerator {
 	private static final JointType[] VALUES_ARRAY =
 		new JointType[] {
 			FIXED,
+			REVOLUTE,
+			PRISMATIC,
+			CONTINUOUS,
 		};
 
 	/**
@@ -110,6 +182,9 @@ public enum JointType implements Enumerator {
 	public static JointType get(int value) {
 		switch (value) {
 			case FIXED_VALUE: return FIXED;
+			case REVOLUTE_VALUE: return REVOLUTE;
+			case PRISMATIC_VALUE: return PRISMATIC;
+			case CONTINUOUS_VALUE: return CONTINUOUS;
 		}
 		return null;
 	}

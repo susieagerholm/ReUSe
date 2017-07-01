@@ -5,16 +5,24 @@ package org.xtext.example.mydsl4.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl4.myDsl.Axis;
+import org.xtext.example.mydsl4.myDsl.Calibration;
+import org.xtext.example.mydsl4.myDsl.Dynamics;
 import org.xtext.example.mydsl4.myDsl.Joint;
 import org.xtext.example.mydsl4.myDsl.JointType;
+import org.xtext.example.mydsl4.myDsl.Limit;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
+import org.xtext.example.mydsl4.myDsl.Origin;
+import org.xtext.example.mydsl4.myDsl.Reuse;
+import org.xtext.example.mydsl4.myDsl.SafetyController;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +36,13 @@ import org.xtext.example.mydsl4.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getChildOf <em>Child Of</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getParentOf <em>Parent Of</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getAxis <em>Axis</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getLimit <em>Limit</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getCalibration <em>Calibration</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getDynamics <em>Dynamics</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getReuse <em>Reuse</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl#getSafetycontroller <em>Safetycontroller</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,6 +97,76 @@ public class JointImpl extends ReUseAbleImpl implements Joint {
 	 * @ordered
 	 */
 	protected JointType type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAxis() <em>Axis</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAxis()
+	 * @generated
+	 * @ordered
+	 */
+	protected Axis axis;
+
+	/**
+	 * The cached value of the '{@link #getLimit() <em>Limit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected Limit limit;
+
+	/**
+	 * The cached value of the '{@link #getCalibration() <em>Calibration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalibration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Calibration calibration;
+
+	/**
+	 * The cached value of the '{@link #getDynamics() <em>Dynamics</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDynamics()
+	 * @generated
+	 * @ordered
+	 */
+	protected Dynamics dynamics;
+
+	/**
+	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrigin()
+	 * @generated
+	 * @ordered
+	 */
+	protected Origin origin;
+
+	/**
+	 * The cached value of the '{@link #getReuse() <em>Reuse</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReuse()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reuse reuse;
+
+	/**
+	 * The cached value of the '{@link #getSafetycontroller() <em>Safetycontroller</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSafetycontroller()
+	 * @generated
+	 * @ordered
+	 */
+	protected SafetyController safetycontroller;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,6 +327,333 @@ public class JointImpl extends ReUseAbleImpl implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Axis getAxis() {
+		return axis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAxis(Axis newAxis, NotificationChain msgs) {
+		Axis oldAxis = axis;
+		axis = newAxis;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__AXIS, oldAxis, newAxis);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAxis(Axis newAxis) {
+		if (newAxis != axis) {
+			NotificationChain msgs = null;
+			if (axis != null)
+				msgs = ((InternalEObject)axis).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__AXIS, null, msgs);
+			if (newAxis != null)
+				msgs = ((InternalEObject)newAxis).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__AXIS, null, msgs);
+			msgs = basicSetAxis(newAxis, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__AXIS, newAxis, newAxis));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Limit getLimit() {
+		return limit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLimit(Limit newLimit, NotificationChain msgs) {
+		Limit oldLimit = limit;
+		limit = newLimit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__LIMIT, oldLimit, newLimit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLimit(Limit newLimit) {
+		if (newLimit != limit) {
+			NotificationChain msgs = null;
+			if (limit != null)
+				msgs = ((InternalEObject)limit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__LIMIT, null, msgs);
+			if (newLimit != null)
+				msgs = ((InternalEObject)newLimit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__LIMIT, null, msgs);
+			msgs = basicSetLimit(newLimit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__LIMIT, newLimit, newLimit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Calibration getCalibration() {
+		return calibration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCalibration(Calibration newCalibration, NotificationChain msgs) {
+		Calibration oldCalibration = calibration;
+		calibration = newCalibration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__CALIBRATION, oldCalibration, newCalibration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCalibration(Calibration newCalibration) {
+		if (newCalibration != calibration) {
+			NotificationChain msgs = null;
+			if (calibration != null)
+				msgs = ((InternalEObject)calibration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__CALIBRATION, null, msgs);
+			if (newCalibration != null)
+				msgs = ((InternalEObject)newCalibration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__CALIBRATION, null, msgs);
+			msgs = basicSetCalibration(newCalibration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__CALIBRATION, newCalibration, newCalibration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Dynamics getDynamics() {
+		return dynamics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDynamics(Dynamics newDynamics, NotificationChain msgs) {
+		Dynamics oldDynamics = dynamics;
+		dynamics = newDynamics;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__DYNAMICS, oldDynamics, newDynamics);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDynamics(Dynamics newDynamics) {
+		if (newDynamics != dynamics) {
+			NotificationChain msgs = null;
+			if (dynamics != null)
+				msgs = ((InternalEObject)dynamics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__DYNAMICS, null, msgs);
+			if (newDynamics != null)
+				msgs = ((InternalEObject)newDynamics).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__DYNAMICS, null, msgs);
+			msgs = basicSetDynamics(newDynamics, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__DYNAMICS, newDynamics, newDynamics));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Origin getOrigin() {
+		return origin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOrigin(Origin newOrigin, NotificationChain msgs) {
+		Origin oldOrigin = origin;
+		origin = newOrigin;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__ORIGIN, oldOrigin, newOrigin);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrigin(Origin newOrigin) {
+		if (newOrigin != origin) {
+			NotificationChain msgs = null;
+			if (origin != null)
+				msgs = ((InternalEObject)origin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__ORIGIN, null, msgs);
+			if (newOrigin != null)
+				msgs = ((InternalEObject)newOrigin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__ORIGIN, null, msgs);
+			msgs = basicSetOrigin(newOrigin, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__ORIGIN, newOrigin, newOrigin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reuse getReuse() {
+		return reuse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReuse(Reuse newReuse, NotificationChain msgs) {
+		Reuse oldReuse = reuse;
+		reuse = newReuse;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__REUSE, oldReuse, newReuse);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReuse(Reuse newReuse) {
+		if (newReuse != reuse) {
+			NotificationChain msgs = null;
+			if (reuse != null)
+				msgs = ((InternalEObject)reuse).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__REUSE, null, msgs);
+			if (newReuse != null)
+				msgs = ((InternalEObject)newReuse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__REUSE, null, msgs);
+			msgs = basicSetReuse(newReuse, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__REUSE, newReuse, newReuse));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SafetyController getSafetycontroller() {
+		return safetycontroller;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSafetycontroller(SafetyController newSafetycontroller, NotificationChain msgs) {
+		SafetyController oldSafetycontroller = safetycontroller;
+		safetycontroller = newSafetycontroller;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__SAFETYCONTROLLER, oldSafetycontroller, newSafetycontroller);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSafetycontroller(SafetyController newSafetycontroller) {
+		if (newSafetycontroller != safetycontroller) {
+			NotificationChain msgs = null;
+			if (safetycontroller != null)
+				msgs = ((InternalEObject)safetycontroller).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__SAFETYCONTROLLER, null, msgs);
+			if (newSafetycontroller != null)
+				msgs = ((InternalEObject)newSafetycontroller).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.JOINT__SAFETYCONTROLLER, null, msgs);
+			msgs = basicSetSafetycontroller(newSafetycontroller, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.JOINT__SAFETYCONTROLLER, newSafetycontroller, newSafetycontroller));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MyDslPackage.JOINT__AXIS:
+				return basicSetAxis(null, msgs);
+			case MyDslPackage.JOINT__LIMIT:
+				return basicSetLimit(null, msgs);
+			case MyDslPackage.JOINT__CALIBRATION:
+				return basicSetCalibration(null, msgs);
+			case MyDslPackage.JOINT__DYNAMICS:
+				return basicSetDynamics(null, msgs);
+			case MyDslPackage.JOINT__ORIGIN:
+				return basicSetOrigin(null, msgs);
+			case MyDslPackage.JOINT__REUSE:
+				return basicSetReuse(null, msgs);
+			case MyDslPackage.JOINT__SAFETYCONTROLLER:
+				return basicSetSafetycontroller(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -256,6 +668,20 @@ public class JointImpl extends ReUseAbleImpl implements Joint {
 				return basicGetParentOf();
 			case MyDslPackage.JOINT__TYPE:
 				return getType();
+			case MyDslPackage.JOINT__AXIS:
+				return getAxis();
+			case MyDslPackage.JOINT__LIMIT:
+				return getLimit();
+			case MyDslPackage.JOINT__CALIBRATION:
+				return getCalibration();
+			case MyDslPackage.JOINT__DYNAMICS:
+				return getDynamics();
+			case MyDslPackage.JOINT__ORIGIN:
+				return getOrigin();
+			case MyDslPackage.JOINT__REUSE:
+				return getReuse();
+			case MyDslPackage.JOINT__SAFETYCONTROLLER:
+				return getSafetycontroller();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,6 +705,27 @@ public class JointImpl extends ReUseAbleImpl implements Joint {
 				return;
 			case MyDslPackage.JOINT__TYPE:
 				setType((JointType)newValue);
+				return;
+			case MyDslPackage.JOINT__AXIS:
+				setAxis((Axis)newValue);
+				return;
+			case MyDslPackage.JOINT__LIMIT:
+				setLimit((Limit)newValue);
+				return;
+			case MyDslPackage.JOINT__CALIBRATION:
+				setCalibration((Calibration)newValue);
+				return;
+			case MyDslPackage.JOINT__DYNAMICS:
+				setDynamics((Dynamics)newValue);
+				return;
+			case MyDslPackage.JOINT__ORIGIN:
+				setOrigin((Origin)newValue);
+				return;
+			case MyDslPackage.JOINT__REUSE:
+				setReuse((Reuse)newValue);
+				return;
+			case MyDslPackage.JOINT__SAFETYCONTROLLER:
+				setSafetycontroller((SafetyController)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -304,6 +751,27 @@ public class JointImpl extends ReUseAbleImpl implements Joint {
 			case MyDslPackage.JOINT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case MyDslPackage.JOINT__AXIS:
+				setAxis((Axis)null);
+				return;
+			case MyDslPackage.JOINT__LIMIT:
+				setLimit((Limit)null);
+				return;
+			case MyDslPackage.JOINT__CALIBRATION:
+				setCalibration((Calibration)null);
+				return;
+			case MyDslPackage.JOINT__DYNAMICS:
+				setDynamics((Dynamics)null);
+				return;
+			case MyDslPackage.JOINT__ORIGIN:
+				setOrigin((Origin)null);
+				return;
+			case MyDslPackage.JOINT__REUSE:
+				setReuse((Reuse)null);
+				return;
+			case MyDslPackage.JOINT__SAFETYCONTROLLER:
+				setSafetycontroller((SafetyController)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -324,6 +792,20 @@ public class JointImpl extends ReUseAbleImpl implements Joint {
 				return parentOf != null;
 			case MyDslPackage.JOINT__TYPE:
 				return type != TYPE_EDEFAULT;
+			case MyDslPackage.JOINT__AXIS:
+				return axis != null;
+			case MyDslPackage.JOINT__LIMIT:
+				return limit != null;
+			case MyDslPackage.JOINT__CALIBRATION:
+				return calibration != null;
+			case MyDslPackage.JOINT__DYNAMICS:
+				return dynamics != null;
+			case MyDslPackage.JOINT__ORIGIN:
+				return origin != null;
+			case MyDslPackage.JOINT__REUSE:
+				return reuse != null;
+			case MyDslPackage.JOINT__SAFETYCONTROLLER:
+				return safetycontroller != null;
 		}
 		return super.eIsSet(featureID);
 	}

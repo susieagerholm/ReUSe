@@ -254,6 +254,41 @@ public class MyDslSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MyDslPackage.AXIS: {
+				Axis axis = (Axis)theEObject;
+				T result = caseAxis(axis);
+				if (result == null) result = caseReUseAble(axis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.LIMIT: {
+				Limit limit = (Limit)theEObject;
+				T result = caseLimit(limit);
+				if (result == null) result = caseReUseAble(limit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.CALIBRATION: {
+				Calibration calibration = (Calibration)theEObject;
+				T result = caseCalibration(calibration);
+				if (result == null) result = caseReUseAble(calibration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.DYNAMICS: {
+				Dynamics dynamics = (Dynamics)theEObject;
+				T result = caseDynamics(dynamics);
+				if (result == null) result = caseReUseAble(dynamics);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.SAFETY_CONTROLLER: {
+				SafetyController safetyController = (SafetyController)theEObject;
+				T result = caseSafetyController(safetyController);
+				if (result == null) result = caseReUseAble(safetyController);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -660,6 +695,81 @@ public class MyDslSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJoint(Joint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Axis</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Axis</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAxis(Axis object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Limit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Limit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLimit(Limit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Calibration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Calibration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCalibration(Calibration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dynamics</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dynamics</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDynamics(Dynamics object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Safety Controller</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Safety Controller</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSafetyController(SafetyController object) {
 		return null;
 	}
 

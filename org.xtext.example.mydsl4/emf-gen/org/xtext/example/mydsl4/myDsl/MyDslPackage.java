@@ -1229,14 +1229,352 @@ public interface MyDslPackage extends EPackage {
 	int JOINT__TYPE = RE_USE_ABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Axis</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__AXIS = RE_USE_ABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Limit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__LIMIT = RE_USE_ABLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Calibration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__CALIBRATION = RE_USE_ABLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Dynamics</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__DYNAMICS = RE_USE_ABLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Origin</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__ORIGIN = RE_USE_ABLE_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Reuse</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__REUSE = RE_USE_ABLE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Safetycontroller</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__SAFETYCONTROLLER = RE_USE_ABLE_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Joint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 4;
+	int JOINT_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 11;
 
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.AxisImpl <em>Axis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.AxisImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getAxis()
+	 * @generated
+	 */
+	int AXIS = 27;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS__NAME = RE_USE_ABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS__X = RE_USE_ABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS__Y = RE_USE_ABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Z</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS__Z = RE_USE_ABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Axis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.LimitImpl <em>Limit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.LimitImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getLimit()
+	 * @generated
+	 */
+	int LIMIT = 28;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIMIT__NAME = RE_USE_ABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Effort</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIMIT__EFFORT = RE_USE_ABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Velocity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIMIT__VELOCITY = RE_USE_ABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Lower</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIMIT__LOWER = RE_USE_ABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Upper</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIMIT__UPPER = RE_USE_ABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Limit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIMIT_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.CalibrationImpl <em>Calibration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.CalibrationImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getCalibration()
+	 * @generated
+	 */
+	int CALIBRATION = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALIBRATION__NAME = RE_USE_ABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Rising</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALIBRATION__RISING = RE_USE_ABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Falling</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALIBRATION__FALLING = RE_USE_ABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Calibration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALIBRATION_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.DynamicsImpl <em>Dynamics</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.DynamicsImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getDynamics()
+	 * @generated
+	 */
+	int DYNAMICS = 30;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMICS__NAME = RE_USE_ABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Friction</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMICS__FRICTION = RE_USE_ABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Damping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMICS__DAMPING = RE_USE_ABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Dynamics</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMICS_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.SafetyControllerImpl <em>Safety Controller</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.SafetyControllerImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getSafetyController()
+	 * @generated
+	 */
+	int SAFETY_CONTROLLER = 31;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAFETY_CONTROLLER__NAME = RE_USE_ABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Kvelocity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAFETY_CONTROLLER__KVELOCITY = RE_USE_ABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Kposition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAFETY_CONTROLLER__KPOSITION = RE_USE_ABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Soft Lower Limit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAFETY_CONTROLLER__SOFT_LOWER_LIMIT = RE_USE_ABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Soft Upper Limit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAFETY_CONTROLLER__SOFT_UPPER_LIMIT = RE_USE_ABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Safety Controller</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAFETY_CONTROLLER_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
@@ -1246,7 +1584,7 @@ public interface MyDslPackage extends EPackage {
 	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
 	 * @generated
 	 */
-	int JOINT_TYPE = 27;
+	int JOINT_TYPE = 32;
 
 
 	/**
@@ -2136,6 +2474,298 @@ public interface MyDslPackage extends EPackage {
 	EAttribute getJoint_Type();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getAxis <em>Axis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Axis</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getAxis()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_Axis();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getLimit <em>Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Limit</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getLimit()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_Limit();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getCalibration <em>Calibration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Calibration</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getCalibration()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_Calibration();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getDynamics <em>Dynamics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Dynamics</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getDynamics()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_Dynamics();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getOrigin <em>Origin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Origin</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getOrigin()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_Origin();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getReuse <em>Reuse</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Reuse</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getReuse()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_Reuse();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Joint#getSafetycontroller <em>Safetycontroller</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Safetycontroller</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Joint#getSafetycontroller()
+	 * @see #getJoint()
+	 * @generated
+	 */
+	EReference getJoint_Safetycontroller();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Axis <em>Axis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Axis</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Axis
+	 * @generated
+	 */
+	EClass getAxis();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Axis#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>X</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Axis#getX()
+	 * @see #getAxis()
+	 * @generated
+	 */
+	EReference getAxis_X();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Axis#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Y</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Axis#getY()
+	 * @see #getAxis()
+	 * @generated
+	 */
+	EReference getAxis_Y();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Axis#getZ <em>Z</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Z</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Axis#getZ()
+	 * @see #getAxis()
+	 * @generated
+	 */
+	EReference getAxis_Z();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Limit <em>Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Limit</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Limit
+	 * @generated
+	 */
+	EClass getLimit();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Limit#getEffort <em>Effort</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Effort</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Limit#getEffort()
+	 * @see #getLimit()
+	 * @generated
+	 */
+	EReference getLimit_Effort();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Limit#getVelocity <em>Velocity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Velocity</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Limit#getVelocity()
+	 * @see #getLimit()
+	 * @generated
+	 */
+	EReference getLimit_Velocity();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Limit#getLower <em>Lower</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Lower</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Limit#getLower()
+	 * @see #getLimit()
+	 * @generated
+	 */
+	EReference getLimit_Lower();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Limit#getUpper <em>Upper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Upper</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Limit#getUpper()
+	 * @see #getLimit()
+	 * @generated
+	 */
+	EReference getLimit_Upper();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Calibration <em>Calibration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Calibration</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Calibration
+	 * @generated
+	 */
+	EClass getCalibration();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Calibration#getRising <em>Rising</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rising</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Calibration#getRising()
+	 * @see #getCalibration()
+	 * @generated
+	 */
+	EReference getCalibration_Rising();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Calibration#getFalling <em>Falling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Falling</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Calibration#getFalling()
+	 * @see #getCalibration()
+	 * @generated
+	 */
+	EReference getCalibration_Falling();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Dynamics <em>Dynamics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dynamics</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Dynamics
+	 * @generated
+	 */
+	EClass getDynamics();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Dynamics#getFriction <em>Friction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Friction</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Dynamics#getFriction()
+	 * @see #getDynamics()
+	 * @generated
+	 */
+	EReference getDynamics_Friction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Dynamics#getDamping <em>Damping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Damping</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Dynamics#getDamping()
+	 * @see #getDynamics()
+	 * @generated
+	 */
+	EReference getDynamics_Damping();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.SafetyController <em>Safety Controller</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Safety Controller</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.SafetyController
+	 * @generated
+	 */
+	EClass getSafetyController();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.SafetyController#getK_velocity <em>Kvelocity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Kvelocity</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.SafetyController#getK_velocity()
+	 * @see #getSafetyController()
+	 * @generated
+	 */
+	EReference getSafetyController_K_velocity();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.SafetyController#getK_position <em>Kposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Kposition</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.SafetyController#getK_position()
+	 * @see #getSafetyController()
+	 * @generated
+	 */
+	EReference getSafetyController_K_position();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.SafetyController#getSoftLowerLimit <em>Soft Lower Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Soft Lower Limit</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.SafetyController#getSoftLowerLimit()
+	 * @see #getSafetyController()
+	 * @generated
+	 */
+	EReference getSafetyController_SoftLowerLimit();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.SafetyController#getSoftUpperLimit <em>Soft Upper Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Soft Upper Limit</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.SafetyController#getSoftUpperLimit()
+	 * @see #getSafetyController()
+	 * @generated
+	 */
+	EReference getSafetyController_SoftUpperLimit();
+
+	/**
 	 * Returns the meta object for enum '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2884,6 +3514,232 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOINT__TYPE = eINSTANCE.getJoint_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Axis</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__AXIS = eINSTANCE.getJoint_Axis();
+
+		/**
+		 * The meta object literal for the '<em><b>Limit</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__LIMIT = eINSTANCE.getJoint_Limit();
+
+		/**
+		 * The meta object literal for the '<em><b>Calibration</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__CALIBRATION = eINSTANCE.getJoint_Calibration();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamics</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__DYNAMICS = eINSTANCE.getJoint_Dynamics();
+
+		/**
+		 * The meta object literal for the '<em><b>Origin</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__ORIGIN = eINSTANCE.getJoint_Origin();
+
+		/**
+		 * The meta object literal for the '<em><b>Reuse</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__REUSE = eINSTANCE.getJoint_Reuse();
+
+		/**
+		 * The meta object literal for the '<em><b>Safetycontroller</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOINT__SAFETYCONTROLLER = eINSTANCE.getJoint_Safetycontroller();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.AxisImpl <em>Axis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.AxisImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getAxis()
+		 * @generated
+		 */
+		EClass AXIS = eINSTANCE.getAxis();
+
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AXIS__X = eINSTANCE.getAxis_X();
+
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AXIS__Y = eINSTANCE.getAxis_Y();
+
+		/**
+		 * The meta object literal for the '<em><b>Z</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AXIS__Z = eINSTANCE.getAxis_Z();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.LimitImpl <em>Limit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.LimitImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getLimit()
+		 * @generated
+		 */
+		EClass LIMIT = eINSTANCE.getLimit();
+
+		/**
+		 * The meta object literal for the '<em><b>Effort</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIMIT__EFFORT = eINSTANCE.getLimit_Effort();
+
+		/**
+		 * The meta object literal for the '<em><b>Velocity</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIMIT__VELOCITY = eINSTANCE.getLimit_Velocity();
+
+		/**
+		 * The meta object literal for the '<em><b>Lower</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIMIT__LOWER = eINSTANCE.getLimit_Lower();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIMIT__UPPER = eINSTANCE.getLimit_Upper();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.CalibrationImpl <em>Calibration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.CalibrationImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getCalibration()
+		 * @generated
+		 */
+		EClass CALIBRATION = eINSTANCE.getCalibration();
+
+		/**
+		 * The meta object literal for the '<em><b>Rising</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALIBRATION__RISING = eINSTANCE.getCalibration_Rising();
+
+		/**
+		 * The meta object literal for the '<em><b>Falling</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALIBRATION__FALLING = eINSTANCE.getCalibration_Falling();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.DynamicsImpl <em>Dynamics</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.DynamicsImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getDynamics()
+		 * @generated
+		 */
+		EClass DYNAMICS = eINSTANCE.getDynamics();
+
+		/**
+		 * The meta object literal for the '<em><b>Friction</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DYNAMICS__FRICTION = eINSTANCE.getDynamics_Friction();
+
+		/**
+		 * The meta object literal for the '<em><b>Damping</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DYNAMICS__DAMPING = eINSTANCE.getDynamics_Damping();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.SafetyControllerImpl <em>Safety Controller</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.SafetyControllerImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getSafetyController()
+		 * @generated
+		 */
+		EClass SAFETY_CONTROLLER = eINSTANCE.getSafetyController();
+
+		/**
+		 * The meta object literal for the '<em><b>Kvelocity</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SAFETY_CONTROLLER__KVELOCITY = eINSTANCE.getSafetyController_K_velocity();
+
+		/**
+		 * The meta object literal for the '<em><b>Kposition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SAFETY_CONTROLLER__KPOSITION = eINSTANCE.getSafetyController_K_position();
+
+		/**
+		 * The meta object literal for the '<em><b>Soft Lower Limit</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SAFETY_CONTROLLER__SOFT_LOWER_LIMIT = eINSTANCE.getSafetyController_SoftLowerLimit();
+
+		/**
+		 * The meta object literal for the '<em><b>Soft Upper Limit</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SAFETY_CONTROLLER__SOFT_UPPER_LIMIT = eINSTANCE.getSafetyController_SoftUpperLimit();
 
 		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
