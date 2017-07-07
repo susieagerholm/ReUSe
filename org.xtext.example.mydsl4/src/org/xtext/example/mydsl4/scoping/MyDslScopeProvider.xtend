@@ -8,18 +8,17 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import org.xtext.example.mydsl4.myDsl.Box
 import org.xtext.example.mydsl4.myDsl.DotExpression
+import org.xtext.example.mydsl4.myDsl.Joint
 import org.xtext.example.mydsl4.myDsl.Link
 import org.xtext.example.mydsl4.myDsl.ReUsableRef
 import org.xtext.example.mydsl4.myDsl.ReUseAble
 import org.xtext.example.mydsl4.myDsl.Reuse
 import org.xtext.example.mydsl4.myDsl.Robot
-import org.xtext.example.mydsl4.myDsl.Geometry
-import org.xtext.example.mydsl4.myDsl.Joint
-import org.xtext.example.mydsl4.MyQNP
-import org.eclipse.xtext.naming.QualifiedName
 
 /**
  * This class contains custom scoping description.
@@ -29,6 +28,7 @@ import org.eclipse.xtext.naming.QualifiedName
  */
 class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 	override IScope getScope(EObject context, EReference reference) {
+		
 				
 		//SOMEHOW THIS LINK SCOPING RULE IS NOT USED - EXIST VIA SUPER.GETSCOPE?? 
 		if (context instanceof Link) {
@@ -41,19 +41,26 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 			)
 		}
 		
+		if (context instanceof Joint) {
+			val o = reference.EReferenceType.name
+			if (reference.EReferenceType.name.equals("Joint")) {
+				val robot = EcoreUtil2.getContainerOfType(context, Robot)
+				return Scopes.scopeFor(robot.joint.
+				//EXCLUDE CURRENT JOINT
+				filter[x | !x.name.equals(context.name)].
+				//REMEMBER ALSO TO EXCLUDE JOINTS MADE FROM REUSE
+				filter[y | y.reuse == null]
+				)
+			}
+			else super.getScope(context, reference)
+			
+		}
+		
 		if (context instanceof Reuse) {		
 			//RETURN SCOPE FOR EDIT	
-			/*
-			 * val curr_link = EcoreUtil2.getContainerOfType(context, Link)
-			var BasicEList<Link> list = new BasicEList<Link>()
-			list.add(curr_link.link)
-			return Scopes.scopeFor(list)
-			* */
-			//val BasicEList<? extends ReUseAble> list = new BasicEList()
+		
 			if (context.eContainer instanceof Link) {
 				val curr = EcoreUtil2.getContainerOfType(context, Link)
-				//val res = newArrayList(curr.link).toList
-				//list.add(curr.link)
 				return Scopes.scopeFor(newArrayList(curr.link).toList)
 			} else {
 				val curr = EcoreUtil2.getContainerOfType(context, Joint)
@@ -75,12 +82,28 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
             	}	
             	DotExpression : {
                 	val tail = head.tail
-					val test = tail.eClass.EAllAttributes
-					val test2 = tail.eGet(tail.eClass.getEStructuralFeature("name"))
-
+					/*if (tail instanceof Box) {
+						val testtt = tail.eContents.filter(EObject).empty
+						val test = tail.eClass.EAllReferences//
+						val test1 = tail.eClass.EReferences.map[x | x.eContainmentFeature.name]
+						val on = test1.length
+						
+					}*/
+					
                 	switch (tail) {
-                		ReUseAble : Scopes::scopeFor(tail.eContents) 
-            //    		Scopes::scopeFor(tail.eContents, [x | if(tail.eGet(tail.eClass.getEStructuralFeature("name")) != null) QualifiedName.create(tail.eGet(tail.eClass.getEStructuralFeature("name")) as String)  else QualifiedName.create(x.eContainmentFeature().getName())], IScope::NULLSCOPE) 
+                		Box       :	Scopes::scopeFor(tail.eClass.EReferences, [y | QualifiedName.create(y.name) ], IScope::NULLSCOPE)
+                		
+                		ReUseAble :  Scopes::scopeFor(tail.eContents, [x | 
+                						//IF NAME IS EXPLICITLY DEFINED, USE THAT!!
+                						if(x.eGet(x.eClass.getEStructuralFeature("name")) != null) 
+                							QualifiedName.create(x.eGet(x.eClass.getEStructuralFeature("name")) as String) 
+                						else 
+                						//ELSE CREATE NAME FROM CONTAINMENT FEATURE
+                						//OBS: NEED TO NAME INDIVIDUALLY, IF DE FACTO MULTIVALUE CONTAINMENT!!
+                							QualifiedName.create(x.eContainmentFeature.name)
+                					], IScope::NULLSCOPE)
+                					
+                					 
                     	default: IScope::NULLSCOPE
                 	}
             	}

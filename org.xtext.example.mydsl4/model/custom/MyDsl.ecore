@@ -7,6 +7,8 @@
         eType="#//Link" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
         eType="#//Joint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topologies" upperBound="-1"
+        eType="#//Topology" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReUseAble">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -40,7 +42,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="URDFAttrINT">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="URDFAttrNumeric">
+  <eClassifiers xsi:type="ecore:EClass" name="URDFAttrNumeric" eSuperTypes="#//ReUseAble">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="URDFAttrSTRING">
@@ -60,8 +62,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Visual" eSuperTypes="#//ReUseAble">
     <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//Origin"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" upperBound="-1"
-        eType="#//Geometry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" lowerBound="1"
+        upperBound="-1" eType="#//Geometry" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="material" eType="#//Material"
         containment="true"/>
   </eClassifiers>
@@ -207,5 +209,19 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="softUpperLimit" eType="#//URDFAttrSignedNumeric"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Topology">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//Link"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//JointRef"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" eType="#//Topology"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JointRef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rev" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pris" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cont" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

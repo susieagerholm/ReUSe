@@ -90,6 +90,8 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 			case MyDslPackage.CALIBRATION: return createCalibration();
 			case MyDslPackage.DYNAMICS: return createDynamics();
 			case MyDslPackage.SAFETY_CONTROLLER: return createSafetyController();
+			case MyDslPackage.TOPOLOGY: return createTopology();
+			case MyDslPackage.JOINT_REF: return createJointRef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -443,6 +445,26 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 	public SafetyController createSafetyController() {
 		SafetyControllerImpl safetyController = new SafetyControllerImpl();
 		return safetyController;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Topology createTopology() {
+		TopologyImpl topology = new TopologyImpl();
+		return topology;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JointRef createJointRef() {
+		JointRefImpl jointRef = new JointRefImpl();
+		return jointRef;
 	}
 
 	/**

@@ -127,6 +127,7 @@ public class MyDslSwitch<T> extends Switch<T> {
 			case MyDslPackage.URDF_ATTR_NUMERIC: {
 				URDFAttrNumeric urdfAttrNumeric = (URDFAttrNumeric)theEObject;
 				T result = caseURDFAttrNumeric(urdfAttrNumeric);
+				if (result == null) result = caseReUseAble(urdfAttrNumeric);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -286,6 +287,18 @@ public class MyDslSwitch<T> extends Switch<T> {
 				SafetyController safetyController = (SafetyController)theEObject;
 				T result = caseSafetyController(safetyController);
 				if (result == null) result = caseReUseAble(safetyController);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.TOPOLOGY: {
+				Topology topology = (Topology)theEObject;
+				T result = caseTopology(topology);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MyDslPackage.JOINT_REF: {
+				JointRef jointRef = (JointRef)theEObject;
+				T result = caseJointRef(jointRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -770,6 +783,36 @@ public class MyDslSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSafetyController(SafetyController object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Topology</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Topology</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTopology(Topology object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Joint Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Joint Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJointRef(JointRef object) {
 		return null;
 	}
 

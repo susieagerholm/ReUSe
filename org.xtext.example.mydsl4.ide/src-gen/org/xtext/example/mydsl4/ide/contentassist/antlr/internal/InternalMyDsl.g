@@ -74,6 +74,56 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleTopology
+entryRuleTopology
+:
+{ before(grammarAccess.getTopologyRule()); }
+	 ruleTopology
+{ after(grammarAccess.getTopologyRule()); } 
+	 EOF 
+;
+
+// Rule Topology
+ruleTopology 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getTopologyAccess().getGroup()); }
+		(rule__Topology__Group__0)
+		{ after(grammarAccess.getTopologyAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleJointRef
+entryRuleJointRef
+:
+{ before(grammarAccess.getJointRefRule()); }
+	 ruleJointRef
+{ after(grammarAccess.getJointRefRule()); } 
+	 EOF 
+;
+
+// Rule JointRef
+ruleJointRef 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getJointRefAccess().getAlternatives()); }
+		(rule__JointRef__Alternatives)
+		{ after(grammarAccess.getJointRefAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleReUseAble
 entryRuleReUseAble
 :
@@ -946,15 +996,54 @@ rule__Robot__Alternatives_2
 	}
 :
 	(
-		{ before(grammarAccess.getRobotAccess().getLinksAssignment_2_0()); }
-		(rule__Robot__LinksAssignment_2_0)
-		{ after(grammarAccess.getRobotAccess().getLinksAssignment_2_0()); }
+		{ before(grammarAccess.getRobotAccess().getGroup_2_0()); }
+		(rule__Robot__Group_2_0__0)
+		{ after(grammarAccess.getRobotAccess().getGroup_2_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getRobotAccess().getJointAssignment_2_1()); }
-		(rule__Robot__JointAssignment_2_1)
-		{ after(grammarAccess.getRobotAccess().getJointAssignment_2_1()); }
+		{ before(grammarAccess.getRobotAccess().getLinksAssignment_2_1()); }
+		(rule__Robot__LinksAssignment_2_1)
+		{ after(grammarAccess.getRobotAccess().getLinksAssignment_2_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getRobotAccess().getJointAssignment_2_2()); }
+		(rule__Robot__JointAssignment_2_2)
+		{ after(grammarAccess.getRobotAccess().getJointAssignment_2_2()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__JointRef__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getJointRefAccess().getFixAssignment_0()); }
+		(rule__JointRef__FixAssignment_0)
+		{ after(grammarAccess.getJointRefAccess().getFixAssignment_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getJointRefAccess().getRevAssignment_1()); }
+		(rule__JointRef__RevAssignment_1)
+		{ after(grammarAccess.getJointRefAccess().getRevAssignment_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getJointRefAccess().getPrisAssignment_2()); }
+		(rule__JointRef__PrisAssignment_2)
+		{ after(grammarAccess.getJointRefAccess().getPrisAssignment_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getJointRefAccess().getContAssignment_3()); }
+		(rule__JointRef__ContAssignment_3)
+		{ after(grammarAccess.getJointRefAccess().getContAssignment_3()); }
 	)
 ;
 finally {
@@ -1365,6 +1454,168 @@ rule__Robot__Group__2__Impl
 	{ before(grammarAccess.getRobotAccess().getAlternatives_2()); }
 	(rule__Robot__Alternatives_2)*
 	{ after(grammarAccess.getRobotAccess().getAlternatives_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Robot__Group_2_0__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Robot__Group_2_0__0__Impl
+	rule__Robot__Group_2_0__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Robot__Group_2_0__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRobotAccess().getTopologyKeyword_2_0_0()); }
+	'Topology'
+	{ after(grammarAccess.getRobotAccess().getTopologyKeyword_2_0_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Robot__Group_2_0__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Robot__Group_2_0__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Robot__Group_2_0__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRobotAccess().getTopologiesAssignment_2_0_1()); }
+	(rule__Robot__TopologiesAssignment_2_0_1)
+	{ after(grammarAccess.getRobotAccess().getTopologiesAssignment_2_0_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Topology__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Topology__Group__0__Impl
+	rule__Topology__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTopologyAccess().getParentAssignment_0()); }
+	(rule__Topology__ParentAssignment_0)
+	{ after(grammarAccess.getTopologyAccess().getParentAssignment_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Topology__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTopologyAccess().getGroup_1()); }
+	(rule__Topology__Group_1__0)?
+	{ after(grammarAccess.getTopologyAccess().getGroup_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Topology__Group_1__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Topology__Group_1__0__Impl
+	rule__Topology__Group_1__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__Group_1__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTopologyAccess().getJointAssignment_1_0()); }
+	(rule__Topology__JointAssignment_1_0)
+	{ after(grammarAccess.getTopologyAccess().getJointAssignment_1_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__Group_1__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Topology__Group_1__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__Group_1__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTopologyAccess().getChildAssignment_1_1()); }
+	(rule__Topology__ChildAssignment_1_1)
+	{ after(grammarAccess.getTopologyAccess().getChildAssignment_1_1()); }
 )
 ;
 finally {
@@ -6679,30 +6930,170 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Robot__LinksAssignment_2_0
+rule__Robot__TopologiesAssignment_2_0_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_0_0()); }
-		ruleLink
-		{ after(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_0_0()); }
+		{ before(grammarAccess.getRobotAccess().getTopologiesTopologyParserRuleCall_2_0_1_0()); }
+		ruleTopology
+		{ after(grammarAccess.getRobotAccess().getTopologiesTopologyParserRuleCall_2_0_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Robot__JointAssignment_2_1
+rule__Robot__LinksAssignment_2_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getRobotAccess().getJointJointParserRuleCall_2_1_0()); }
+		{ before(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_1_0()); }
+		ruleLink
+		{ after(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Robot__JointAssignment_2_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRobotAccess().getJointJointParserRuleCall_2_2_0()); }
 		ruleJoint
-		{ after(grammarAccess.getRobotAccess().getJointJointParserRuleCall_2_1_0()); }
+		{ after(grammarAccess.getRobotAccess().getJointJointParserRuleCall_2_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__ParentAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTopologyAccess().getParentLinkCrossReference_0_0()); }
+		(
+			{ before(grammarAccess.getTopologyAccess().getParentLinkIDTerminalRuleCall_0_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getTopologyAccess().getParentLinkIDTerminalRuleCall_0_0_1()); }
+		)
+		{ after(grammarAccess.getTopologyAccess().getParentLinkCrossReference_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__JointAssignment_1_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTopologyAccess().getJointJointRefParserRuleCall_1_0_0()); }
+		ruleJointRef
+		{ after(grammarAccess.getTopologyAccess().getJointJointRefParserRuleCall_1_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Topology__ChildAssignment_1_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTopologyAccess().getChildTopologyParserRuleCall_1_1_0()); }
+		ruleTopology
+		{ after(grammarAccess.getTopologyAccess().getChildTopologyParserRuleCall_1_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__JointRef__FixAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getJointRefAccess().getFixHyphenMinusGreaterThanSignKeyword_0_0()); }
+		(
+			{ before(grammarAccess.getJointRefAccess().getFixHyphenMinusGreaterThanSignKeyword_0_0()); }
+			'->'
+			{ after(grammarAccess.getJointRefAccess().getFixHyphenMinusGreaterThanSignKeyword_0_0()); }
+		)
+		{ after(grammarAccess.getJointRefAccess().getFixHyphenMinusGreaterThanSignKeyword_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__JointRef__RevAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getJointRefAccess().getRevRKeyword_1_0()); }
+		(
+			{ before(grammarAccess.getJointRefAccess().getRevRKeyword_1_0()); }
+			'r->'
+			{ after(grammarAccess.getJointRefAccess().getRevRKeyword_1_0()); }
+		)
+		{ after(grammarAccess.getJointRefAccess().getRevRKeyword_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__JointRef__PrisAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getJointRefAccess().getPrisPKeyword_2_0()); }
+		(
+			{ before(grammarAccess.getJointRefAccess().getPrisPKeyword_2_0()); }
+			'p->'
+			{ after(grammarAccess.getJointRefAccess().getPrisPKeyword_2_0()); }
+		)
+		{ after(grammarAccess.getJointRefAccess().getPrisPKeyword_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__JointRef__ContAssignment_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getJointRefAccess().getContCKeyword_3_0()); }
+		(
+			{ before(grammarAccess.getJointRefAccess().getContCKeyword_3_0()); }
+			'c->'
+			{ after(grammarAccess.getJointRefAccess().getContCKeyword_3_0()); }
+		)
+		{ after(grammarAccess.getJointRefAccess().getContCKeyword_3_0()); }
 	)
 ;
 finally {

@@ -197,6 +197,14 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 				return createSafetyControllerAdapter();
 			}
 			@Override
+			public Adapter caseTopology(Topology object) {
+				return createTopologyAdapter();
+			}
+			@Override
+			public Adapter caseJointRef(JointRef object) {
+				return createJointRefAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -661,6 +669,34 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSafetyControllerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.Topology <em>Topology</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.Topology
+	 * @generated
+	 */
+	public Adapter createTopologyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.JointRef <em>Joint Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.JointRef
+	 * @generated
+	 */
+	public Adapter createJointRefAdapter() {
 		return null;
 	}
 

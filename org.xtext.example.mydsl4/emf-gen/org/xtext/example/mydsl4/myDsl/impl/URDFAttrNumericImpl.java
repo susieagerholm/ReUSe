@@ -26,7 +26,7 @@ import org.xtext.example.mydsl4.myDsl.URDFAttrNumeric;
  *
  * @generated
  */
-public class URDFAttrNumericImpl extends MinimalEObjectImpl.Container implements URDFAttrNumeric {
+public class URDFAttrNumericImpl extends ReUseAbleImpl implements URDFAttrNumeric {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -36,6 +36,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getRobotAccess().getAlternatives_2(), "rule__Robot__Alternatives_2");
+					put(grammarAccess.getJointRefAccess().getAlternatives(), "rule__JointRef__Alternatives");
 					put(grammarAccess.getReUseAbleAccess().getAlternatives(), "rule__ReUseAble__Alternatives");
 					put(grammarAccess.getLinkAccess().getAlternatives_3(), "rule__Link__Alternatives_3");
 					put(grammarAccess.getLinkAccess().getAlternatives_3_0_1(), "rule__Link__Alternatives_3_0_1");
@@ -49,6 +50,9 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNUMERICAccess().getAlternatives(), "rule__NUMERIC__Alternatives");
 					put(grammarAccess.getJointTypeAccess().getAlternatives(), "rule__JointType__Alternatives");
 					put(grammarAccess.getRobotAccess().getGroup(), "rule__Robot__Group__0");
+					put(grammarAccess.getRobotAccess().getGroup_2_0(), "rule__Robot__Group_2_0__0");
+					put(grammarAccess.getTopologyAccess().getGroup(), "rule__Topology__Group__0");
+					put(grammarAccess.getTopologyAccess().getGroup_1(), "rule__Topology__Group_1__0");
 					put(grammarAccess.getLinkAccess().getGroup(), "rule__Link__Group__0");
 					put(grammarAccess.getLinkAccess().getGroup_3_0(), "rule__Link__Group_3_0__0");
 					put(grammarAccess.getLinkAccess().getGroup_3_1(), "rule__Link__Group_3_1__0");
@@ -95,8 +99,16 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSCIENTIFICAccess().getGroup(), "rule__SCIENTIFIC__Group__0");
 					put(grammarAccess.getSIGNED_NUMERICAccess().getGroup(), "rule__SIGNED_NUMERIC__Group__0");
 					put(grammarAccess.getRobotAccess().getNameAssignment_1(), "rule__Robot__NameAssignment_1");
-					put(grammarAccess.getRobotAccess().getLinksAssignment_2_0(), "rule__Robot__LinksAssignment_2_0");
-					put(grammarAccess.getRobotAccess().getJointAssignment_2_1(), "rule__Robot__JointAssignment_2_1");
+					put(grammarAccess.getRobotAccess().getTopologiesAssignment_2_0_1(), "rule__Robot__TopologiesAssignment_2_0_1");
+					put(grammarAccess.getRobotAccess().getLinksAssignment_2_1(), "rule__Robot__LinksAssignment_2_1");
+					put(grammarAccess.getRobotAccess().getJointAssignment_2_2(), "rule__Robot__JointAssignment_2_2");
+					put(grammarAccess.getTopologyAccess().getParentAssignment_0(), "rule__Topology__ParentAssignment_0");
+					put(grammarAccess.getTopologyAccess().getJointAssignment_1_0(), "rule__Topology__JointAssignment_1_0");
+					put(grammarAccess.getTopologyAccess().getChildAssignment_1_1(), "rule__Topology__ChildAssignment_1_1");
+					put(grammarAccess.getJointRefAccess().getFixAssignment_0(), "rule__JointRef__FixAssignment_0");
+					put(grammarAccess.getJointRefAccess().getRevAssignment_1(), "rule__JointRef__RevAssignment_1");
+					put(grammarAccess.getJointRefAccess().getPrisAssignment_2(), "rule__JointRef__PrisAssignment_2");
+					put(grammarAccess.getJointRefAccess().getContAssignment_3(), "rule__JointRef__ContAssignment_3");
 					put(grammarAccess.getLinkAccess().getNameAssignment_2(), "rule__Link__NameAssignment_2");
 					put(grammarAccess.getLinkAccess().getInertialAssignment_3_0_1_0(), "rule__Link__InertialAssignment_3_0_1_0");
 					put(grammarAccess.getLinkAccess().getVisualAssignment_3_0_1_1(), "rule__Link__VisualAssignment_3_0_1_1");

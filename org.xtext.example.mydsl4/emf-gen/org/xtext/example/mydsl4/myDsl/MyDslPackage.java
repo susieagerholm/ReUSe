@@ -95,13 +95,22 @@ public interface MyDslPackage extends EPackage {
 	int ROBOT__JOINT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Topologies</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__TOPOLOGIES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 3;
+	int ROBOT_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.ReUseAbleImpl <em>Re Use Able</em>}' class.
@@ -392,13 +401,22 @@ public interface MyDslPackage extends EPackage {
 	int URDF_ATTR_NUMERIC = 9;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URDF_ATTR_NUMERIC__NAME = RE_USE_ABLE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int URDF_ATTR_NUMERIC__VALUE = 0;
+	int URDF_ATTR_NUMERIC__VALUE = RE_USE_ABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>URDF Attr Numeric</em>' class.
@@ -407,7 +425,7 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int URDF_ATTR_NUMERIC_FEATURE_COUNT = 1;
+	int URDF_ATTR_NUMERIC_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.URDFAttrSTRINGImpl <em>URDF Attr STRING</em>}' class.
@@ -1577,6 +1595,52 @@ public interface MyDslPackage extends EPackage {
 	int SAFETY_CONTROLLER_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.TopologyImpl <em>Topology</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.TopologyImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getTopology()
+	 * @generated
+	 */
+	int TOPOLOGY = 32;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPOLOGY__PARENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Joint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPOLOGY__JOINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Child</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPOLOGY__CHILD = 2;
+
+	/**
+	 * The number of structural features of the '<em>Topology</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPOLOGY_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1584,7 +1648,64 @@ public interface MyDslPackage extends EPackage {
 	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
 	 * @generated
 	 */
-	int JOINT_TYPE = 32;
+	int JOINT_TYPE = 34;
+
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.JointRefImpl <em>Joint Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.JointRefImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointRef()
+	 * @generated
+	 */
+	int JOINT_REF = 33;
+
+
+	/**
+	 * The feature id for the '<em><b>Fix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT_REF__FIX = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rev</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT_REF__REV = 1;
+
+	/**
+	 * The feature id for the '<em><b>Pris</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT_REF__PRIS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Cont</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT_REF__CONT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Joint Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT_REF_FEATURE_COUNT = 4;
 
 
 	/**
@@ -1629,6 +1750,17 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRobot_Joint();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.Robot#getTopologies <em>Topologies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Topologies</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Robot#getTopologies()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EReference getRobot_Topologies();
 
 	/**
 	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.ReUseAble <em>Re Use Able</em>}'.
@@ -2766,6 +2898,49 @@ public interface MyDslPackage extends EPackage {
 	EReference getSafetyController_SoftUpperLimit();
 
 	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Topology <em>Topology</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Topology</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Topology
+	 * @generated
+	 */
+	EClass getTopology();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Topology#getChild <em>Child</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Child</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Topology#getChild()
+	 * @see #getTopology()
+	 * @generated
+	 */
+	EReference getTopology_Child();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.Topology#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Topology#getParent()
+	 * @see #getTopology()
+	 * @generated
+	 */
+	EReference getTopology_Parent();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Topology#getJoint <em>Joint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Joint</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Topology#getJoint()
+	 * @see #getTopology()
+	 * @generated
+	 */
+	EReference getTopology_Joint();
+
+	/**
 	 * Returns the meta object for enum '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2774,6 +2949,60 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getJointType();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.JointRef <em>Joint Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Joint Ref</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.JointRef
+	 * @generated
+	 */
+	EClass getJointRef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.xtext.example.mydsl4.myDsl.JointRef#getFix <em>Fix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fix</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.JointRef#getFix()
+	 * @see #getJointRef()
+	 * @generated
+	 */
+	EAttribute getJointRef_Fix();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.xtext.example.mydsl4.myDsl.JointRef#getRev <em>Rev</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rev</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.JointRef#getRev()
+	 * @see #getJointRef()
+	 * @generated
+	 */
+	EAttribute getJointRef_Rev();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.xtext.example.mydsl4.myDsl.JointRef#getPris <em>Pris</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pris</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.JointRef#getPris()
+	 * @see #getJointRef()
+	 * @generated
+	 */
+	EAttribute getJointRef_Pris();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.xtext.example.mydsl4.myDsl.JointRef#getCont <em>Cont</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cont</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.JointRef#getCont()
+	 * @see #getJointRef()
+	 * @generated
+	 */
+	EAttribute getJointRef_Cont();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2830,6 +3059,14 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROBOT__JOINT = eINSTANCE.getRobot_Joint();
+
+		/**
+		 * The meta object literal for the '<em><b>Topologies</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__TOPOLOGIES = eINSTANCE.getRobot_Topologies();
 
 		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.ReUseAbleImpl <em>Re Use Able</em>}' class.
@@ -3742,6 +3979,40 @@ public interface MyDslPackage extends EPackage {
 		EReference SAFETY_CONTROLLER__SOFT_UPPER_LIMIT = eINSTANCE.getSafetyController_SoftUpperLimit();
 
 		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.TopologyImpl <em>Topology</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.TopologyImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getTopology()
+		 * @generated
+		 */
+		EClass TOPOLOGY = eINSTANCE.getTopology();
+
+		/**
+		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOPOLOGY__CHILD = eINSTANCE.getTopology_Child();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOPOLOGY__PARENT = eINSTANCE.getTopology_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Joint</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOPOLOGY__JOINT = eINSTANCE.getTopology_Joint();
+
+		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3750,6 +4021,48 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum JOINT_TYPE = eINSTANCE.getJointType();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.JointRefImpl <em>Joint Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.JointRefImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointRef()
+		 * @generated
+		 */
+		EClass JOINT_REF = eINSTANCE.getJointRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Fix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOINT_REF__FIX = eINSTANCE.getJointRef_Fix();
+
+		/**
+		 * The meta object literal for the '<em><b>Rev</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOINT_REF__REV = eINSTANCE.getJointRef_Rev();
+
+		/**
+		 * The meta object literal for the '<em><b>Pris</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOINT_REF__PRIS = eINSTANCE.getJointRef_Pris();
+
+		/**
+		 * The meta object literal for the '<em><b>Cont</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOINT_REF__CONT = eINSTANCE.getJointRef_Cont();
 
 	}
 

@@ -16,6 +16,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Robot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Robot/links"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Robot/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Robot/topologies"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReUseAble">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ReUseAble/name"/>
@@ -150,6 +151,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SafetyController/k_position"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SafetyController/softLowerLimit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SafetyController/softUpperLimit"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Topology">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Topology/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference MyDsl.ecore#//Topology/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Topology/child"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//JointRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//JointRef/fix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//JointRef/rev"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//JointRef/pris"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//JointRef/cont"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

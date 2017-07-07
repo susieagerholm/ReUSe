@@ -63,7 +63,7 @@ public interface Visual extends ReUseAble {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Geometry</em>' containment reference list.
 	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getVisual_Geometry()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Geometry> getGeometry();

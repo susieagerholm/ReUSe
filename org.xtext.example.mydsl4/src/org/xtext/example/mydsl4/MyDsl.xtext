@@ -5,7 +5,16 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Robot:
 	'Robot' name=ID
-	 (links += Link | joint+=Joint)* 
+	 ('Topology' topologies+=Topology | links+=Link | joint+=Joint)*
+	 //(links += Link | joint+=Joint)* 
+;
+
+Topology:
+	parent=[Link|ID] (joint=JointRef child=Topology)?
+;  
+
+JointRef:
+	 fix = '->' | rev = 'r->' | pris = 'p->' | cont = 'c->'  
 ;
 
 ReUseAble: 
@@ -134,9 +143,6 @@ Color:
 
 Joint:
 	'Joint' name=ID
-	//'ChildOf' childOf=[Link]
-	//'ParentOf' parentOf=[Link]
-	//'Type' type=JointType
 	(('def'  'ChildOf' childOf=[Link] 
 			 'ParentOf' parentOf=[Link] 
 			 'Type' type=JointType) 

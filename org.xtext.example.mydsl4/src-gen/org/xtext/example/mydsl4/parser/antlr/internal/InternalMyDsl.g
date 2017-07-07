@@ -101,11 +101,37 @@ ruleRobot returns [EObject current=null]
 		)
 		(
 			(
+				otherlv_2='Topology'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getRobotAccess().getTopologyKeyword_2_0_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getRobotAccess().getTopologiesTopologyParserRuleCall_2_0_1_0());
+						}
+						lv_topologies_3_0=ruleTopology
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getRobotRule());
+							}
+							add(
+								$current,
+								"topologies",
+								lv_topologies_3_0,
+								"org.xtext.example.mydsl4.MyDsl.Topology");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_0_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getLinksLinkParserRuleCall_2_1_0());
 					}
-					lv_links_2_0=ruleLink
+					lv_links_4_0=ruleLink
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -113,7 +139,7 @@ ruleRobot returns [EObject current=null]
 						add(
 							$current,
 							"links",
-							lv_links_2_0,
+							lv_links_4_0,
 							"org.xtext.example.mydsl4.MyDsl.Link");
 						afterParserOrEnumRuleCall();
 					}
@@ -123,9 +149,9 @@ ruleRobot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getJointJointParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getJointJointParserRuleCall_2_2_0());
 					}
-					lv_joint_3_0=ruleJoint
+					lv_joint_5_0=ruleJoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -133,13 +159,163 @@ ruleRobot returns [EObject current=null]
 						add(
 							$current,
 							"joint",
-							lv_joint_3_0,
+							lv_joint_5_0,
 							"org.xtext.example.mydsl4.MyDsl.Joint");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleTopology
+entryRuleTopology returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTopologyRule()); }
+	iv_ruleTopology=ruleTopology
+	{ $current=$iv_ruleTopology.current; }
+	EOF;
+
+// Rule Topology
+ruleTopology returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTopologyRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getTopologyAccess().getParentLinkCrossReference_0_0());
+				}
+			)
+		)
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTopologyAccess().getJointJointRefParserRuleCall_1_0_0());
+					}
+					lv_joint_1_0=ruleJointRef
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTopologyRule());
+						}
+						set(
+							$current,
+							"joint",
+							lv_joint_1_0,
+							"org.xtext.example.mydsl4.MyDsl.JointRef");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTopologyAccess().getChildTopologyParserRuleCall_1_1_0());
+					}
+					lv_child_2_0=ruleTopology
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTopologyRule());
+						}
+						set(
+							$current,
+							"child",
+							lv_child_2_0,
+							"org.xtext.example.mydsl4.MyDsl.Topology");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleJointRef
+entryRuleJointRef returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getJointRefRule()); }
+	iv_ruleJointRef=ruleJointRef
+	{ $current=$iv_ruleJointRef.current; }
+	EOF;
+
+// Rule JointRef
+ruleJointRef returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_fix_0_0='->'
+				{
+					newLeafNode(lv_fix_0_0, grammarAccess.getJointRefAccess().getFixHyphenMinusGreaterThanSignKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getJointRefRule());
+					}
+					setWithLastConsumed($current, "fix", lv_fix_0_0, "->");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_rev_1_0='r->'
+				{
+					newLeafNode(lv_rev_1_0, grammarAccess.getJointRefAccess().getRevRKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getJointRefRule());
+					}
+					setWithLastConsumed($current, "rev", lv_rev_1_0, "r->");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_pris_2_0='p->'
+				{
+					newLeafNode(lv_pris_2_0, grammarAccess.getJointRefAccess().getPrisPKeyword_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getJointRefRule());
+					}
+					setWithLastConsumed($current, "pris", lv_pris_2_0, "p->");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_cont_3_0='c->'
+				{
+					newLeafNode(lv_cont_3_0, grammarAccess.getJointRefAccess().getContCKeyword_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getJointRefRule());
+					}
+					setWithLastConsumed($current, "cont", lv_cont_3_0, "c->");
+				}
+			)
+		)
 	)
 ;
 

@@ -25,6 +25,7 @@ import org.xtext.example.mydsl4.myDsl.Dynamics;
 import org.xtext.example.mydsl4.myDsl.Inertia;
 import org.xtext.example.mydsl4.myDsl.Inertial;
 import org.xtext.example.mydsl4.myDsl.Joint;
+import org.xtext.example.mydsl4.myDsl.JointRef;
 import org.xtext.example.mydsl4.myDsl.Limit;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.Mass;
@@ -37,6 +38,7 @@ import org.xtext.example.mydsl4.myDsl.Robot;
 import org.xtext.example.mydsl4.myDsl.SafetyController;
 import org.xtext.example.mydsl4.myDsl.Sphere;
 import org.xtext.example.mydsl4.myDsl.Texture;
+import org.xtext.example.mydsl4.myDsl.Topology;
 import org.xtext.example.mydsl4.myDsl.URDFAttrFloat;
 import org.xtext.example.mydsl4.myDsl.URDFAttrINT;
 import org.xtext.example.mydsl4.myDsl.URDFAttrNumeric;
@@ -92,6 +94,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.JOINT:
 				sequence_Joint(context, (Joint) semanticObject); 
 				return; 
+			case MyDslPackage.JOINT_REF:
+				sequence_JointRef(context, (JointRef) semanticObject); 
+				return; 
 			case MyDslPackage.LIMIT:
 				sequence_Limit(context, (Limit) semanticObject); 
 				return; 
@@ -124,6 +129,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.TEXTURE:
 				sequence_Texture(context, (Texture) semanticObject); 
+				return; 
+			case MyDslPackage.TOPOLOGY:
+				sequence_Topology(context, (Topology) semanticObject); 
 				return; 
 			case MyDslPackage.URDF_ATTR_FLOAT:
 				sequence_URDFAttrFloat(context, (URDFAttrFloat) semanticObject); 
@@ -293,6 +301,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     JointRef returns JointRef
+	 *
+	 * Constraint:
+	 *     (fix='->' | rev='r->' | pris='p->' | cont='c->')
+	 */
+	protected void sequence_JointRef(ISerializationContext context, JointRef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Joint returns Joint
 	 *
 	 * Constraint:
@@ -428,7 +448,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=ID (links+=Link | joint+=Joint)*)
+	 *     (name=ID (topologies+=Topology | links+=Link | joint+=Joint)*)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -475,6 +495,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID? pathToFile=URDFAttrSTRING)
 	 */
 	protected void sequence_Texture(ISerializationContext context, Texture semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Topology returns Topology
+	 *
+	 * Constraint:
+	 *     (parent=[Link|ID] (joint=JointRef child=Topology)?)
+	 */
+	protected void sequence_Topology(ISerializationContext context, Topology semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

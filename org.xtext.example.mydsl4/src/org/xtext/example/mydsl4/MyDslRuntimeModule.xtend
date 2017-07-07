@@ -4,16 +4,34 @@
 package org.xtext.example.mydsl4
 
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.resource.DerivedStateAwareResource
+import org.eclipse.xtext.resource.IDerivedStateComputer
+import org.eclipse.xtext.resource.IResourceDescription
+import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class MyDslRuntimeModule extends AbstractMyDslRuntimeModule {
 	
+	//Binding IQualifiedNameProvider for naming nameless elements (enables ReUse feature) 
  	@Override
     override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
         MyQNP;
     }
+	
+	//Binding IDerivedStateComputer for resolving link refs in topology	
+	  override bindXtextResource() {
+	     DerivedStateAwareResource   
+	}   
+	
+	def  Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {     
+	     UrdfDerivedStateComputer   
+	}   
+
+	def  Class<? extends IResourceDescription.Manager> bindIResourceDescriptionManager() {
+	     DerivedStateAwareResourceDescriptionManager   
+	} 	
 		
 		
 	

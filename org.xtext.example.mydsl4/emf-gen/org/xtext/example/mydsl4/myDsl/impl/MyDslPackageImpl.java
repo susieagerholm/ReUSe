@@ -23,6 +23,7 @@ import org.xtext.example.mydsl4.myDsl.Geometry;
 import org.xtext.example.mydsl4.myDsl.Inertia;
 import org.xtext.example.mydsl4.myDsl.Inertial;
 import org.xtext.example.mydsl4.myDsl.Joint;
+import org.xtext.example.mydsl4.myDsl.JointRef;
 import org.xtext.example.mydsl4.myDsl.JointType;
 import org.xtext.example.mydsl4.myDsl.Limit;
 import org.xtext.example.mydsl4.myDsl.Link;
@@ -40,6 +41,7 @@ import org.xtext.example.mydsl4.myDsl.Robot;
 import org.xtext.example.mydsl4.myDsl.SafetyController;
 import org.xtext.example.mydsl4.myDsl.Sphere;
 import org.xtext.example.mydsl4.myDsl.Texture;
+import org.xtext.example.mydsl4.myDsl.Topology;
 import org.xtext.example.mydsl4.myDsl.URDFAttrFloat;
 import org.xtext.example.mydsl4.myDsl.URDFAttrINT;
 import org.xtext.example.mydsl4.myDsl.URDFAttrNumeric;
@@ -283,6 +285,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass topologyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jointRefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum jointTypeEEnum = null;
 
 	/**
@@ -380,6 +396,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 */
 	public EReference getRobot_Joint() {
 		return (EReference)robotEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRobot_Topologies() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1341,6 +1366,87 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTopology() {
+		return topologyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTopology_Parent() {
+		return (EReference)topologyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTopology_Joint() {
+		return (EReference)topologyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTopology_Child() {
+		return (EReference)topologyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getJointRef() {
+		return jointRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJointRef_Fix() {
+		return (EAttribute)jointRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJointRef_Rev() {
+		return (EAttribute)jointRefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJointRef_Pris() {
+		return (EAttribute)jointRefEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJointRef_Cont() {
+		return (EAttribute)jointRefEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getJointType() {
 		return jointTypeEEnum;
 	}
@@ -1377,6 +1483,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		createEAttribute(robotEClass, ROBOT__NAME);
 		createEReference(robotEClass, ROBOT__LINKS);
 		createEReference(robotEClass, ROBOT__JOINT);
+		createEReference(robotEClass, ROBOT__TOPOLOGIES);
 
 		reUseAbleEClass = createEClass(RE_USE_ABLE);
 		createEAttribute(reUseAbleEClass, RE_USE_ABLE__NAME);
@@ -1515,6 +1622,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		createEReference(safetyControllerEClass, SAFETY_CONTROLLER__SOFT_LOWER_LIMIT);
 		createEReference(safetyControllerEClass, SAFETY_CONTROLLER__SOFT_UPPER_LIMIT);
 
+		topologyEClass = createEClass(TOPOLOGY);
+		createEReference(topologyEClass, TOPOLOGY__PARENT);
+		createEReference(topologyEClass, TOPOLOGY__JOINT);
+		createEReference(topologyEClass, TOPOLOGY__CHILD);
+
+		jointRefEClass = createEClass(JOINT_REF);
+		createEAttribute(jointRefEClass, JOINT_REF__FIX);
+		createEAttribute(jointRefEClass, JOINT_REF__REV);
+		createEAttribute(jointRefEClass, JOINT_REF__PRIS);
+		createEAttribute(jointRefEClass, JOINT_REF__CONT);
+
 		// Create enums
 		jointTypeEEnum = createEEnum(JOINT_TYPE);
 	}
@@ -1550,6 +1668,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		linkEClass.getESuperTypes().add(this.getReUseAble());
 		reUsableRefEClass.getESuperTypes().add(this.getRef());
 		urdfAttrSignedNumericEClass.getESuperTypes().add(this.getReUseAble());
+		urdfAttrNumericEClass.getESuperTypes().add(this.getReUseAble());
 		dotExpressionEClass.getESuperTypes().add(this.getRef());
 		inertialEClass.getESuperTypes().add(this.getReUseAble());
 		visualEClass.getESuperTypes().add(this.getReUseAble());
@@ -1577,6 +1696,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Links(), this.getLink(), null, "links", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Joint(), this.getJoint(), null, "joint", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_Topologies(), this.getTopology(), null, "topologies", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reUseAbleEClass, ReUseAble.class, "ReUseAble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReUseAble_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReUseAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1623,7 +1743,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		initEClass(visualEClass, Visual.class, "Visual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVisual_Origin(), this.getOrigin(), null, "origin", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVisual_Geometry(), this.getGeometry(), null, "geometry", null, 0, -1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVisual_Geometry(), this.getGeometry(), null, "geometry", null, 1, -1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVisual_Material(), this.getMaterial(), null, "material", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inertiaEClass, Inertia.class, "Inertia", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1714,6 +1834,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEReference(getSafetyController_K_position(), this.getURDFAttrSignedNumeric(), null, "k_position", null, 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSafetyController_SoftLowerLimit(), this.getURDFAttrSignedNumeric(), null, "softLowerLimit", null, 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSafetyController_SoftUpperLimit(), this.getURDFAttrSignedNumeric(), null, "softUpperLimit", null, 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(topologyEClass, Topology.class, "Topology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTopology_Parent(), this.getLink(), null, "parent", null, 1, 1, Topology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTopology_Joint(), this.getJointRef(), null, "joint", null, 0, 1, Topology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTopology_Child(), this.getTopology(), null, "child", null, 0, 1, Topology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(jointRefEClass, JointRef.class, "JointRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJointRef_Fix(), ecorePackage.getEString(), "fix", null, 0, 1, JointRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJointRef_Rev(), ecorePackage.getEString(), "rev", null, 0, 1, JointRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJointRef_Pris(), ecorePackage.getEString(), "pris", null, 0, 1, JointRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJointRef_Cont(), ecorePackage.getEString(), "cont", null, 0, 1, JointRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jointTypeEEnum, JointType.class, "JointType");

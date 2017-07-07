@@ -3,10 +3,52 @@
  */
 package org.xtext.example.mydsl4.ui.contentassist
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.jface.text.contentassist.ICompletionProposal
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor.Delegate
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
+import org.eclipse.jface.text.contentassist.CompletionProposal
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.CrossReference
+import java.util.function.Predicate
+import org.eclipse.xtext.resource.IEObjectDescription
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class MyDslProposalProvider extends AbstractMyDslProposalProvider {
+	
+ 
+	override void completeVisual_Geometry( EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		
+  	 super.completeVisual_Geometry(model, assignment, context, new MyDLSStringProposalDelegate(acceptor, context))
+  	 //acceptor.accept(createCompletionProposal('hello_world', context))
+  	 //val test = acceptor
+  	
+    }
+   
+    static class MyDLSStringProposalDelegate extends Delegate  {
+		
+		ContentAssistContext ctx
+ 
+        new(ICompletionProposalAcceptor delegate, ContentAssistContext ctx) {
+            super(delegate)
+            this.ctx = ctx
+            
+        }
+ 
+        override accept(ICompletionProposal proposal) {
+        	if (proposal instanceof ConfigurableCompletionProposal) { 
+				val test = proposal.displayString        		
+        	}
+        	
+        	
+        	val test = "hello world"
+            super.accept(new CompletionProposal(test, ctx.offset, test.length, ctx.offset + test.length))
+        }
+ 
+	}
 }

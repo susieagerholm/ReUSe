@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Robot#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Robot#getLinks <em>Links</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Robot#getJoint <em>Joint</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Robot#getTopologies <em>Topologies</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getRobot()
@@ -83,5 +84,21 @@ public interface Robot extends EObject {
 	 * @generated
 	 */
 	EList<Joint> getJoint();
+
+	/**
+	 * Returns the value of the '<em><b>Topologies</b></em>' containment reference list.
+	 * The list contents are of type {@link org.xtext.example.mydsl4.myDsl.Topology}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Topologies</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Topologies</em>' containment reference list.
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getRobot_Topologies()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Topology> getTopologies();
 
 } // Robot

@@ -311,6 +311,24 @@ public interface MyDslFactory extends EFactory {
 	SafetyController createSafetyController();
 
 	/**
+	 * Returns a new object of class '<em>Topology</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Topology</em>'.
+	 * @generated
+	 */
+	Topology createTopology();
+
+	/**
+	 * Returns a new object of class '<em>Joint Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Joint Ref</em>'.
+	 * @generated
+	 */
+	JointRef createJointRef();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
