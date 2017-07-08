@@ -24,7 +24,7 @@ ReUseAble:
   
 Link:
 	{Link} 'Link' name=ID
-	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*) 
+	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*)	 
 		| ('reuse' link=[Link] reuse=Reuse)
 	)?
 	
@@ -63,7 +63,7 @@ Inertia:
 
 Visual:
 	{Visual} 'Visual' (name=ID)? 
-	'Geometry' geometry+=Geometry*
+	'Geometry' geometry+=Geometry+
 	(origin=Origin)?
 	('Material' material=Material)?
 	
@@ -85,8 +85,8 @@ Mass:
 ;
 
 Collision:
-	'Collision' name=ID
-	'Geometry' geometry+=Geometry*
+	'Collision' (name=ID)?
+	'Geometry' geometry+=Geometry+
 	(origin=Origin)?
 ;
 

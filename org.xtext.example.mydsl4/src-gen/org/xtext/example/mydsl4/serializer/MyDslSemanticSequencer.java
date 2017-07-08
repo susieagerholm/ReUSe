@@ -199,7 +199,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Collision returns Collision
 	 *
 	 * Constraint:
-	 *     (name=ID geometry+=Geometry* origin=Origin?)
+	 *     (name=ID? geometry+=Geometry+ origin=Origin?)
 	 */
 	protected void sequence_Collision(ISerializationContext context, Collision semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -601,7 +601,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Visual returns Visual
 	 *
 	 * Constraint:
-	 *     (name=ID? geometry+=Geometry* origin=Origin? material=Material?)
+	 *     (name=ID? geometry+=Geometry+ origin=Origin? material=Material?)
 	 */
 	protected void sequence_Visual(ISerializationContext context, Visual semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

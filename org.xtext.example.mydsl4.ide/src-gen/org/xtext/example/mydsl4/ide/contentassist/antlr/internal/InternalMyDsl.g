@@ -2910,9 +2910,16 @@ rule__Visual__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getVisualAccess().getGeometryAssignment_4()); }
-	(rule__Visual__GeometryAssignment_4)*
-	{ after(grammarAccess.getVisualAccess().getGeometryAssignment_4()); }
+	(
+		{ before(grammarAccess.getVisualAccess().getGeometryAssignment_4()); }
+		(rule__Visual__GeometryAssignment_4)
+		{ after(grammarAccess.getVisualAccess().getGeometryAssignment_4()); }
+	)
+	(
+		{ before(grammarAccess.getVisualAccess().getGeometryAssignment_4()); }
+		(rule__Visual__GeometryAssignment_4)*
+		{ after(grammarAccess.getVisualAccess().getGeometryAssignment_4()); }
+	)
 )
 ;
 finally {
@@ -3694,7 +3701,7 @@ rule__Collision__Group__1__Impl
 :
 (
 	{ before(grammarAccess.getCollisionAccess().getNameAssignment_1()); }
-	(rule__Collision__NameAssignment_1)
+	(rule__Collision__NameAssignment_1)?
 	{ after(grammarAccess.getCollisionAccess().getNameAssignment_1()); }
 )
 ;
@@ -3747,9 +3754,16 @@ rule__Collision__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCollisionAccess().getGeometryAssignment_3()); }
-	(rule__Collision__GeometryAssignment_3)*
-	{ after(grammarAccess.getCollisionAccess().getGeometryAssignment_3()); }
+	(
+		{ before(grammarAccess.getCollisionAccess().getGeometryAssignment_3()); }
+		(rule__Collision__GeometryAssignment_3)
+		{ after(grammarAccess.getCollisionAccess().getGeometryAssignment_3()); }
+	)
+	(
+		{ before(grammarAccess.getCollisionAccess().getGeometryAssignment_3()); }
+		(rule__Collision__GeometryAssignment_3)*
+		{ after(grammarAccess.getCollisionAccess().getGeometryAssignment_3()); }
+	)
 )
 ;
 finally {

@@ -23,8 +23,20 @@ class MyDslProposalProvider extends AbstractMyDslProposalProvider {
 	
  
 	override void completeVisual_Geometry( EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		//if (context.lastCompleteNode.grammarElement.equals("Geometry")) {
+		val modello = model
+		val ass_class = assignment.class
+		val ass_cont = assignment.eContainer
+		val ass_hhh = assignment.eContainingFeature
+		val ctx = context
+		val ctx_a = context.lastCompleteNode.class
+		val ctx_b = context.currentNode
+		val ctx_c = context.firstSetGrammarElements
+		val acc = acceptor
+		val test = "hello world"
 		
-  	 super.completeVisual_Geometry(model, assignment, context, new MyDLSStringProposalDelegate(acceptor, context))
+		//}
+  	 //super.completeVisual_Geometry(model, assignment, context, new MyDLSStringProposalDelegate(acceptor, context))
   	 //acceptor.accept(createCompletionProposal('hello_world', context))
   	 //val test = acceptor
   	

@@ -21,7 +21,7 @@ class MyDslRuntimeModule extends AbstractMyDslRuntimeModule {
     }
 	
 	//Binding IDerivedStateComputer for resolving link refs in topology	
-	  override bindXtextResource() {
+	override bindXtextResource() {
 	     DerivedStateAwareResource   
 	}   
 	

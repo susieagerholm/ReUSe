@@ -1058,7 +1058,7 @@ ruleVisual returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)+
 		(
 			(
 				{
@@ -1406,7 +1406,7 @@ ruleCollision returns [EObject current=null]
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
-		)
+		)?
 		otherlv_2='Geometry'
 		{
 			newLeafNode(otherlv_2, grammarAccess.getCollisionAccess().getGeometryKeyword_2());
@@ -1429,7 +1429,7 @@ ruleCollision returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)+
 		(
 			(
 				{

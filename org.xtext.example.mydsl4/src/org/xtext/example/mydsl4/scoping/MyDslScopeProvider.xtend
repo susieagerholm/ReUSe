@@ -19,6 +19,7 @@ import org.xtext.example.mydsl4.myDsl.ReUsableRef
 import org.xtext.example.mydsl4.myDsl.ReUseAble
 import org.xtext.example.mydsl4.myDsl.Reuse
 import org.xtext.example.mydsl4.myDsl.Robot
+import org.xtext.example.mydsl4.myDsl.Topology
 
 /**
  * This class contains custom scoping description.
@@ -28,6 +29,11 @@ import org.xtext.example.mydsl4.myDsl.Robot
  */
 class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 	override IScope getScope(EObject context, EReference reference) {
+		
+		//Make sure to be able to refer to existing Links in Topology - even if defined later in document 
+		/*if (context instanceof Topology) {
+			
+		}*/
 		
 				
 		//SOMEHOW THIS LINK SCOPING RULE IS NOT USED - EXIST VIA SUPER.GETSCOPE?? 

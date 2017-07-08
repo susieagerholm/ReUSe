@@ -586,10 +586,10 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMaterialMaterialParserRuleCall_6_1_0 = (RuleCall)cMaterialAssignment_6_1.eContents().get(0);
 		
 		//Visual:
-		//	{Visual} 'Visual' name=ID? 'Geometry' geometry+=Geometry* origin=Origin? ('Material' material=Material)?;
+		//	{Visual} 'Visual' name=ID? 'Geometry' geometry+=Geometry+ origin=Origin? ('Material' material=Material)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Visual} 'Visual' name=ID? 'Geometry' geometry+=Geometry* origin=Origin? ('Material' material=Material)?
+		//{Visual} 'Visual' name=ID? 'Geometry' geometry+=Geometry+ origin=Origin? ('Material' material=Material)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Visual}
@@ -607,7 +607,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'Geometry'
 		public Keyword getGeometryKeyword_3() { return cGeometryKeyword_3; }
 		
-		//geometry+=Geometry*
+		//geometry+=Geometry+
 		public Assignment getGeometryAssignment_4() { return cGeometryAssignment_4; }
 		
 		//Geometry
@@ -796,16 +796,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOriginOriginParserRuleCall_4_0 = (RuleCall)cOriginAssignment_4.eContents().get(0);
 		
 		//Collision:
-		//	'Collision' name=ID 'Geometry' geometry+=Geometry* origin=Origin?;
+		//	'Collision' name=ID? 'Geometry' geometry+=Geometry+ origin=Origin?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Collision' name=ID 'Geometry' geometry+=Geometry* origin=Origin?
+		//'Collision' name=ID? 'Geometry' geometry+=Geometry+ origin=Origin?
 		public Group getGroup() { return cGroup; }
 		
 		//'Collision'
 		public Keyword getCollisionKeyword_0() { return cCollisionKeyword_0; }
 		
-		//name=ID
+		//name=ID?
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
@@ -814,7 +814,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'Geometry'
 		public Keyword getGeometryKeyword_2() { return cGeometryKeyword_2; }
 		
-		//geometry+=Geometry*
+		//geometry+=Geometry+
 		public Assignment getGeometryAssignment_3() { return cGeometryAssignment_3; }
 		
 		//Geometry
@@ -2183,7 +2183,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Visual:
-	//	{Visual} 'Visual' name=ID? 'Geometry' geometry+=Geometry* origin=Origin? ('Material' material=Material)?;
+	//	{Visual} 'Visual' name=ID? 'Geometry' geometry+=Geometry+ origin=Origin? ('Material' material=Material)?;
 	public VisualElements getVisualAccess() {
 		return pVisual;
 	}
@@ -2214,7 +2214,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Collision:
-	//	'Collision' name=ID 'Geometry' geometry+=Geometry* origin=Origin?;
+	//	'Collision' name=ID? 'Geometry' geometry+=Geometry+ origin=Origin?;
 	public CollisionElements getCollisionAccess() {
 		return pCollision;
 	}
