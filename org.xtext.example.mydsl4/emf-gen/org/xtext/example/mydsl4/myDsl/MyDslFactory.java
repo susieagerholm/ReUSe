@@ -329,6 +329,15 @@ public interface MyDslFactory extends EFactory {
 	JointRef createJointRef();
 
 	/**
+	 * Returns a new object of class '<em>Assign New Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assign New Value</em>'.
+	 * @generated
+	 */
+	AssignNewValue createAssignNewValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

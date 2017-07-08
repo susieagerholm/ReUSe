@@ -310,18 +310,22 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAddKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Assignment cAddAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cAddReUseAbleParserRuleCall_1_1_1_0 = (RuleCall)cAddAssignment_1_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Keyword cEdit2Keyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cEditAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cEditAssignNewValueParserRuleCall_1_2_1_0 = (RuleCall)cEditAssignment_1_2_1.eContents().get(0);
 		
 		//Reuse:
-		//	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble)?;
+		//	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble | 'edit2' edit=AssignNewValue)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble)?
+		//{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble | 'edit2' edit=AssignNewValue)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Reuse}
 		public Action getReuseAction_0() { return cReuseAction_0; }
 		
-		//('edit' ref=DotExpression | 'add' add=ReUseAble)?
+		//('edit' ref=DotExpression | 'add' add=ReUseAble | 'edit2' edit=AssignNewValue)?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//'edit' ref=DotExpression
@@ -347,6 +351,49 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ReUseAble
 		public RuleCall getAddReUseAbleParserRuleCall_1_1_1_0() { return cAddReUseAbleParserRuleCall_1_1_1_0; }
+		
+		//'edit2' edit=AssignNewValue
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//'edit2'
+		public Keyword getEdit2Keyword_1_2_0() { return cEdit2Keyword_1_2_0; }
+		
+		//edit=AssignNewValue
+		public Assignment getEditAssignment_1_2_1() { return cEditAssignment_1_2_1; }
+		
+		//AssignNewValue
+		public RuleCall getEditAssignNewValueParserRuleCall_1_2_1_0() { return cEditAssignNewValueParserRuleCall_1_2_1_0; }
+	}
+	public class AssignNewValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.AssignNewValue");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cGetRefAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cGetRefDotExpressionParserRuleCall_0_0 = (RuleCall)cGetRefAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNewValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNewValueURDFAttrNumericParserRuleCall_2_0 = (RuleCall)cNewValueAssignment_2.eContents().get(0);
+		
+		//AssignNewValue:
+		//	getRef=DotExpression '=' newValue=URDFAttrNumeric;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//getRef=DotExpression '=' newValue=URDFAttrNumeric
+		public Group getGroup() { return cGroup; }
+		
+		//getRef=DotExpression
+		public Assignment getGetRefAssignment_0() { return cGetRefAssignment_0; }
+		
+		//DotExpression
+		public RuleCall getGetRefDotExpressionParserRuleCall_0_0() { return cGetRefDotExpressionParserRuleCall_0_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//newValue=URDFAttrNumeric
+		public Assignment getNewValueAssignment_2() { return cNewValueAssignment_2; }
+		
+		//URDFAttrNumeric
+		public RuleCall getNewValueURDFAttrNumericParserRuleCall_2_0() { return cNewValueURDFAttrNumericParserRuleCall_2_0; }
 	}
 	public class DotExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.DotExpression");
@@ -1969,6 +2016,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ReUseAbleElements pReUseAble;
 	private final LinkElements pLink;
 	private final ReuseElements pReuse;
+	private final AssignNewValueElements pAssignNewValue;
 	private final DotExpressionElements pDotExpression;
 	private final ReUsableRefElements pReUsableRef;
 	private final InertialElements pInertial;
@@ -2017,6 +2065,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pReUseAble = new ReUseAbleElements();
 		this.pLink = new LinkElements();
 		this.pReuse = new ReuseElements();
+		this.pAssignNewValue = new AssignNewValueElements();
 		this.pDotExpression = new DotExpressionElements();
 		this.pReUsableRef = new ReUsableRefElements();
 		this.pInertial = new InertialElements();
@@ -2131,13 +2180,23 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Reuse:
-	//	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble)?;
+	//	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble | 'edit2' edit=AssignNewValue)?;
 	public ReuseElements getReuseAccess() {
 		return pReuse;
 	}
 	
 	public ParserRule getReuseRule() {
 		return getReuseAccess().getRule();
+	}
+	
+	//AssignNewValue:
+	//	getRef=DotExpression '=' newValue=URDFAttrNumeric;
+	public AssignNewValueElements getAssignNewValueAccess() {
+		return pAssignNewValue;
+	}
+	
+	public ParserRule getAssignNewValueRule() {
+		return getAssignNewValueAccess().getRule();
 	}
 	
 	//DotExpression Ref:

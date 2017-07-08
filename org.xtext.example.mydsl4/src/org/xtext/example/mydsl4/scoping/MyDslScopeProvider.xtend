@@ -97,7 +97,7 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 					}*/
 					
                 	switch (tail) {
-                		Box       :	Scopes::scopeFor(tail.eClass.EReferences, [y | QualifiedName.create(y.name) ], IScope::NULLSCOPE)
+                		//Box       :	Scopes::scopeFor(tail.eClass.EReferences, [y | QualifiedName.create(y.name) ], IScope::NULLSCOPE)
                 		
                 		ReUseAble :  Scopes::scopeFor(tail.eContents, [x | 
                 						//IF NAME IS EXPLICITLY DEFINED, USE THAT!!

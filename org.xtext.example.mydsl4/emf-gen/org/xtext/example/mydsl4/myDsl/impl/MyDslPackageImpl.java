@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl4.myDsl.AssignNewValue;
 import org.xtext.example.mydsl4.myDsl.Axis;
 import org.xtext.example.mydsl4.myDsl.Box;
 import org.xtext.example.mydsl4.myDsl.Calibration;
@@ -299,6 +300,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass assignNewValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum jointTypeEEnum = null;
 
 	/**
@@ -504,6 +512,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 */
 	public EReference getReuse_Ref() {
 		return (EReference)reuseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getReuse_Edit() {
+		return (EReference)reuseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1447,6 +1464,33 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAssignNewValue() {
+		return assignNewValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssignNewValue_GetRef() {
+		return (EReference)assignNewValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssignNewValue_NewValue() {
+		return (EReference)assignNewValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getJointType() {
 		return jointTypeEEnum;
 	}
@@ -1498,6 +1542,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		reuseEClass = createEClass(REUSE);
 		createEReference(reuseEClass, REUSE__ADD);
 		createEReference(reuseEClass, REUSE__REF);
+		createEReference(reuseEClass, REUSE__EDIT);
 
 		refEClass = createEClass(REF);
 
@@ -1633,6 +1678,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		createEAttribute(jointRefEClass, JOINT_REF__PRIS);
 		createEAttribute(jointRefEClass, JOINT_REF__CONT);
 
+		assignNewValueEClass = createEClass(ASSIGN_NEW_VALUE);
+		createEReference(assignNewValueEClass, ASSIGN_NEW_VALUE__GET_REF);
+		createEReference(assignNewValueEClass, ASSIGN_NEW_VALUE__NEW_VALUE);
+
 		// Create enums
 		jointTypeEEnum = createEEnum(JOINT_TYPE);
 	}
@@ -1711,6 +1760,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEClass(reuseEClass, Reuse.class, "Reuse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReuse_Add(), this.getReUseAble(), null, "add", null, 0, 1, Reuse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReuse_Ref(), this.getRef(), null, "ref", null, 0, 1, Reuse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReuse_Edit(), this.getAssignNewValue(), null, "edit", null, 0, 1, Reuse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(refEClass, Ref.class, "Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1845,6 +1895,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEAttribute(getJointRef_Rev(), ecorePackage.getEString(), "rev", null, 0, 1, JointRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJointRef_Pris(), ecorePackage.getEString(), "pris", null, 0, 1, JointRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJointRef_Cont(), ecorePackage.getEString(), "cont", null, 0, 1, JointRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(assignNewValueEClass, AssignNewValue.class, "AssignNewValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssignNewValue_GetRef(), this.getRef(), null, "getRef", null, 1, 1, AssignNewValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssignNewValue_NewValue(), this.getURDFAttrNumeric(), null, "newValue", null, 1, 1, AssignNewValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jointTypeEEnum, JointType.class, "JointType");

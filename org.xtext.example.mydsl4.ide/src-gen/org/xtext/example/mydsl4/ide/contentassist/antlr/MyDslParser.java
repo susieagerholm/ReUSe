@@ -59,6 +59,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReuseAccess().getGroup(), "rule__Reuse__Group__0");
 					put(grammarAccess.getReuseAccess().getGroup_1_0(), "rule__Reuse__Group_1_0__0");
 					put(grammarAccess.getReuseAccess().getGroup_1_1(), "rule__Reuse__Group_1_1__0");
+					put(grammarAccess.getReuseAccess().getGroup_1_2(), "rule__Reuse__Group_1_2__0");
+					put(grammarAccess.getAssignNewValueAccess().getGroup(), "rule__AssignNewValue__Group__0");
 					put(grammarAccess.getDotExpressionAccess().getGroup(), "rule__DotExpression__Group__0");
 					put(grammarAccess.getDotExpressionAccess().getGroup_1(), "rule__DotExpression__Group_1__0");
 					put(grammarAccess.getReUsableRefAccess().getGroup(), "rule__ReUsableRef__Group__0");
@@ -117,6 +119,9 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkAccess().getReuseAssignment_3_1_2(), "rule__Link__ReuseAssignment_3_1_2");
 					put(grammarAccess.getReuseAccess().getRefAssignment_1_0_1(), "rule__Reuse__RefAssignment_1_0_1");
 					put(grammarAccess.getReuseAccess().getAddAssignment_1_1_1(), "rule__Reuse__AddAssignment_1_1_1");
+					put(grammarAccess.getReuseAccess().getEditAssignment_1_2_1(), "rule__Reuse__EditAssignment_1_2_1");
+					put(grammarAccess.getAssignNewValueAccess().getGetRefAssignment_0(), "rule__AssignNewValue__GetRefAssignment_0");
+					put(grammarAccess.getAssignNewValueAccess().getNewValueAssignment_2(), "rule__AssignNewValue__NewValueAssignment_2");
 					put(grammarAccess.getDotExpressionAccess().getTailAssignment_1_2(), "rule__DotExpression__TailAssignment_1_2");
 					put(grammarAccess.getReUsableRefAccess().getReuseableAssignment_1(), "rule__ReUsableRef__ReuseableAssignment_1");
 					put(grammarAccess.getInertialAccess().getNameAssignment_2(), "rule__Inertial__NameAssignment_2");

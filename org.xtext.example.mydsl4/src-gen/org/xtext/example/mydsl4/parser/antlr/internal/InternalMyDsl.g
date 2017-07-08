@@ -604,7 +604,94 @@ ruleReuse returns [EObject current=null]
 					)
 				)
 			)
+			    |
+			(
+				otherlv_5='edit2'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getReuseAccess().getEdit2Keyword_1_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getReuseAccess().getEditAssignNewValueParserRuleCall_1_2_1_0());
+						}
+						lv_edit_6_0=ruleAssignNewValue
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getReuseRule());
+							}
+							set(
+								$current,
+								"edit",
+								lv_edit_6_0,
+								"org.xtext.example.mydsl4.MyDsl.AssignNewValue");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
 		)?
+	)
+;
+
+// Entry rule entryRuleAssignNewValue
+entryRuleAssignNewValue returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAssignNewValueRule()); }
+	iv_ruleAssignNewValue=ruleAssignNewValue
+	{ $current=$iv_ruleAssignNewValue.current; }
+	EOF;
+
+// Rule AssignNewValue
+ruleAssignNewValue returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAssignNewValueAccess().getGetRefDotExpressionParserRuleCall_0_0());
+				}
+				lv_getRef_0_0=ruleDotExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAssignNewValueRule());
+					}
+					set(
+						$current,
+						"getRef",
+						lv_getRef_0_0,
+						"org.xtext.example.mydsl4.MyDsl.DotExpression");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getAssignNewValueAccess().getEqualsSignKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAssignNewValueAccess().getNewValueURDFAttrNumericParserRuleCall_2_0());
+				}
+				lv_newValue_2_0=ruleURDFAttrNumeric
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAssignNewValueRule());
+					}
+					set(
+						$current,
+						"newValue",
+						lv_newValue_2_0,
+						"org.xtext.example.mydsl4.MyDsl.URDFAttrNumeric");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

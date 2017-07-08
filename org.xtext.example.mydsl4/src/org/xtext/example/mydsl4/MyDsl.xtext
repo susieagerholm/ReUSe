@@ -31,7 +31,11 @@ Link:
 ;
 
 Reuse:
-	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble)?
+	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble | 'edit2' edit=AssignNewValue)?
+;
+
+AssignNewValue:
+	getRef=DotExpression '=' newValue=URDFAttrNumeric
 ;
 
 

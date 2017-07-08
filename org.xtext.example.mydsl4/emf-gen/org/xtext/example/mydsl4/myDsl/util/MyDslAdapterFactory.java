@@ -205,6 +205,10 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 				return createJointRefAdapter();
 			}
 			@Override
+			public Adapter caseAssignNewValue(AssignNewValue object) {
+				return createAssignNewValueAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -697,6 +701,20 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJointRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue <em>Assign New Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.xtext.example.mydsl4.myDsl.AssignNewValue
+	 * @generated
+	 */
+	public Adapter createAssignNewValueAdapter() {
 		return null;
 	}
 

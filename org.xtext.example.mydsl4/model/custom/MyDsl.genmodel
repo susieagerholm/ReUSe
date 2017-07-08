@@ -31,6 +31,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//Reuse">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reuse/add"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reuse/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reuse/edit"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Ref"/>
     <genClasses ecoreClass="MyDsl.ecore#//ReUsableRef">
@@ -162,6 +163,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//JointRef/rev"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//JointRef/pris"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//JointRef/cont"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//AssignNewValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//AssignNewValue/getRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//AssignNewValue/newValue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

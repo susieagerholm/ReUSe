@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl4.myDsl.AssignNewValue;
 import org.xtext.example.mydsl4.myDsl.Axis;
 import org.xtext.example.mydsl4.myDsl.Box;
 import org.xtext.example.mydsl4.myDsl.Calibration;
@@ -61,6 +62,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.ASSIGN_NEW_VALUE:
+				sequence_AssignNewValue(context, (AssignNewValue) semanticObject); 
+				return; 
 			case MyDslPackage.AXIS:
 				sequence_Axis(context, (Axis) semanticObject); 
 				return; 
@@ -155,6 +159,27 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     AssignNewValue returns AssignNewValue
+	 *
+	 * Constraint:
+	 *     (getRef=DotExpression newValue=URDFAttrNumeric)
+	 */
+	protected void sequence_AssignNewValue(ISerializationContext context, AssignNewValue semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__GET_REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__GET_REF));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__NEW_VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__NEW_VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAssignNewValueAccess().getGetRefDotExpressionParserRuleCall_0_0(), semanticObject.getGetRef());
+		feeder.accept(grammarAccess.getAssignNewValueAccess().getNewValueURDFAttrNumericParserRuleCall_2_0(), semanticObject.getNewValue());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -436,7 +461,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Reuse returns Reuse
 	 *
 	 * Constraint:
-	 *     (ref=DotExpression | add=ReUseAble)?
+	 *     (ref=DotExpression | add=ReUseAble | edit=AssignNewValue)?
 	 */
 	protected void sequence_Reuse(ISerializationContext context, Reuse semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

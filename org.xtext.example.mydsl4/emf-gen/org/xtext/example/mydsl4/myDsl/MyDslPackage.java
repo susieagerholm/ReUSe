@@ -242,13 +242,22 @@ public interface MyDslPackage extends EPackage {
 	int REUSE__REF = 1;
 
 	/**
+	 * The feature id for the '<em><b>Edit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REUSE__EDIT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Reuse</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REUSE_FEATURE_COUNT = 2;
+	int REUSE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.RefImpl <em>Ref</em>}' class.
@@ -1648,7 +1657,7 @@ public interface MyDslPackage extends EPackage {
 	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
 	 * @generated
 	 */
-	int JOINT_TYPE = 34;
+	int JOINT_TYPE = 35;
 
 
 	/**
@@ -1706,6 +1715,44 @@ public interface MyDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOINT_REF_FEATURE_COUNT = 4;
+
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl <em>Assign New Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getAssignNewValue()
+	 * @generated
+	 */
+	int ASSIGN_NEW_VALUE = 34;
+
+	/**
+	 * The feature id for the '<em><b>Get Ref</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN_NEW_VALUE__GET_REF = 0;
+
+	/**
+	 * The feature id for the '<em><b>New Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN_NEW_VALUE__NEW_VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Assign New Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN_NEW_VALUE_FEATURE_COUNT = 2;
 
 
 	/**
@@ -1879,6 +1926,17 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getReuse_Ref();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Reuse#getEdit <em>Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Edit</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Reuse#getEdit()
+	 * @see #getReuse()
+	 * @generated
+	 */
+	EReference getReuse_Edit();
 
 	/**
 	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.Ref <em>Ref</em>}'.
@@ -3005,6 +3063,38 @@ public interface MyDslPackage extends EPackage {
 	EAttribute getJointRef_Cont();
 
 	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue <em>Assign New Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assign New Value</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AssignNewValue
+	 * @generated
+	 */
+	EClass getAssignNewValue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getGetRef <em>Get Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Get Ref</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AssignNewValue#getGetRef()
+	 * @see #getAssignNewValue()
+	 * @generated
+	 */
+	EReference getAssignNewValue_GetRef();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewValue <em>New Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>New Value</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewValue()
+	 * @see #getAssignNewValue()
+	 * @generated
+	 */
+	EReference getAssignNewValue_NewValue();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3161,6 +3251,14 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REUSE__REF = eINSTANCE.getReuse_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Edit</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REUSE__EDIT = eINSTANCE.getReuse_Edit();
 
 		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.RefImpl <em>Ref</em>}' class.
@@ -4063,6 +4161,32 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOINT_REF__CONT = eINSTANCE.getJointRef_Cont();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl <em>Assign New Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getAssignNewValue()
+		 * @generated
+		 */
+		EClass ASSIGN_NEW_VALUE = eINSTANCE.getAssignNewValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Ref</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIGN_NEW_VALUE__GET_REF = eINSTANCE.getAssignNewValue_GetRef();
+
+		/**
+		 * The meta object literal for the '<em><b>New Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIGN_NEW_VALUE__NEW_VALUE = eINSTANCE.getAssignNewValue_NewValue();
 
 	}
 

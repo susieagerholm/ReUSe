@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl4.myDsl.AssignNewValue;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
 import org.xtext.example.mydsl4.myDsl.ReUseAble;
 import org.xtext.example.mydsl4.myDsl.Ref;
@@ -27,6 +28,7 @@ import org.xtext.example.mydsl4.myDsl.Reuse;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.ReuseImpl#getAdd <em>Add</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.ReuseImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.ReuseImpl#getEdit <em>Edit</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +53,16 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 	 * @ordered
 	 */
 	protected Ref ref;
+
+	/**
+	 * The cached value of the '{@link #getEdit() <em>Edit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEdit()
+	 * @generated
+	 * @ordered
+	 */
+	protected AssignNewValue edit;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,6 +174,49 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AssignNewValue getEdit() {
+		return edit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEdit(AssignNewValue newEdit, NotificationChain msgs) {
+		AssignNewValue oldEdit = edit;
+		edit = newEdit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.REUSE__EDIT, oldEdit, newEdit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEdit(AssignNewValue newEdit) {
+		if (newEdit != edit) {
+			NotificationChain msgs = null;
+			if (edit != null)
+				msgs = ((InternalEObject)edit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REUSE__EDIT, null, msgs);
+			if (newEdit != null)
+				msgs = ((InternalEObject)newEdit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REUSE__EDIT, null, msgs);
+			msgs = basicSetEdit(newEdit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REUSE__EDIT, newEdit, newEdit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -169,6 +224,8 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 				return basicSetAdd(null, msgs);
 			case MyDslPackage.REUSE__REF:
 				return basicSetRef(null, msgs);
+			case MyDslPackage.REUSE__EDIT:
+				return basicSetEdit(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -185,6 +242,8 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 				return getAdd();
 			case MyDslPackage.REUSE__REF:
 				return getRef();
+			case MyDslPackage.REUSE__EDIT:
+				return getEdit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,6 +261,9 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 				return;
 			case MyDslPackage.REUSE__REF:
 				setRef((Ref)newValue);
+				return;
+			case MyDslPackage.REUSE__EDIT:
+				setEdit((AssignNewValue)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,6 +283,9 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 			case MyDslPackage.REUSE__REF:
 				setRef((Ref)null);
 				return;
+			case MyDslPackage.REUSE__EDIT:
+				setEdit((AssignNewValue)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,6 +302,8 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 				return add != null;
 			case MyDslPackage.REUSE__REF:
 				return ref != null;
+			case MyDslPackage.REUSE__EDIT:
+				return edit != null;
 		}
 		return super.eIsSet(featureID);
 	}
