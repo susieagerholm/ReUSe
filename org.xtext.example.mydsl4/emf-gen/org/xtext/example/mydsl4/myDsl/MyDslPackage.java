@@ -233,22 +233,13 @@ public interface MyDslPackage extends EPackage {
 	int REUSE__ADD = 0;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REUSE__REF = 1;
-
-	/**
 	 * The feature id for the '<em><b>Edit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REUSE__EDIT = 2;
+	int REUSE__EDIT = 1;
 
 	/**
 	 * The number of structural features of the '<em>Reuse</em>' class.
@@ -257,7 +248,7 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REUSE_FEATURE_COUNT = 3;
+	int REUSE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.RefImpl <em>Ref</em>}' class.
@@ -1917,17 +1908,6 @@ public interface MyDslPackage extends EPackage {
 	EReference getReuse_Add();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Reuse#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Ref</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.Reuse#getRef()
-	 * @see #getReuse()
-	 * @generated
-	 */
-	EReference getReuse_Ref();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Reuse#getEdit <em>Edit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3243,14 +3223,6 @@ public interface MyDslPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REUSE__ADD = eINSTANCE.getReuse_Add();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REUSE__REF = eINSTANCE.getReuse_Ref();
 
 		/**
 		 * The meta object literal for the '<em><b>Edit</b></em>' containment reference feature.

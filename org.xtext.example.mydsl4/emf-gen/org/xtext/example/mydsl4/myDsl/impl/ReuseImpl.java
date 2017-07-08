@@ -27,7 +27,6 @@ import org.xtext.example.mydsl4.myDsl.Reuse;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.ReuseImpl#getAdd <em>Add</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.ReuseImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.ReuseImpl#getEdit <em>Edit</em>}</li>
  * </ul>
  *
@@ -43,16 +42,6 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 	 * @ordered
 	 */
 	protected ReUseAble add;
-
-	/**
-	 * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected Ref ref;
 
 	/**
 	 * The cached value of the '{@link #getEdit() <em>Edit</em>}' containment reference.
@@ -131,49 +120,6 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Ref getRef() {
-		return ref;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRef(Ref newRef, NotificationChain msgs) {
-		Ref oldRef = ref;
-		ref = newRef;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.REUSE__REF, oldRef, newRef);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRef(Ref newRef) {
-		if (newRef != ref) {
-			NotificationChain msgs = null;
-			if (ref != null)
-				msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REUSE__REF, null, msgs);
-			if (newRef != null)
-				msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REUSE__REF, null, msgs);
-			msgs = basicSetRef(newRef, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REUSE__REF, newRef, newRef));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AssignNewValue getEdit() {
 		return edit;
 	}
@@ -222,8 +168,6 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 		switch (featureID) {
 			case MyDslPackage.REUSE__ADD:
 				return basicSetAdd(null, msgs);
-			case MyDslPackage.REUSE__REF:
-				return basicSetRef(null, msgs);
 			case MyDslPackage.REUSE__EDIT:
 				return basicSetEdit(null, msgs);
 		}
@@ -240,8 +184,6 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 		switch (featureID) {
 			case MyDslPackage.REUSE__ADD:
 				return getAdd();
-			case MyDslPackage.REUSE__REF:
-				return getRef();
 			case MyDslPackage.REUSE__EDIT:
 				return getEdit();
 		}
@@ -258,9 +200,6 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 		switch (featureID) {
 			case MyDslPackage.REUSE__ADD:
 				setAdd((ReUseAble)newValue);
-				return;
-			case MyDslPackage.REUSE__REF:
-				setRef((Ref)newValue);
 				return;
 			case MyDslPackage.REUSE__EDIT:
 				setEdit((AssignNewValue)newValue);
@@ -280,9 +219,6 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 			case MyDslPackage.REUSE__ADD:
 				setAdd((ReUseAble)null);
 				return;
-			case MyDslPackage.REUSE__REF:
-				setRef((Ref)null);
-				return;
 			case MyDslPackage.REUSE__EDIT:
 				setEdit((AssignNewValue)null);
 				return;
@@ -300,8 +236,6 @@ public class ReuseImpl extends MinimalEObjectImpl.Container implements Reuse {
 		switch (featureID) {
 			case MyDslPackage.REUSE__ADD:
 				return add != null;
-			case MyDslPackage.REUSE__REF:
-				return ref != null;
 			case MyDslPackage.REUSE__EDIT:
 				return edit != null;
 		}

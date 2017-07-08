@@ -24,18 +24,17 @@ ReUseAble:
   
 Link:
 	{Link} 'Link' name=ID
-	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)*)	 
-		| ('reuse' link=[Link] reuse=Reuse)
+	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)+)	 
+		| ('reuse' link=[Link] (reuse=Reuse)?)
 	)?
-	
 ;
 
 Reuse:
-	{Reuse} ('edit' ref=DotExpression | 'add' add=ReUseAble | 'edit2' edit=AssignNewValue)?
+	{Reuse}  'add' add=ReUseAble | 'edit2' edit=AssignNewValue
 ;
 
 AssignNewValue:
-	getRef=DotExpression '=' newValue=URDFAttrNumeric
+	{AssignNewValue} getRef=DotExpression '=' newValue=URDFAttrNumeric
 ;
 
 
@@ -150,7 +149,7 @@ Joint:
 	(('def'  'ChildOf' childOf=[Link] 
 			 'ParentOf' parentOf=[Link] 
 			 'Type' type=JointType) 
-			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 
+			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ | 
 	 //HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
 	 ('reuse' isReuseOf=[Joint] 
 	 	'ChildOf' childOf=[Link] 

@@ -27,7 +27,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Reuse">
     <eStructuralFeatures xsi:type="ecore:EReference" name="add" eType="#//ReUseAble"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Ref" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="edit" eType="#//AssignNewValue"
         containment="true"/>
   </eClassifiers>

@@ -484,7 +484,7 @@ ruleLink returns [EObject current=null]
 							}
 						)
 					)
-				)*
+				)+
 			)
 			    |
 			(
@@ -523,7 +523,7 @@ ruleLink returns [EObject current=null]
 							afterParserOrEnumRuleCall();
 						}
 					)
-				)
+				)?
 			)
 		)?
 	)
@@ -546,91 +546,63 @@ ruleReuse returns [EObject current=null]
 }:
 	(
 		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getReuseAccess().getReuseAction_0_0(),
+						$current);
+				}
+			)
+			otherlv_1='add'
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getReuseAccess().getReuseAction_0(),
-					$current);
+				newLeafNode(otherlv_1, grammarAccess.getReuseAccess().getAddKeyword_0_1());
 			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getReuseAccess().getAddReUseAbleParserRuleCall_0_2_0());
+					}
+					lv_add_2_0=ruleReUseAble
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getReuseRule());
+						}
+						set(
+							$current,
+							"add",
+							lv_add_2_0,
+							"org.xtext.example.mydsl4.MyDsl.ReUseAble");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
+		    |
 		(
+			otherlv_3='edit2'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getReuseAccess().getEdit2Keyword_1_0());
+			}
 			(
-				otherlv_1='edit'
-				{
-					newLeafNode(otherlv_1, grammarAccess.getReuseAccess().getEditKeyword_1_0_0());
-				}
 				(
-					(
-						{
-							newCompositeNode(grammarAccess.getReuseAccess().getRefDotExpressionParserRuleCall_1_0_1_0());
+					{
+						newCompositeNode(grammarAccess.getReuseAccess().getEditAssignNewValueParserRuleCall_1_1_0());
+					}
+					lv_edit_4_0=ruleAssignNewValue
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getReuseRule());
 						}
-						lv_ref_2_0=ruleDotExpression
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getReuseRule());
-							}
-							set(
-								$current,
-								"ref",
-								lv_ref_2_0,
-								"org.xtext.example.mydsl4.MyDsl.DotExpression");
-							afterParserOrEnumRuleCall();
-						}
-					)
+						set(
+							$current,
+							"edit",
+							lv_edit_4_0,
+							"org.xtext.example.mydsl4.MyDsl.AssignNewValue");
+						afterParserOrEnumRuleCall();
+					}
 				)
 			)
-			    |
-			(
-				otherlv_3='add'
-				{
-					newLeafNode(otherlv_3, grammarAccess.getReuseAccess().getAddKeyword_1_1_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getReuseAccess().getAddReUseAbleParserRuleCall_1_1_1_0());
-						}
-						lv_add_4_0=ruleReUseAble
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getReuseRule());
-							}
-							set(
-								$current,
-								"add",
-								lv_add_4_0,
-								"org.xtext.example.mydsl4.MyDsl.ReUseAble");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				otherlv_5='edit2'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getReuseAccess().getEdit2Keyword_1_2_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getReuseAccess().getEditAssignNewValueParserRuleCall_1_2_1_0());
-						}
-						lv_edit_6_0=ruleAssignNewValue
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getReuseRule());
-							}
-							set(
-								$current,
-								"edit",
-								lv_edit_6_0,
-								"org.xtext.example.mydsl4.MyDsl.AssignNewValue");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)?
+		)
 	)
 ;
 
@@ -651,11 +623,18 @@ ruleAssignNewValue returns [EObject current=null]
 }:
 	(
 		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getAssignNewValueAccess().getAssignNewValueAction_0(),
+					$current);
+			}
+		)
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAssignNewValueAccess().getGetRefDotExpressionParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getAssignNewValueAccess().getGetRefDotExpressionParserRuleCall_1_0());
 				}
-				lv_getRef_0_0=ruleDotExpression
+				lv_getRef_1_0=ruleDotExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssignNewValueRule());
@@ -663,22 +642,22 @@ ruleAssignNewValue returns [EObject current=null]
 					set(
 						$current,
 						"getRef",
-						lv_getRef_0_0,
+						lv_getRef_1_0,
 						"org.xtext.example.mydsl4.MyDsl.DotExpression");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_1='='
+		otherlv_2='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getAssignNewValueAccess().getEqualsSignKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getAssignNewValueAccess().getEqualsSignKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAssignNewValueAccess().getNewValueURDFAttrNumericParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getAssignNewValueAccess().getNewValueURDFAttrNumericParserRuleCall_3_0());
 				}
-				lv_newValue_2_0=ruleURDFAttrNumeric
+				lv_newValue_3_0=ruleURDFAttrNumeric
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssignNewValueRule());
@@ -686,7 +665,7 @@ ruleAssignNewValue returns [EObject current=null]
 					set(
 						$current,
 						"newValue",
-						lv_newValue_2_0,
+						lv_newValue_3_0,
 						"org.xtext.example.mydsl4.MyDsl.URDFAttrNumeric");
 					afterParserOrEnumRuleCall();
 				}
@@ -2374,7 +2353,7 @@ ruleJoint returns [EObject current=null]
 							}
 						)
 					)
-				)*
+				)+
 			)
 			    |
 			(

@@ -30,7 +30,6 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Reuse">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reuse/add"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reuse/ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reuse/edit"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Ref"/>

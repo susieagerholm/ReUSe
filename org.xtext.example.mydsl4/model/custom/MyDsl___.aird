@@ -580,22 +580,6 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VzieRGJVEeex2uosujv0sg" id="(0.5,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VzieRWJVEeex2uosujv0sg" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_VzieRmJVEeex2uosujv0sg" type="4001" element="_VyUWR2JVEeex2uosujv0sg" source="_Vy8oY2JVEeex2uosujv0sg" target="_Vy9PdGJVEeex2uosujv0sg">
-          <children xmi:type="notation:Node" xmi:id="_VzieSmJVEeex2uosujv0sg" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VzieS2JVEeex2uosujv0sg" x="9" y="-10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_VzjFUGJVEeex2uosujv0sg" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VzjFUWJVEeex2uosujv0sg" x="-5" y="10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_VzjFUmJVEeex2uosujv0sg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VzjFU2JVEeex2uosujv0sg" x="5" y="9"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_VzieR2JVEeex2uosujv0sg" routing="Rectilinear"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_VzieSGJVEeex2uosujv0sg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VzieSWJVEeex2uosujv0sg" points="[0, 0, 224, 63]$[0, -21, 224, 42]$[-185, -21, 39, 42]$[-185, -63, 39, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VzjFVGJVEeex2uosujv0sg" id="(0.5,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VzjFVWJVEeex2uosujv0sg" id="(0.5,1.0)"/>
-        </edges>
         <edges xmi:type="notation:Edge" xmi:id="_VzjFVmJVEeex2uosujv0sg" type="4001" element="_VyU9U2JVEeex2uosujv0sg" source="_Vy-dkGJVEeex2uosujv0sg" target="_Vy6zM2JVEeex2uosujv0sg">
           <children xmi:type="notation:Node" xmi:id="_VzjsYGJVEeex2uosujv0sg" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VzjsYWJVEeex2uosujv0sg" y="-10"/>
@@ -2126,7 +2110,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_VxZJMWJVEeex2uosujv0sg" name="Reuse" tooltipText="" outgoingEdges="_VyUWQ2JVEeex2uosujv0sg _VyUWR2JVEeex2uosujv0sg _AqR-gGOzEeePyPUBd2JXrA" incomingEdges="_VyShE2JVEeex2uosujv0sg _VykN5GJVEeex2uosujv0sg" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_VxZJMWJVEeex2uosujv0sg" name="Reuse" tooltipText="" outgoingEdges="_VyUWQ2JVEeex2uosujv0sg _AqR-gGOzEeePyPUBd2JXrA" incomingEdges="_VyShE2JVEeex2uosujv0sg _VykN5GJVEeex2uosujv0sg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="MyDsl.ecore#//Reuse"/>
       <semanticElements xmi:type="ecore:EClass" href="MyDsl.ecore#//Reuse"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_VxZwQGJVEeex2uosujv0sg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
@@ -2134,7 +2118,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_VxZwQWJVEeex2uosujv0sg" name="Ref" tooltipText="" incomingEdges="_VyUWR2JVEeex2uosujv0sg _VyU9V2JVEeex2uosujv0sg _Vyul82JVEeex2uosujv0sg _VywbIGJVEeex2uosujv0sg _Wc4vMGOzEeePyPUBd2JXrA" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_VxZwQWJVEeex2uosujv0sg" name="Ref" tooltipText="" incomingEdges="_VyU9V2JVEeex2uosujv0sg _Vyul82JVEeex2uosujv0sg _VywbIGJVEeex2uosujv0sg _Wc4vMGOzEeePyPUBd2JXrA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="MyDsl.ecore#//Ref"/>
       <semanticElements xmi:type="ecore:EClass" href="MyDsl.ecore#//Ref"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_VxZwQmJVEeex2uosujv0sg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
@@ -2600,19 +2584,6 @@
           <customFeatures>labelSize</customFeatures>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_VyUWRmJVEeex2uosujv0sg" showIcon="false" labelColor="39,76,114">
-          <customFeatures>labelSize</customFeatures>
-        </endLabelStyle>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VyUWR2JVEeex2uosujv0sg" name="[0..1] ref" sourceNode="_VxZJMWJVEeex2uosujv0sg" targetNode="_VxZwQWJVEeex2uosujv0sg">
-      <target xmi:type="ecore:EReference" href="MyDsl.ecore#//Reuse/ref"/>
-      <semanticElements xmi:type="ecore:EReference" href="MyDsl.ecore#//Reuse/ref"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_VyU9UGJVEeex2uosujv0sg" description="_VyQr4GJVEeex2uosujv0sg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_VyU9UWJVEeex2uosujv0sg" showIcon="false">
-          <customFeatures>labelSize</customFeatures>
-        </centerLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_VyU9UmJVEeex2uosujv0sg" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
         </endLabelStyle>
       </ownedStyle>

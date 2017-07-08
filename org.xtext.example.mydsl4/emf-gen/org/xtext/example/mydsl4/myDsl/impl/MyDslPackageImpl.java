@@ -510,17 +510,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReuse_Ref() {
-		return (EReference)reuseEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getReuse_Edit() {
-		return (EReference)reuseEClass.getEStructuralFeatures().get(2);
+		return (EReference)reuseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1541,7 +1532,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		reuseEClass = createEClass(REUSE);
 		createEReference(reuseEClass, REUSE__ADD);
-		createEReference(reuseEClass, REUSE__REF);
 		createEReference(reuseEClass, REUSE__EDIT);
 
 		refEClass = createEClass(REF);
@@ -1759,7 +1749,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		initEClass(reuseEClass, Reuse.class, "Reuse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReuse_Add(), this.getReUseAble(), null, "add", null, 0, 1, Reuse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReuse_Ref(), this.getRef(), null, "ref", null, 0, 1, Reuse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReuse_Edit(), this.getAssignNewValue(), null, "edit", null, 0, 1, Reuse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(refEClass, Ref.class, "Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

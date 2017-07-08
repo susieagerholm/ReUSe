@@ -41,9 +41,9 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 			val robot = EcoreUtil2.getContainerOfType(context, Robot)
 			return Scopes.scopeFor(robot.links.
 				//EXCLUDE CURRENT LINK
-				filter[x | !x.name.equals(context.name)].
+				filter[x | !x.name.equals(context.name)]//.
 				//REMEMBER ALSO TO EXCLUDE LINKS MADE FROM REUSE
-				filter[y | y.reuse == null]
+				//filter[y | y.reuse.]
 			)
 		}
 		

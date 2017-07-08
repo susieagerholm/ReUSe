@@ -175,8 +175,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__NEW_VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssignNewValueAccess().getGetRefDotExpressionParserRuleCall_0_0(), semanticObject.getGetRef());
-		feeder.accept(grammarAccess.getAssignNewValueAccess().getNewValueURDFAttrNumericParserRuleCall_2_0(), semanticObject.getNewValue());
+		feeder.accept(grammarAccess.getAssignNewValueAccess().getGetRefDotExpressionParserRuleCall_1_0(), semanticObject.getGetRef());
+		feeder.accept(grammarAccess.getAssignNewValueAccess().getNewValueURDFAttrNumericParserRuleCall_3_0(), semanticObject.getNewValue());
 		feeder.finish();
 	}
 	
@@ -355,7 +355,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *                     calibration=Calibration | 
 	 *                     dynamics=Dynamics | 
 	 *                     safetycontroller=SafetyController
-	 *                 )*
+	 *                 )+
 	 *             ) | 
 	 *             (isReuseOf=[Joint|ID] childOf=[Link|ID] parentOf=[Link|ID] reuse=Reuse)
 	 *         )?
@@ -384,7 +384,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Link returns Link
 	 *
 	 * Constraint:
-	 *     (name=ID ((inertial=Inertial | visual+=Visual | collision+=Collision)+ | (link=[Link|ID] reuse=Reuse))?)
+	 *     (name=ID ((inertial=Inertial | visual+=Visual | collision+=Collision)+ | (link=[Link|ID] reuse=Reuse?))?)
 	 */
 	protected void sequence_Link(ISerializationContext context, Link semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -461,7 +461,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Reuse returns Reuse
 	 *
 	 * Constraint:
-	 *     (ref=DotExpression | add=ReUseAble | edit=AssignNewValue)?
+	 *     (add=ReUseAble | edit=AssignNewValue)
 	 */
 	protected void sequence_Reuse(ISerializationContext context, Reuse semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

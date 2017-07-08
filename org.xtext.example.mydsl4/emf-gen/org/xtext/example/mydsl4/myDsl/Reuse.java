@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Reuse#getAdd <em>Add</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.Reuse#getRef <em>Ref</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Reuse#getEdit <em>Edit</em>}</li>
  * </ul>
  *
@@ -49,32 +48,6 @@ public interface Reuse extends EObject {
 	 * @generated
 	 */
 	void setAdd(ReUseAble value);
-
-	/**
-	 * Returns the value of the '<em><b>Ref</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ref</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ref</em>' containment reference.
-	 * @see #setRef(Ref)
-	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getReuse_Ref()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Ref getRef();
-
-	/**
-	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Reuse#getRef <em>Ref</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ref</em>' containment reference.
-	 * @see #getRef()
-	 * @generated
-	 */
-	void setRef(Ref value);
 
 	/**
 	 * Returns the value of the '<em><b>Edit</b></em>' containment reference.
