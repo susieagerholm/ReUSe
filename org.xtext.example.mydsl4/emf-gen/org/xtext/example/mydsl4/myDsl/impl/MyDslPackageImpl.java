@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl4.myDsl.AddTo;
 import org.xtext.example.mydsl4.myDsl.AssignNewValue;
 import org.xtext.example.mydsl4.myDsl.Axis;
 import org.xtext.example.mydsl4.myDsl.Box;
@@ -307,6 +308,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass addToEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum jointTypeEEnum = null;
 
 	/**
@@ -420,6 +428,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRobot_Addto() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReUseAble() {
 		return reUseAbleEClass;
 	}
@@ -447,7 +464,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLink_Link() {
+	public EReference getLink_IsReuseOf() {
 		return (EReference)linkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1473,8 +1490,71 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssignNewValue_NewValue() {
+	public EReference getAssignNewValue_NewReuseable() {
 		return (EReference)assignNewValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAddTo() {
+		return addToEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddTo_Link() {
+		return (EReference)addToEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddTo_Joint() {
+		return (EReference)addToEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddTo_Collision() {
+		return (EReference)addToEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddTo_Visual() {
+		return (EReference)addToEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddTo_Inertial() {
+		return (EReference)addToEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddTo_Origin() {
+		return (EReference)addToEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1519,12 +1599,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		createEReference(robotEClass, ROBOT__LINKS);
 		createEReference(robotEClass, ROBOT__JOINT);
 		createEReference(robotEClass, ROBOT__TOPOLOGIES);
+		createEReference(robotEClass, ROBOT__ADDTO);
 
 		reUseAbleEClass = createEClass(RE_USE_ABLE);
 		createEAttribute(reUseAbleEClass, RE_USE_ABLE__NAME);
 
 		linkEClass = createEClass(LINK);
-		createEReference(linkEClass, LINK__LINK);
+		createEReference(linkEClass, LINK__IS_REUSE_OF);
 		createEReference(linkEClass, LINK__REUSE);
 		createEReference(linkEClass, LINK__INERTIAL);
 		createEReference(linkEClass, LINK__VISUAL);
@@ -1670,7 +1751,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		assignNewValueEClass = createEClass(ASSIGN_NEW_VALUE);
 		createEReference(assignNewValueEClass, ASSIGN_NEW_VALUE__GET_REF);
-		createEReference(assignNewValueEClass, ASSIGN_NEW_VALUE__NEW_VALUE);
+		createEReference(assignNewValueEClass, ASSIGN_NEW_VALUE__NEW_REUSEABLE);
+
+		addToEClass = createEClass(ADD_TO);
+		createEReference(addToEClass, ADD_TO__LINK);
+		createEReference(addToEClass, ADD_TO__JOINT);
+		createEReference(addToEClass, ADD_TO__COLLISION);
+		createEReference(addToEClass, ADD_TO__VISUAL);
+		createEReference(addToEClass, ADD_TO__INERTIAL);
+		createEReference(addToEClass, ADD_TO__ORIGIN);
 
 		// Create enums
 		jointTypeEEnum = createEEnum(JOINT_TYPE);
@@ -1736,12 +1825,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEReference(getRobot_Links(), this.getLink(), null, "links", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Joint(), this.getJoint(), null, "joint", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Topologies(), this.getTopology(), null, "topologies", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_Addto(), this.getAddTo(), null, "addto", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reUseAbleEClass, ReUseAble.class, "ReUseAble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReUseAble_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReUseAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLink_Link(), this.getLink(), null, "link", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLink_IsReuseOf(), this.getLink(), null, "isReuseOf", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Reuse(), this.getReuse(), null, "reuse", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Inertial(), this.getInertial(), null, "inertial", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Visual(), this.getVisual(), null, "visual", null, 0, -1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1782,7 +1872,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		initEClass(visualEClass, Visual.class, "Visual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVisual_Origin(), this.getOrigin(), null, "origin", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVisual_Geometry(), this.getGeometry(), null, "geometry", null, 1, -1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVisual_Geometry(), this.getGeometry(), null, "geometry", null, 1, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVisual_Material(), this.getMaterial(), null, "material", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inertiaEClass, Inertia.class, "Inertia", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1806,7 +1896,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		initEClass(collisionEClass, Collision.class, "Collision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCollision_Origin(), this.getOrigin(), null, "origin", null, 0, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCollision_Geometry(), this.getGeometry(), null, "geometry", null, 0, -1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCollision_Geometry(), this.getGeometry(), null, "geometry", null, 1, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(geometryEClass, Geometry.class, "Geometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1887,7 +1977,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 
 		initEClass(assignNewValueEClass, AssignNewValue.class, "AssignNewValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssignNewValue_GetRef(), this.getRef(), null, "getRef", null, 1, 1, AssignNewValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssignNewValue_NewValue(), this.getURDFAttrNumeric(), null, "newValue", null, 1, 1, AssignNewValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssignNewValue_NewReuseable(), this.getReUseAble(), null, "newReuseable", null, 0, 1, AssignNewValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(addToEClass, AddTo.class, "AddTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAddTo_Link(), this.getLink(), null, "link", null, 0, 1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAddTo_Joint(), this.getJoint(), null, "joint", null, 0, 1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAddTo_Collision(), this.getCollision(), null, "collision", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAddTo_Visual(), this.getVisual(), null, "visual", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAddTo_Inertial(), this.getInertial(), null, "inertial", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAddTo_Origin(), this.getOrigin(), null, "origin", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jointTypeEEnum, JointType.class, "JointType");

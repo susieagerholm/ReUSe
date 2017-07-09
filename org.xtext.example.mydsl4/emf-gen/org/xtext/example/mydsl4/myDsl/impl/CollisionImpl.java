@@ -44,14 +44,14 @@ public class CollisionImpl extends ReUseAbleImpl implements Collision {
 	protected Origin origin;
 
 	/**
-	 * The cached value of the '{@link #getGeometry() <em>Geometry</em>}' containment reference list.
+	 * The cached value of the '{@link #getGeometry() <em>Geometry</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGeometry()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Geometry> geometry;
+	protected Geometry geometry;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,11 +120,42 @@ public class CollisionImpl extends ReUseAbleImpl implements Collision {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Geometry> getGeometry() {
-		if (geometry == null) {
-			geometry = new EObjectContainmentEList<Geometry>(Geometry.class, this, MyDslPackage.COLLISION__GEOMETRY);
-		}
+	public Geometry getGeometry() {
 		return geometry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGeometry(Geometry newGeometry, NotificationChain msgs) {
+		Geometry oldGeometry = geometry;
+		geometry = newGeometry;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COLLISION__GEOMETRY, oldGeometry, newGeometry);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGeometry(Geometry newGeometry) {
+		if (newGeometry != geometry) {
+			NotificationChain msgs = null;
+			if (geometry != null)
+				msgs = ((InternalEObject)geometry).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COLLISION__GEOMETRY, null, msgs);
+			if (newGeometry != null)
+				msgs = ((InternalEObject)newGeometry).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COLLISION__GEOMETRY, null, msgs);
+			msgs = basicSetGeometry(newGeometry, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COLLISION__GEOMETRY, newGeometry, newGeometry));
 	}
 
 	/**
@@ -138,7 +169,7 @@ public class CollisionImpl extends ReUseAbleImpl implements Collision {
 			case MyDslPackage.COLLISION__ORIGIN:
 				return basicSetOrigin(null, msgs);
 			case MyDslPackage.COLLISION__GEOMETRY:
-				return ((InternalEList<?>)getGeometry()).basicRemove(otherEnd, msgs);
+				return basicSetGeometry(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -172,8 +203,7 @@ public class CollisionImpl extends ReUseAbleImpl implements Collision {
 				setOrigin((Origin)newValue);
 				return;
 			case MyDslPackage.COLLISION__GEOMETRY:
-				getGeometry().clear();
-				getGeometry().addAll((Collection<? extends Geometry>)newValue);
+				setGeometry((Geometry)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,7 +221,7 @@ public class CollisionImpl extends ReUseAbleImpl implements Collision {
 				setOrigin((Origin)null);
 				return;
 			case MyDslPackage.COLLISION__GEOMETRY:
-				getGeometry().clear();
+				setGeometry((Geometry)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -208,7 +238,7 @@ public class CollisionImpl extends ReUseAbleImpl implements Collision {
 			case MyDslPackage.COLLISION__ORIGIN:
 				return origin != null;
 			case MyDslPackage.COLLISION__GEOMETRY:
-				return geometry != null && !geometry.isEmpty();
+				return geometry != null;
 		}
 		return super.eIsSet(featureID);
 	}

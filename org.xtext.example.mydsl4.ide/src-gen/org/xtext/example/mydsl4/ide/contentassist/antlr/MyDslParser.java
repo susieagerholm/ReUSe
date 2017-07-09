@@ -40,6 +40,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReUseAbleAccess().getAlternatives(), "rule__ReUseAble__Alternatives");
 					put(grammarAccess.getLinkAccess().getAlternatives_3(), "rule__Link__Alternatives_3");
 					put(grammarAccess.getLinkAccess().getAlternatives_3_0_1(), "rule__Link__Alternatives_3_0_1");
+					put(grammarAccess.getAddToAccess().getAlternatives(), "rule__AddTo__Alternatives");
+					put(grammarAccess.getAddToAccess().getAlternatives_0_1(), "rule__AddTo__Alternatives_0_1");
 					put(grammarAccess.getReuseAccess().getAlternatives(), "rule__Reuse__Alternatives");
 					put(grammarAccess.getGeometryAccess().getAlternatives(), "rule__Geometry__Alternatives");
 					put(grammarAccess.getMaterialAccess().getAlternatives(), "rule__Material__Alternatives");
@@ -56,6 +58,10 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkAccess().getGroup(), "rule__Link__Group__0");
 					put(grammarAccess.getLinkAccess().getGroup_3_0(), "rule__Link__Group_3_0__0");
 					put(grammarAccess.getLinkAccess().getGroup_3_1(), "rule__Link__Group_3_1__0");
+					put(grammarAccess.getAddToAccess().getGroup_0(), "rule__AddTo__Group_0__0");
+					put(grammarAccess.getAddToAccess().getGroup_0_0(), "rule__AddTo__Group_0_0__0");
+					put(grammarAccess.getAddToAccess().getGroup_1(), "rule__AddTo__Group_1__0");
+					put(grammarAccess.getAddToAccess().getGroup_1_0(), "rule__AddTo__Group_1_0__0");
 					put(grammarAccess.getReuseAccess().getGroup_0(), "rule__Reuse__Group_0__0");
 					put(grammarAccess.getReuseAccess().getGroup_1(), "rule__Reuse__Group_1__0");
 					put(grammarAccess.getAssignNewValueAccess().getGroup(), "rule__AssignNewValue__Group__0");
@@ -94,7 +100,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSafetyControllerAccess().getGroup_4(), "rule__SafetyController__Group_4__0");
 					put(grammarAccess.getSafetyControllerAccess().getGroup_5(), "rule__SafetyController__Group_5__0");
 					put(grammarAccess.getSafetyControllerAccess().getGroup_6(), "rule__SafetyController__Group_6__0");
-					put(grammarAccess.getURDFAttrSignedNumericAccess().getGroup(), "rule__URDFAttrSignedNumeric__Group__0");
 					put(grammarAccess.getFLOATAccess().getGroup(), "rule__FLOAT__Group__0");
 					put(grammarAccess.getSCIENTIFICAccess().getGroup(), "rule__SCIENTIFIC__Group__0");
 					put(grammarAccess.getSIGNED_NUMERICAccess().getGroup(), "rule__SIGNED_NUMERIC__Group__0");
@@ -102,6 +107,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRobotAccess().getTopologiesAssignment_2_0_1(), "rule__Robot__TopologiesAssignment_2_0_1");
 					put(grammarAccess.getRobotAccess().getLinksAssignment_2_1(), "rule__Robot__LinksAssignment_2_1");
 					put(grammarAccess.getRobotAccess().getJointAssignment_2_2(), "rule__Robot__JointAssignment_2_2");
+					put(grammarAccess.getRobotAccess().getAddtoAssignment_2_3(), "rule__Robot__AddtoAssignment_2_3");
 					put(grammarAccess.getTopologyAccess().getParentAssignment_0(), "rule__Topology__ParentAssignment_0");
 					put(grammarAccess.getTopologyAccess().getJointAssignment_1_0(), "rule__Topology__JointAssignment_1_0");
 					put(grammarAccess.getTopologyAccess().getChildAssignment_1_1(), "rule__Topology__ChildAssignment_1_1");
@@ -113,12 +119,18 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkAccess().getInertialAssignment_3_0_1_0(), "rule__Link__InertialAssignment_3_0_1_0");
 					put(grammarAccess.getLinkAccess().getVisualAssignment_3_0_1_1(), "rule__Link__VisualAssignment_3_0_1_1");
 					put(grammarAccess.getLinkAccess().getCollisionAssignment_3_0_1_2(), "rule__Link__CollisionAssignment_3_0_1_2");
-					put(grammarAccess.getLinkAccess().getLinkAssignment_3_1_1(), "rule__Link__LinkAssignment_3_1_1");
+					put(grammarAccess.getLinkAccess().getIsReuseOfAssignment_3_1_1(), "rule__Link__IsReuseOfAssignment_3_1_1");
 					put(grammarAccess.getLinkAccess().getReuseAssignment_3_1_2(), "rule__Link__ReuseAssignment_3_1_2");
+					put(grammarAccess.getAddToAccess().getLinkAssignment_0_0_2(), "rule__AddTo__LinkAssignment_0_0_2");
+					put(grammarAccess.getAddToAccess().getInertialAssignment_0_1_0(), "rule__AddTo__InertialAssignment_0_1_0");
+					put(grammarAccess.getAddToAccess().getVisualAssignment_0_1_1(), "rule__AddTo__VisualAssignment_0_1_1");
+					put(grammarAccess.getAddToAccess().getCollisionAssignment_0_1_2(), "rule__AddTo__CollisionAssignment_0_1_2");
+					put(grammarAccess.getAddToAccess().getJointAssignment_1_0_2(), "rule__AddTo__JointAssignment_1_0_2");
+					put(grammarAccess.getAddToAccess().getOriginAssignment_1_1(), "rule__AddTo__OriginAssignment_1_1");
 					put(grammarAccess.getReuseAccess().getAddAssignment_0_2(), "rule__Reuse__AddAssignment_0_2");
 					put(grammarAccess.getReuseAccess().getEditAssignment_1_1(), "rule__Reuse__EditAssignment_1_1");
 					put(grammarAccess.getAssignNewValueAccess().getGetRefAssignment_1(), "rule__AssignNewValue__GetRefAssignment_1");
-					put(grammarAccess.getAssignNewValueAccess().getNewValueAssignment_3(), "rule__AssignNewValue__NewValueAssignment_3");
+					put(grammarAccess.getAssignNewValueAccess().getNewReuseableAssignment_3(), "rule__AssignNewValue__NewReuseableAssignment_3");
 					put(grammarAccess.getDotExpressionAccess().getTailAssignment_1_2(), "rule__DotExpression__TailAssignment_1_2");
 					put(grammarAccess.getReUsableRefAccess().getReuseableAssignment_1(), "rule__ReUsableRef__ReuseableAssignment_1");
 					put(grammarAccess.getInertialAccess().getNameAssignment_2(), "rule__Inertial__NameAssignment_2");
@@ -200,8 +212,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSafetyControllerAccess().getK_positionAssignment_4_1(), "rule__SafetyController__K_positionAssignment_4_1");
 					put(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitAssignment_5_1(), "rule__SafetyController__SoftLowerLimitAssignment_5_1");
 					put(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitAssignment_6_1(), "rule__SafetyController__SoftUpperLimitAssignment_6_1");
-					put(grammarAccess.getURDFAttrSignedNumericAccess().getNameAssignment_1(), "rule__URDFAttrSignedNumeric__NameAssignment_1");
-					put(grammarAccess.getURDFAttrSignedNumericAccess().getValueAssignment_2(), "rule__URDFAttrSignedNumeric__ValueAssignment_2");
+					put(grammarAccess.getURDFAttrSignedNumericAccess().getValueAssignment(), "rule__URDFAttrSignedNumeric__ValueAssignment");
 					put(grammarAccess.getURDFAttrFloatAccess().getValueAssignment(), "rule__URDFAttrFloat__ValueAssignment");
 					put(grammarAccess.getURDFAttrINTAccess().getValueAssignment(), "rule__URDFAttrINT__ValueAssignment");
 					put(grammarAccess.getURDFAttrNumericAccess().getValueAssignment(), "rule__URDFAttrNumeric__ValueAssignment");

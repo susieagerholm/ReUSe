@@ -29,28 +29,28 @@ import org.xtext.example.mydsl4.myDsl.Topology
  */
 class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 	override IScope getScope(EObject context, EReference reference) {
-		
+		val robot = EcoreUtil2.getContainerOfType(context, Robot)
 		//Make sure to be able to refer to existing Links in Topology - even if defined later in document 
-		/*if (context instanceof Topology) {
-			
-		}*/
+		if (context instanceof Topology) {
+			return Scopes.scopeFor(robot.links)		
+		}
 		
 				
 		//SOMEHOW THIS LINK SCOPING RULE IS NOT USED - EXIST VIA SUPER.GETSCOPE?? 
 		if (context instanceof Link) {
-			val robot = EcoreUtil2.getContainerOfType(context, Robot)
+			//val robot = EcoreUtil2.getContainerOfType(context, Robot)
 			return Scopes.scopeFor(robot.links.
 				//EXCLUDE CURRENT LINK
-				filter[x | !x.name.equals(context.name)]//.
+				filter[x | !x.name.equals(context.name)].
 				//REMEMBER ALSO TO EXCLUDE LINKS MADE FROM REUSE
-				//filter[y | y.reuse.]
+				filter[y | y.isReuseOf == null]
 			)
 		}
 		
 		if (context instanceof Joint) {
 			val o = reference.EReferenceType.name
 			if (reference.EReferenceType.name.equals("Joint")) {
-				val robot = EcoreUtil2.getContainerOfType(context, Robot)
+				//val robot = EcoreUtil2.getContainerOfType(context, Robot)
 				return Scopes.scopeFor(robot.joint.
 				//EXCLUDE CURRENT JOINT
 				filter[x | !x.name.equals(context.name)].
@@ -67,7 +67,7 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 		
 			if (context.eContainer instanceof Link) {
 				val curr = EcoreUtil2.getContainerOfType(context, Link)
-				return Scopes.scopeFor(newArrayList(curr.link).toList)
+				return Scopes.scopeFor(newArrayList(curr.isReuseOf).toList)
 			} else {
 				val curr = EcoreUtil2.getContainerOfType(context, Joint)
 				//var BasicEList<Joint> list = new BasicEList<Joint>()

@@ -104,13 +104,22 @@ public interface MyDslPackage extends EPackage {
 	int ROBOT__TOPOLOGIES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Addto</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__ADDTO = 4;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 4;
+	int ROBOT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.ReUseAbleImpl <em>Re Use Able</em>}' class.
@@ -160,13 +169,13 @@ public interface MyDslPackage extends EPackage {
 	int LINK__NAME = RE_USE_ABLE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Link</b></em>' reference.
+	 * The feature id for the '<em><b>Is Reuse Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__LINK = RE_USE_ABLE_FEATURE_COUNT + 0;
+	int LINK__IS_REUSE_OF = RE_USE_ABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Reuse</b></em>' containment reference.
@@ -576,7 +585,7 @@ public interface MyDslPackage extends EPackage {
 	int VISUAL__ORIGIN = RE_USE_ABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Geometry</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Geometry</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -601,7 +610,6 @@ public interface MyDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int VISUAL_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 3;
-
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.InertiaImpl <em>Inertia</em>}' class.
@@ -722,7 +730,6 @@ public interface MyDslPackage extends EPackage {
 	 */
 	int MASS_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 1;
 
-
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.OriginImpl <em>Origin</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -805,7 +812,6 @@ public interface MyDslPackage extends EPackage {
 	 */
 	int ORIGIN_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 6;
 
-
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.CollisionImpl <em>Collision</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -835,7 +841,7 @@ public interface MyDslPackage extends EPackage {
 	int COLLISION__ORIGIN = RE_USE_ABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Geometry</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Geometry</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -851,7 +857,6 @@ public interface MyDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLLISION_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 2;
-
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.GeometryImpl <em>Geometry</em>}' class.
@@ -936,7 +941,6 @@ public interface MyDslPackage extends EPackage {
 	 */
 	int BOX_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 3;
 
-
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.CylinderImpl <em>Cylinder</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -983,7 +987,6 @@ public interface MyDslPackage extends EPackage {
 	 */
 	int CYLINDER_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 2;
 
-
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.MeshImpl <em>Mesh</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -1021,7 +1024,6 @@ public interface MyDslPackage extends EPackage {
 	 */
 	int MESH_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 1;
 
-
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.SphereImpl <em>Sphere</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -1058,7 +1060,6 @@ public interface MyDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPHERE_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 1;
-
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.MaterialImpl <em>Material</em>}' class.
@@ -1125,7 +1126,6 @@ public interface MyDslPackage extends EPackage {
 	 */
 	int TEXTURE_FEATURE_COUNT = MATERIAL_FEATURE_COUNT + 1;
 
-
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.ColorImpl <em>Color</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -1189,7 +1189,6 @@ public interface MyDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLOR_FEATURE_COUNT = MATERIAL_FEATURE_COUNT + 4;
-
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.JointImpl <em>Joint</em>}' class.
@@ -1317,7 +1316,6 @@ public interface MyDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOINT_FEATURE_COUNT = RE_USE_ABLE_FEATURE_COUNT + 11;
-
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.AxisImpl <em>Axis</em>}' class.
@@ -1641,17 +1639,6 @@ public interface MyDslPackage extends EPackage {
 	int TOPOLOGY_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.xtext.example.mydsl4.myDsl.JointType
-	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
-	 * @generated
-	 */
-	int JOINT_TYPE = 35;
-
-
-	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.JointRefImpl <em>Joint Ref</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1660,7 +1647,6 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 */
 	int JOINT_REF = 33;
-
 
 	/**
 	 * The feature id for the '<em><b>Fix</b></em>' attribute.
@@ -1707,7 +1693,6 @@ public interface MyDslPackage extends EPackage {
 	 */
 	int JOINT_REF_FEATURE_COUNT = 4;
 
-
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl <em>Assign New Value</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -1728,13 +1713,13 @@ public interface MyDslPackage extends EPackage {
 	int ASSIGN_NEW_VALUE__GET_REF = 0;
 
 	/**
-	 * The feature id for the '<em><b>New Value</b></em>' containment reference.
+	 * The feature id for the '<em><b>New Reuseable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGN_NEW_VALUE__NEW_VALUE = 1;
+	int ASSIGN_NEW_VALUE__NEW_REUSEABLE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Assign New Value</em>' class.
@@ -1744,6 +1729,89 @@ public interface MyDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int ASSIGN_NEW_VALUE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl <em>Add To</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.impl.AddToImpl
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getAddTo()
+	 * @generated
+	 */
+	int ADD_TO = 35;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TO__LINK = 0;
+
+	/**
+	 * The feature id for the '<em><b>Joint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TO__JOINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Collision</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TO__COLLISION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Visual</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TO__VISUAL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Inertial</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TO__INERTIAL = 4;
+
+	/**
+	 * The feature id for the '<em><b>Origin</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TO__ORIGIN = 5;
+
+	/**
+	 * The number of structural features of the '<em>Add To</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TO_FEATURE_COUNT = 6;
+
+	/**
+	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.xtext.example.mydsl4.myDsl.JointType
+	 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
+	 * @generated
+	 */
+	int JOINT_TYPE = 36;
 
 
 	/**
@@ -1801,6 +1869,17 @@ public interface MyDslPackage extends EPackage {
 	EReference getRobot_Topologies();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.Robot#getAddto <em>Addto</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Addto</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Robot#getAddto()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EReference getRobot_Addto();
+
+	/**
 	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.ReUseAble <em>Re Use Able</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1832,15 +1911,15 @@ public interface MyDslPackage extends EPackage {
 	EClass getLink();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.Link#getLink <em>Link</em>}'.
+	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.Link#getIsReuseOf <em>Is Reuse Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Link</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.Link#getLink()
+	 * @return the meta object for the reference '<em>Is Reuse Of</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Link#getIsReuseOf()
 	 * @see #getLink()
 	 * @generated
 	 */
-	EReference getLink_Link();
+	EReference getLink_IsReuseOf();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Link#getReuse <em>Reuse</em>}'.
@@ -2151,10 +2230,10 @@ public interface MyDslPackage extends EPackage {
 	EReference getVisual_Origin();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.Visual#getGeometry <em>Geometry</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Visual#getGeometry <em>Geometry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Geometry</em>'.
+	 * @return the meta object for the containment reference '<em>Geometry</em>'.
 	 * @see org.xtext.example.mydsl4.myDsl.Visual#getGeometry()
 	 * @see #getVisual()
 	 * @generated
@@ -2367,10 +2446,10 @@ public interface MyDslPackage extends EPackage {
 	EReference getCollision_Origin();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.Collision#getGeometry <em>Geometry</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Collision#getGeometry <em>Geometry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Geometry</em>'.
+	 * @return the meta object for the containment reference '<em>Geometry</em>'.
 	 * @see org.xtext.example.mydsl4.myDsl.Collision#getGeometry()
 	 * @see #getCollision()
 	 * @generated
@@ -2946,17 +3025,6 @@ public interface MyDslPackage extends EPackage {
 	EClass getTopology();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Topology#getChild <em>Child</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Child</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.Topology#getChild()
-	 * @see #getTopology()
-	 * @generated
-	 */
-	EReference getTopology_Child();
-
-	/**
 	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.Topology#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2979,14 +3047,15 @@ public interface MyDslPackage extends EPackage {
 	EReference getTopology_Joint();
 
 	/**
-	 * Returns the meta object for enum '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.Topology#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Joint Type</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.JointType
+	 * @return the meta object for the containment reference '<em>Child</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.Topology#getChild()
+	 * @see #getTopology()
 	 * @generated
 	 */
-	EEnum getJointType();
+	EReference getTopology_Child();
 
 	/**
 	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.JointRef <em>Joint Ref</em>}'.
@@ -3064,15 +3133,101 @@ public interface MyDslPackage extends EPackage {
 	EReference getAssignNewValue_GetRef();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewValue <em>New Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewReuseable <em>New Reuseable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>New Value</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewValue()
+	 * @return the meta object for the containment reference '<em>New Reuseable</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewReuseable()
 	 * @see #getAssignNewValue()
 	 * @generated
 	 */
-	EReference getAssignNewValue_NewValue();
+	EReference getAssignNewValue_NewReuseable();
+
+	/**
+	 * Returns the meta object for class '{@link org.xtext.example.mydsl4.myDsl.AddTo <em>Add To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Add To</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo
+	 * @generated
+	 */
+	EClass getAddTo();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.AddTo#getLink <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Link</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getLink()
+	 * @see #getAddTo()
+	 * @generated
+	 */
+	EReference getAddTo_Link();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.xtext.example.mydsl4.myDsl.AddTo#getJoint <em>Joint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Joint</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getJoint()
+	 * @see #getAddTo()
+	 * @generated
+	 */
+	EReference getAddTo_Joint();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getCollision <em>Collision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Collision</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getCollision()
+	 * @see #getAddTo()
+	 * @generated
+	 */
+	EReference getAddTo_Collision();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getVisual <em>Visual</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Visual</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getVisual()
+	 * @see #getAddTo()
+	 * @generated
+	 */
+	EReference getAddTo_Visual();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getInertial <em>Inertial</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Inertial</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getInertial()
+	 * @see #getAddTo()
+	 * @generated
+	 */
+	EReference getAddTo_Inertial();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getOrigin <em>Origin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Origin</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getOrigin()
+	 * @see #getAddTo()
+	 * @generated
+	 */
+	EReference getAddTo_Origin();
+
+	/**
+	 * Returns the meta object for enum '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Joint Type</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.JointType
+	 * @generated
+	 */
+	EEnum getJointType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3139,6 +3294,14 @@ public interface MyDslPackage extends EPackage {
 		EReference ROBOT__TOPOLOGIES = eINSTANCE.getRobot_Topologies();
 
 		/**
+		 * The meta object literal for the '<em><b>Addto</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__ADDTO = eINSTANCE.getRobot_Addto();
+
+		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.ReUseAbleImpl <em>Re Use Able</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3167,12 +3330,12 @@ public interface MyDslPackage extends EPackage {
 		EClass LINK = eINSTANCE.getLink();
 
 		/**
-		 * The meta object literal for the '<em><b>Link</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Is Reuse Of</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK__LINK = eINSTANCE.getLink_Link();
+		EReference LINK__IS_REUSE_OF = eINSTANCE.getLink_IsReuseOf();
 
 		/**
 		 * The meta object literal for the '<em><b>Reuse</b></em>' containment reference feature.
@@ -3429,7 +3592,7 @@ public interface MyDslPackage extends EPackage {
 		EReference VISUAL__ORIGIN = eINSTANCE.getVisual_Origin();
 
 		/**
-		 * The meta object literal for the '<em><b>Geometry</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Geometry</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3597,7 +3760,7 @@ public interface MyDslPackage extends EPackage {
 		EReference COLLISION__ORIGIN = eINSTANCE.getCollision_Origin();
 
 		/**
-		 * The meta object literal for the '<em><b>Geometry</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Geometry</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4059,14 +4222,6 @@ public interface MyDslPackage extends EPackage {
 		EClass TOPOLOGY = eINSTANCE.getTopology();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TOPOLOGY__CHILD = eINSTANCE.getTopology_Child();
-
-		/**
 		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4083,14 +4238,12 @@ public interface MyDslPackage extends EPackage {
 		EReference TOPOLOGY__JOINT = eINSTANCE.getTopology_Joint();
 
 		/**
-		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
+		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.xtext.example.mydsl4.myDsl.JointType
-		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
 		 * @generated
 		 */
-		EEnum JOINT_TYPE = eINSTANCE.getJointType();
+		EReference TOPOLOGY__CHILD = eINSTANCE.getTopology_Child();
 
 		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.JointRefImpl <em>Joint Ref</em>}' class.
@@ -4153,12 +4306,80 @@ public interface MyDslPackage extends EPackage {
 		EReference ASSIGN_NEW_VALUE__GET_REF = eINSTANCE.getAssignNewValue_GetRef();
 
 		/**
-		 * The meta object literal for the '<em><b>New Value</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>New Reuseable</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIGN_NEW_VALUE__NEW_VALUE = eINSTANCE.getAssignNewValue_NewValue();
+		EReference ASSIGN_NEW_VALUE__NEW_REUSEABLE = eINSTANCE.getAssignNewValue_NewReuseable();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl <em>Add To</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.impl.AddToImpl
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getAddTo()
+		 * @generated
+		 */
+		EClass ADD_TO = eINSTANCE.getAddTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Link</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_TO__LINK = eINSTANCE.getAddTo_Link();
+
+		/**
+		 * The meta object literal for the '<em><b>Joint</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_TO__JOINT = eINSTANCE.getAddTo_Joint();
+
+		/**
+		 * The meta object literal for the '<em><b>Collision</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_TO__COLLISION = eINSTANCE.getAddTo_Collision();
+
+		/**
+		 * The meta object literal for the '<em><b>Visual</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_TO__VISUAL = eINSTANCE.getAddTo_Visual();
+
+		/**
+		 * The meta object literal for the '<em><b>Inertial</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_TO__INERTIAL = eINSTANCE.getAddTo_Inertial();
+
+		/**
+		 * The meta object literal for the '<em><b>Origin</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_TO__ORIGIN = eINSTANCE.getAddTo_Origin();
+
+		/**
+		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.xtext.example.mydsl4.myDsl.JointType
+		 * @see org.xtext.example.mydsl4.myDsl.impl.MyDslPackageImpl#getJointType()
+		 * @generated
+		 */
+		EEnum JOINT_TYPE = eINSTANCE.getJointType();
 
 	}
 

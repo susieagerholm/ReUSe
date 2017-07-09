@@ -9,12 +9,14 @@
         eType="#//Joint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="topologies" upperBound="-1"
         eType="#//Topology" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="addto" upperBound="-1"
+        eType="#//AddTo" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReUseAble">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//ReUseAble">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isReuseOf" eType="#//Link"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reuse" eType="#//Reuse"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inertial" eType="#//Inertial"
@@ -64,7 +66,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//Origin"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" lowerBound="1"
-        upperBound="-1" eType="#//Geometry" containment="true"/>
+        eType="#//Geometry" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="material" eType="#//Material"
         containment="true"/>
   </eClassifiers>
@@ -103,7 +105,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Collision" eSuperTypes="#//ReUseAble">
     <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//Origin"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" lowerBound="1"
         eType="#//Geometry" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Geometry" eSuperTypes="#//ReUseAble"/>
@@ -228,7 +230,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="AssignNewValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="getRef" lowerBound="1"
         eType="#//Ref" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="newValue" lowerBound="1"
-        eType="#//URDFAttrNumeric" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newReuseable" eType="#//ReUseAble"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddTo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collision" upperBound="-1"
+        eType="#//Collision" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="visual" upperBound="-1"
+        eType="#//Visual" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inertial" upperBound="-1"
+        eType="#//Inertial" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" upperBound="-1"
+        eType="#//Origin" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

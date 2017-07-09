@@ -11,6 +11,9 @@ package org.xtext.example.mydsl4.validation
  */
 class MyDslValidator extends AbstractMyDslValidator {
 	
+	//Check if Topology is correct
+	
+	
 //	public static val INVALID_NAME = 'invalidName'
 //
 //	@Check

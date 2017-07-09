@@ -5,12 +5,15 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Robot:
 	'Robot' name=ID
-	 ('Topology' topologies+=Topology | links+=Link | joint+=Joint)*
-	 //(links += Link | joint+=Joint)* 
+	 ('Topology' topologies+=Topology | 
+	 	         links+=Link | 
+	 	         joint+=Joint |
+	 	         addto+=AddTo
+	 )*
 ;
 
 Topology:
-	parent=[Link|ID] (joint=JointRef child=Topology)?
+	parent=[Link] (joint=JointRef child=Topology)?
 ;  
 
 JointRef:
@@ -25,8 +28,16 @@ ReUseAble:
 Link:
 	{Link} 'Link' name=ID
 	(('def' (inertial=Inertial | visual+=Visual | collision+=Collision)+)	 
-		| ('reuse' link=[Link] (reuse=Reuse)?)
+		| ('reuse' isReuseOf=[Link] (reuse=Reuse)?)
 	)?
+;
+
+AddTo:
+	('add_to' 'link' link=[Link]) 
+		(inertial+=Inertial | visual+=Visual | collision+=Collision)+ | 
+	('add_to' 'joint' joint=[Joint])
+	    ( origin+=Origin)* //| axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ 
+	//)
 ;
 
 Reuse:
@@ -34,7 +45,7 @@ Reuse:
 ;
 
 AssignNewValue:
-	{AssignNewValue} getRef=DotExpression '=' newValue=URDFAttrNumeric
+	{AssignNewValue} getRef=DotExpression '=' newReuseable=ReUseAble
 ;
 
 
@@ -66,9 +77,9 @@ Inertia:
 
 Visual:
 	{Visual} 'Visual' (name=ID)? 
-	'Geometry' geometry+=Geometry+
-	(origin=Origin)?
-	('Material' material=Material)?
+	'Geometry' geometry=Geometry
+	(origin=Origin)?               //problem: Kan ikke definere material uden origin pt
+	('Material' material=Material)? //problem: Kan ikke definere material uden origin pt
 	
 ;
 
@@ -89,7 +100,7 @@ Mass:
 
 Collision:
 	'Collision' (name=ID)?
-	'Geometry' geometry+=Geometry+
+	'Geometry' geometry=Geometry
 	(origin=Origin)?
 ;
 
@@ -215,8 +226,8 @@ SafetyController:
 ;*/
 
 URDFAttrSignedNumeric:
-	{URDFAttrSignedNumeric}
-	(name=ID)?
+	//{URDFAttrSignedNumeric}
+	//(name=ID)?
 	value = SIGNED_NUMERIC
 ;
 

@@ -93,6 +93,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 			case MyDslPackage.TOPOLOGY: return createTopology();
 			case MyDslPackage.JOINT_REF: return createJointRef();
 			case MyDslPackage.ASSIGN_NEW_VALUE: return createAssignNewValue();
+			case MyDslPackage.ADD_TO: return createAddTo();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -476,6 +477,16 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory {
 	public AssignNewValue createAssignNewValue() {
 		AssignNewValueImpl assignNewValue = new AssignNewValueImpl();
 		return assignNewValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AddTo createAddTo() {
+		AddToImpl addTo = new AddToImpl();
+		return addTo;
 	}
 
 	/**

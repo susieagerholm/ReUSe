@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getGetRef <em>Get Ref</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewValue <em>New Value</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewReuseable <em>New Reuseable</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAssignNewValue()
@@ -50,29 +50,29 @@ public interface AssignNewValue extends EObject {
 	void setGetRef(Ref value);
 
 	/**
-	 * Returns the value of the '<em><b>New Value</b></em>' containment reference.
+	 * Returns the value of the '<em><b>New Reuseable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>New Value</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>New Reuseable</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>New Value</em>' containment reference.
-	 * @see #setNewValue(URDFAttrNumeric)
-	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAssignNewValue_NewValue()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>New Reuseable</em>' containment reference.
+	 * @see #setNewReuseable(ReUseAble)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAssignNewValue_NewReuseable()
+	 * @model containment="true"
 	 * @generated
 	 */
-	URDFAttrNumeric getNewValue();
+	ReUseAble getNewReuseable();
 
 	/**
-	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewValue <em>New Value</em>}' containment reference.
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.AssignNewValue#getNewReuseable <em>New Reuseable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>New Value</em>' containment reference.
-	 * @see #getNewValue()
+	 * @param value the new value of the '<em>New Reuseable</em>' containment reference.
+	 * @see #getNewReuseable()
 	 * @generated
 	 */
-	void setNewValue(URDFAttrNumeric value);
+	void setNewReuseable(ReUseAble value);
 
 } // AssignNewValue

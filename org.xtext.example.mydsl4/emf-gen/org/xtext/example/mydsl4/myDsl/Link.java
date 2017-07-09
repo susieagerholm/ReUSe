@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.Link#getLink <em>Link</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.Link#getIsReuseOf <em>Is Reuse Of</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Link#getReuse <em>Reuse</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Link#getInertial <em>Inertial</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.Link#getVisual <em>Visual</em>}</li>
@@ -27,30 +27,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Link extends ReUseAble {
 	/**
-	 * Returns the value of the '<em><b>Link</b></em>' reference.
+	 * Returns the value of the '<em><b>Is Reuse Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Link</em>' reference isn't clear,
+	 * If the meaning of the '<em>Is Reuse Of</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Link</em>' reference.
-	 * @see #setLink(Link)
-	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getLink_Link()
+	 * @return the value of the '<em>Is Reuse Of</em>' reference.
+	 * @see #setIsReuseOf(Link)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getLink_IsReuseOf()
 	 * @model
 	 * @generated
 	 */
-	Link getLink();
+	Link getIsReuseOf();
 
 	/**
-	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Link#getLink <em>Link</em>}' reference.
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Link#getIsReuseOf <em>Is Reuse Of</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Link</em>' reference.
-	 * @see #getLink()
+	 * @param value the new value of the '<em>Is Reuse Of</em>' reference.
+	 * @see #getIsReuseOf()
 	 * @generated
 	 */
-	void setLink(Link value);
+	void setIsReuseOf(Link value);
 
 	/**
 	 * Returns the value of the '<em><b>Reuse</b></em>' containment reference.

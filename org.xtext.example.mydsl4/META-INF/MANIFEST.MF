@@ -25,5 +25,6 @@ Export-Package: org.xtext.example.mydsl4.scoping,
  org.xtext.example.mydsl4.serializer,
  org.xtext.example.mydsl4.services,
  org.xtext.example.mydsl4.myDsl.util,
- org.xtext.example.mydsl4.parser.antlr
+ org.xtext.example.mydsl4.parser.antlr,
+ org.xtext.example.mydsl4.formatting2
 Import-Package: org.apache.log4j

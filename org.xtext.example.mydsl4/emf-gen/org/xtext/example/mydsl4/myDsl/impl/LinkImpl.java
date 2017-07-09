@@ -33,7 +33,7 @@ import org.xtext.example.mydsl4.myDsl.Visual;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.LinkImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.LinkImpl#getIsReuseOf <em>Is Reuse Of</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.LinkImpl#getReuse <em>Reuse</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.LinkImpl#getInertial <em>Inertial</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.LinkImpl#getVisual <em>Visual</em>}</li>
@@ -44,14 +44,14 @@ import org.xtext.example.mydsl4.myDsl.Visual;
  */
 public class LinkImpl extends ReUseAbleImpl implements Link {
 	/**
-	 * The cached value of the '{@link #getLink() <em>Link</em>}' reference.
+	 * The cached value of the '{@link #getIsReuseOf() <em>Is Reuse Of</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLink()
+	 * @see #getIsReuseOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected Link link;
+	protected Link isReuseOf;
 
 	/**
 	 * The cached value of the '{@link #getReuse() <em>Reuse</em>}' containment reference.
@@ -117,16 +117,16 @@ public class LinkImpl extends ReUseAbleImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link getLink() {
-		if (link != null && link.eIsProxy()) {
-			InternalEObject oldLink = (InternalEObject)link;
-			link = (Link)eResolveProxy(oldLink);
-			if (link != oldLink) {
+	public Link getIsReuseOf() {
+		if (isReuseOf != null && isReuseOf.eIsProxy()) {
+			InternalEObject oldIsReuseOf = (InternalEObject)isReuseOf;
+			isReuseOf = (Link)eResolveProxy(oldIsReuseOf);
+			if (isReuseOf != oldIsReuseOf) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyDslPackage.LINK__LINK, oldLink, link));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyDslPackage.LINK__IS_REUSE_OF, oldIsReuseOf, isReuseOf));
 			}
 		}
-		return link;
+		return isReuseOf;
 	}
 
 	/**
@@ -134,8 +134,8 @@ public class LinkImpl extends ReUseAbleImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link basicGetLink() {
-		return link;
+	public Link basicGetIsReuseOf() {
+		return isReuseOf;
 	}
 
 	/**
@@ -143,11 +143,11 @@ public class LinkImpl extends ReUseAbleImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLink(Link newLink) {
-		Link oldLink = link;
-		link = newLink;
+	public void setIsReuseOf(Link newIsReuseOf) {
+		Link oldIsReuseOf = isReuseOf;
+		isReuseOf = newIsReuseOf;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LINK__LINK, oldLink, link));
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LINK__IS_REUSE_OF, oldIsReuseOf, isReuseOf));
 	}
 
 	/**
@@ -288,9 +288,9 @@ public class LinkImpl extends ReUseAbleImpl implements Link {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MyDslPackage.LINK__LINK:
-				if (resolve) return getLink();
-				return basicGetLink();
+			case MyDslPackage.LINK__IS_REUSE_OF:
+				if (resolve) return getIsReuseOf();
+				return basicGetIsReuseOf();
 			case MyDslPackage.LINK__REUSE:
 				return getReuse();
 			case MyDslPackage.LINK__INERTIAL:
@@ -312,8 +312,8 @@ public class LinkImpl extends ReUseAbleImpl implements Link {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MyDslPackage.LINK__LINK:
-				setLink((Link)newValue);
+			case MyDslPackage.LINK__IS_REUSE_OF:
+				setIsReuseOf((Link)newValue);
 				return;
 			case MyDslPackage.LINK__REUSE:
 				setReuse((Reuse)newValue);
@@ -341,8 +341,8 @@ public class LinkImpl extends ReUseAbleImpl implements Link {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MyDslPackage.LINK__LINK:
-				setLink((Link)null);
+			case MyDslPackage.LINK__IS_REUSE_OF:
+				setIsReuseOf((Link)null);
 				return;
 			case MyDslPackage.LINK__REUSE:
 				setReuse((Reuse)null);
@@ -368,8 +368,8 @@ public class LinkImpl extends ReUseAbleImpl implements Link {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MyDslPackage.LINK__LINK:
-				return link != null;
+			case MyDslPackage.LINK__IS_REUSE_OF:
+				return isReuseOf != null;
 			case MyDslPackage.LINK__REUSE:
 				return reuse != null;
 			case MyDslPackage.LINK__INERTIAL:

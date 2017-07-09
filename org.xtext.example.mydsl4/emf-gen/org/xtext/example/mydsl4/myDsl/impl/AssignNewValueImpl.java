@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl4.myDsl.AssignNewValue;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
+import org.xtext.example.mydsl4.myDsl.ReUseAble;
 import org.xtext.example.mydsl4.myDsl.Ref;
 import org.xtext.example.mydsl4.myDsl.URDFAttrNumeric;
 
@@ -26,7 +27,7 @@ import org.xtext.example.mydsl4.myDsl.URDFAttrNumeric;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl#getGetRef <em>Get Ref</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl#getNewValue <em>New Value</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AssignNewValueImpl#getNewReuseable <em>New Reuseable</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +44,14 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 	protected Ref getRef;
 
 	/**
-	 * The cached value of the '{@link #getNewValue() <em>New Value</em>}' containment reference.
+	 * The cached value of the '{@link #getNewReuseable() <em>New Reuseable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNewValue()
+	 * @see #getNewReuseable()
 	 * @generated
 	 * @ordered
 	 */
-	protected URDFAttrNumeric newValue;
+	protected ReUseAble newReuseable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,8 +120,8 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public URDFAttrNumeric getNewValue() {
-		return newValue;
+	public ReUseAble getNewReuseable() {
+		return newReuseable;
 	}
 
 	/**
@@ -128,11 +129,11 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNewValue(URDFAttrNumeric newNewValue, NotificationChain msgs) {
-		URDFAttrNumeric oldNewValue = newValue;
-		newValue = newNewValue;
+	public NotificationChain basicSetNewReuseable(ReUseAble newNewReuseable, NotificationChain msgs) {
+		ReUseAble oldNewReuseable = newReuseable;
+		newReuseable = newNewReuseable;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE, oldNewValue, newNewValue);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE, oldNewReuseable, newNewReuseable);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -143,18 +144,18 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNewValue(URDFAttrNumeric newNewValue) {
-		if (newNewValue != newValue) {
+	public void setNewReuseable(ReUseAble newNewReuseable) {
+		if (newNewReuseable != newReuseable) {
 			NotificationChain msgs = null;
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE, null, msgs);
-			if (newNewValue != null)
-				msgs = ((InternalEObject)newNewValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE, null, msgs);
-			msgs = basicSetNewValue(newNewValue, msgs);
+			if (newReuseable != null)
+				msgs = ((InternalEObject)newReuseable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE, null, msgs);
+			if (newNewReuseable != null)
+				msgs = ((InternalEObject)newNewReuseable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE, null, msgs);
+			msgs = basicSetNewReuseable(newNewReuseable, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE, newNewValue, newNewValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE, newNewReuseable, newNewReuseable));
 	}
 
 	/**
@@ -167,8 +168,8 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case MyDslPackage.ASSIGN_NEW_VALUE__GET_REF:
 				return basicSetGetRef(null, msgs);
-			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE:
-				return basicSetNewValue(null, msgs);
+			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE:
+				return basicSetNewReuseable(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,8 +184,8 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case MyDslPackage.ASSIGN_NEW_VALUE__GET_REF:
 				return getGetRef();
-			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE:
-				return getNewValue();
+			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE:
+				return getNewReuseable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,8 +201,8 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 			case MyDslPackage.ASSIGN_NEW_VALUE__GET_REF:
 				setGetRef((Ref)newValue);
 				return;
-			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE:
-				setNewValue((URDFAttrNumeric)newValue);
+			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE:
+				setNewReuseable((ReUseAble)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -218,8 +219,8 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 			case MyDslPackage.ASSIGN_NEW_VALUE__GET_REF:
 				setGetRef((Ref)null);
 				return;
-			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE:
-				setNewValue((URDFAttrNumeric)null);
+			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE:
+				setNewReuseable((ReUseAble)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -235,8 +236,8 @@ public class AssignNewValueImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case MyDslPackage.ASSIGN_NEW_VALUE__GET_REF:
 				return getRef != null;
-			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_VALUE:
-				return newValue != null;
+			case MyDslPackage.ASSIGN_NEW_VALUE__NEW_REUSEABLE:
+				return newReuseable != null;
 		}
 		return super.eIsSet(featureID);
 	}

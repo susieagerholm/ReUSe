@@ -52,18 +52,28 @@ public interface Collision extends ReUseAble {
 	void setOrigin(Origin value);
 
 	/**
-	 * Returns the value of the '<em><b>Geometry</b></em>' containment reference list.
-	 * The list contents are of type {@link org.xtext.example.mydsl4.myDsl.Geometry}.
+	 * Returns the value of the '<em><b>Geometry</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Geometry</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geometry</em>' containment reference list.
+	 * @return the value of the '<em>Geometry</em>' containment reference.
+	 * @see #setGeometry(Geometry)
 	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getCollision_Geometry()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Geometry> getGeometry();
+	Geometry getGeometry();
+
+	/**
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.Collision#getGeometry <em>Geometry</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Geometry</em>' containment reference.
+	 * @see #getGeometry()
+	 * @generated
+	 */
+	void setGeometry(Geometry value);
 } // Collision

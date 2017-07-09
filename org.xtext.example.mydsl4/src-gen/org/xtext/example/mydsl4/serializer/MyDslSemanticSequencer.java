@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl4.myDsl.AddTo;
 import org.xtext.example.mydsl4.myDsl.AssignNewValue;
 import org.xtext.example.mydsl4.myDsl.Axis;
 import org.xtext.example.mydsl4.myDsl.Box;
@@ -62,6 +63,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.ADD_TO:
+				sequence_AddTo(context, (AddTo) semanticObject); 
+				return; 
 			case MyDslPackage.ASSIGN_NEW_VALUE:
 				sequence_AssignNewValue(context, (AssignNewValue) semanticObject); 
 				return; 
@@ -162,21 +166,33 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AddTo returns AddTo
+	 *
+	 * Constraint:
+	 *     ((link=[Link|ID] (inertial+=Inertial | visual+=Visual | collision+=Collision)+) | (joint=[Joint|ID] origin+=Origin*))
+	 */
+	protected void sequence_AddTo(ISerializationContext context, AddTo semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     AssignNewValue returns AssignNewValue
 	 *
 	 * Constraint:
-	 *     (getRef=DotExpression newValue=URDFAttrNumeric)
+	 *     (getRef=DotExpression newReuseable=ReUseAble)
 	 */
 	protected void sequence_AssignNewValue(ISerializationContext context, AssignNewValue semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__GET_REF) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__GET_REF));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__NEW_VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__NEW_VALUE));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__NEW_REUSEABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.ASSIGN_NEW_VALUE__NEW_REUSEABLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAssignNewValueAccess().getGetRefDotExpressionParserRuleCall_1_0(), semanticObject.getGetRef());
-		feeder.accept(grammarAccess.getAssignNewValueAccess().getNewValueURDFAttrNumericParserRuleCall_3_0(), semanticObject.getNewValue());
+		feeder.accept(grammarAccess.getAssignNewValueAccess().getNewReuseableReUseAbleParserRuleCall_3_0(), semanticObject.getNewReuseable());
 		feeder.finish();
 	}
 	
@@ -224,7 +240,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Collision returns Collision
 	 *
 	 * Constraint:
-	 *     (name=ID? geometry+=Geometry+ origin=Origin?)
+	 *     (name=ID? geometry=Geometry origin=Origin?)
 	 */
 	protected void sequence_Collision(ISerializationContext context, Collision semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -384,7 +400,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Link returns Link
 	 *
 	 * Constraint:
-	 *     (name=ID ((inertial=Inertial | visual+=Visual | collision+=Collision)+ | (link=[Link|ID] reuse=Reuse?))?)
+	 *     (name=ID ((inertial=Inertial | visual+=Visual | collision+=Collision)+ | (isReuseOf=[Link|ID] reuse=Reuse?))?)
 	 */
 	protected void sequence_Link(ISerializationContext context, Link semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -473,7 +489,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=ID (topologies+=Topology | links+=Link | joint+=Joint)*)
+	 *     (name=ID (topologies+=Topology | links+=Link | joint+=Joint | addto+=AddTo)*)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -613,10 +629,16 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     URDFAttrSignedNumeric returns URDFAttrSignedNumeric
 	 *
 	 * Constraint:
-	 *     (name=ID? value=SIGNED_NUMERIC)
+	 *     value=SIGNED_NUMERIC
 	 */
 	protected void sequence_URDFAttrSignedNumeric(ISerializationContext context, URDFAttrSignedNumeric semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.URDF_ATTR_SIGNED_NUMERIC__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.URDF_ATTR_SIGNED_NUMERIC__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getURDFAttrSignedNumericAccess().getValueSIGNED_NUMERICParserRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -626,7 +648,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Visual returns Visual
 	 *
 	 * Constraint:
-	 *     (name=ID? geometry+=Geometry+ origin=Origin? material=Material?)
+	 *     (name=ID? geometry=Geometry origin=Origin? material=Material?)
 	 */
 	protected void sequence_Visual(ISerializationContext context, Visual semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

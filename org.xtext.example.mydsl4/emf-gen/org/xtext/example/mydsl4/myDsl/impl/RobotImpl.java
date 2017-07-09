@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl4.myDsl.AddTo;
 import org.xtext.example.mydsl4.myDsl.Joint;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
@@ -37,6 +38,7 @@ import org.xtext.example.mydsl4.myDsl.Topology;
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.RobotImpl#getLinks <em>Links</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.RobotImpl#getJoint <em>Joint</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.RobotImpl#getTopologies <em>Topologies</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.RobotImpl#getAddto <em>Addto</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +93,16 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @ordered
 	 */
 	protected EList<Topology> topologies;
+
+	/**
+	 * The cached value of the '{@link #getAddto() <em>Addto</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAddto()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AddTo> addto;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +185,18 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<AddTo> getAddto() {
+		if (addto == null) {
+			addto = new EObjectContainmentEList<AddTo>(AddTo.class, this, MyDslPackage.ROBOT__ADDTO);
+		}
+		return addto;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -182,6 +206,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return ((InternalEList<?>)getJoint()).basicRemove(otherEnd, msgs);
 			case MyDslPackage.ROBOT__TOPOLOGIES:
 				return ((InternalEList<?>)getTopologies()).basicRemove(otherEnd, msgs);
+			case MyDslPackage.ROBOT__ADDTO:
+				return ((InternalEList<?>)getAddto()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,6 +228,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return getJoint();
 			case MyDslPackage.ROBOT__TOPOLOGIES:
 				return getTopologies();
+			case MyDslPackage.ROBOT__ADDTO:
+				return getAddto();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,6 +258,10 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				getTopologies().clear();
 				getTopologies().addAll((Collection<? extends Topology>)newValue);
 				return;
+			case MyDslPackage.ROBOT__ADDTO:
+				getAddto().clear();
+				getAddto().addAll((Collection<? extends AddTo>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -254,6 +286,9 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			case MyDslPackage.ROBOT__TOPOLOGIES:
 				getTopologies().clear();
 				return;
+			case MyDslPackage.ROBOT__ADDTO:
+				getAddto().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -274,6 +309,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return joint != null && !joint.isEmpty();
 			case MyDslPackage.ROBOT__TOPOLOGIES:
 				return topologies != null && !topologies.isEmpty();
+			case MyDslPackage.ROBOT__ADDTO:
+				return addto != null && !addto.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
