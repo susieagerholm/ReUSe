@@ -371,9 +371,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *                     calibration=Calibration | 
 	 *                     dynamics=Dynamics | 
 	 *                     safetycontroller=SafetyController
-	 *                 )+
+	 *                 )*
 	 *             ) | 
-	 *             (isReuseOf=[Joint|ID] childOf=[Link|ID] parentOf=[Link|ID] reuse=Reuse)
+	 *             (isReuseOf=[Joint|ID] childOf=[Link|ID] parentOf=[Link|ID] reuse=Reuse?)
 	 *         )?
 	 *     )
 	 */

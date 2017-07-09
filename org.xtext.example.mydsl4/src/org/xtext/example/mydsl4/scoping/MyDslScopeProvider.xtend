@@ -31,9 +31,35 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 	override IScope getScope(EObject context, EReference reference) {
 		val robot = EcoreUtil2.getContainerOfType(context, Robot)
 		//Make sure to be able to refer to existing Links in Topology - even if defined later in document 
-		if (context instanceof Topology) {
-			return Scopes.scopeFor(robot.links)		
+		if (context instanceof Robot) {
+			//IF USER IS DEFINING A NEW TOPOLOGI
+			val test = context 
+			if(reference.name.equals("parent")) {
+				//CHECK IF OTHER TOPOLOGIES ARE ALLREADY DEFINED
+				//OBS: LINK CAN ONLY BE STARTING POINT OF TOPOLOGY IF UNIQUE ROOT - OR ALREADY IN OTHER TOPOLOGY 
+				if(context.topologies.empty) {
+					Scopes.scopeFor(robot.links)
+				}
+				else {
+					//root already defined: new 'root' can only be link from existing topology (only one root link)
+					
+				}
+				
+			}
+			else super.getScope(context, reference)
+			
 		}
+		
+		/*if (context instanceof Topology) {
+			//GET LIST OF LINKS ALREADY USED AS PARENTS IN THIS TOPOLOGY 
+			val parents = EcoreUtil2.getAllContainers(context).filter(Topology).map[x | x.parent].toList.toArray()
+			//RETURN AVAILABLE LINKS IF AND ONLY IF! NOT ALREADY USED IN THIS TOPOLOGY OR UPPER NESTING OF TOPOLOGIES!
+			val test = robot.links.removeAll[x | parents].map[z | z.name]
+			Scopes.scopeFor(robot.links.filter[x | parents.forall[y | !y.name.equals(x.name)]])
+			//super.getScope(context, reference)
+			
+		   
+		}*/
 		
 				
 		//SOMEHOW THIS LINK SCOPING RULE IS NOT USED - EXIST VIA SUPER.GETSCOPE?? 
@@ -49,13 +75,14 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 		
 		if (context instanceof Joint) {
 			val o = reference.EReferenceType.name
-			if (reference.EReferenceType.name.equals("Joint")) {
+			val g = reference.name
+			if (reference.name.equals("isReuseOf")) {
 				//val robot = EcoreUtil2.getContainerOfType(context, Robot)
 				return Scopes.scopeFor(robot.joint.
 				//EXCLUDE CURRENT JOINT
 				filter[x | !x.name.equals(context.name)].
 				//REMEMBER ALSO TO EXCLUDE JOINTS MADE FROM REUSE
-				filter[y | y.reuse == null]
+				filter[y | y.isReuseOf == null]
 				)
 			}
 			else super.getScope(context, reference)

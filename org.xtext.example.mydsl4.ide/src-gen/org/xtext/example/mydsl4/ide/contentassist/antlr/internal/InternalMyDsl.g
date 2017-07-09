@@ -5349,16 +5349,9 @@ rule__Joint__Group_2_0__1__Impl
 	}
 :
 (
-	(
-		{ before(grammarAccess.getJointAccess().getAlternatives_2_0_1()); }
-		(rule__Joint__Alternatives_2_0_1)
-		{ after(grammarAccess.getJointAccess().getAlternatives_2_0_1()); }
-	)
-	(
-		{ before(grammarAccess.getJointAccess().getAlternatives_2_0_1()); }
-		(rule__Joint__Alternatives_2_0_1)*
-		{ after(grammarAccess.getJointAccess().getAlternatives_2_0_1()); }
-	)
+	{ before(grammarAccess.getJointAccess().getAlternatives_2_0_1()); }
+	(rule__Joint__Alternatives_2_0_1)*
+	{ after(grammarAccess.getJointAccess().getAlternatives_2_0_1()); }
 )
 ;
 finally {
@@ -5735,7 +5728,7 @@ rule__Joint__Group_2_1__6__Impl
 :
 (
 	{ before(grammarAccess.getJointAccess().getReuseAssignment_2_1_6()); }
-	(rule__Joint__ReuseAssignment_2_1_6)
+	(rule__Joint__ReuseAssignment_2_1_6)?
 	{ after(grammarAccess.getJointAccess().getReuseAssignment_2_1_6()); }
 )
 ;

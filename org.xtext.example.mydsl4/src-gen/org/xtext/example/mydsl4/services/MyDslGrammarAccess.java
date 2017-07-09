@@ -1359,15 +1359,27 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cReuseAssignment_2_1_6 = (Assignment)cGroup_2_1.eContents().get(6);
 		private final RuleCall cReuseReuseParserRuleCall_2_1_6_0 = (RuleCall)cReuseAssignment_2_1_6.eContents().get(0);
 		
+		/// *Joint:
+		//	{Joint} 'Joint' name=ID
+		//			'ChildOf' childOf=[Link] 
+		//			'ParentOf' parentOf=[Link] 
+		//	('def' 'Type' type=JointType 
+		//			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 
+		//	 //HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
+		//	 ('reuse' isReuseOf=[Joint] 
+		//	 		  reuse=Reuse
+		//	 )
+		//	)?
+		//;* /
 		//Joint:
 		//	'Joint' name=ID (('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin |
-		//	axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ | 'reuse'
-		//	isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse)?;
+		//	axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 'reuse'
+		//	isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse?)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Joint' name=ID (('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin |
-		//axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ | 'reuse'
-		//isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse)?
+		//axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 'reuse'
+		//isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse?)?
 		public Group getGroup() { return cGroup; }
 		
 		//'Joint'
@@ -1380,12 +1392,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//(('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin | axis=Axis |
-		//limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ | 'reuse'
-		//isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse)?
+		//limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 'reuse'
+		//isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse?)?
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin | axis=Axis |
-		//limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+
+		//limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)*
 		public Group getGroup_2_0() { return cGroup_2_0; }
 		
 		//('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType)
@@ -1428,7 +1440,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getTypeJointTypeEnumRuleCall_2_0_0_6_0() { return cTypeJointTypeEnumRuleCall_2_0_0_6_0; }
 		
 		//(origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics |
-		//safetycontroller=SafetyController)+
+		//safetycontroller=SafetyController)*
 		public Alternatives getAlternatives_2_0_1() { return cAlternatives_2_0_1; }
 		
 		//origin=Origin
@@ -1469,7 +1481,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
 		// 'reuse' isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf'
-		//parentOf=[Link] reuse=Reuse
+		//parentOf=[Link] reuse=Reuse?
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
 		//'reuse'
@@ -1508,7 +1520,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getParentOfLinkIDTerminalRuleCall_2_1_5_0_1() { return cParentOfLinkIDTerminalRuleCall_2_1_5_0_1; }
 		
-		//reuse=Reuse
+		//reuse=Reuse?
 		public Assignment getReuseAssignment_2_1_6() { return cReuseAssignment_2_1_6; }
 		
 		//Reuse
@@ -1873,9 +1885,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	value=SIGNED_NUMERIC;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////{URDFAttrSignedNumeric}
-		// //(name=ID)?
-		// value=SIGNED_NUMERIC
+		//value=SIGNED_NUMERIC
 		public Assignment getValueAssignment() { return cValueAssignment; }
 		
 		//SIGNED_NUMERIC
@@ -2473,10 +2483,22 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getColorAccess().getRule();
 	}
 	
+	/// *Joint:
+	//	{Joint} 'Joint' name=ID
+	//			'ChildOf' childOf=[Link] 
+	//			'ParentOf' parentOf=[Link] 
+	//	('def' 'Type' type=JointType 
+	//			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 
+	//	 //HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
+	//	 ('reuse' isReuseOf=[Joint] 
+	//	 		  reuse=Reuse
+	//	 )
+	//	)?
+	//;* /
 	//Joint:
 	//	'Joint' name=ID (('def' 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] 'Type' type=JointType) (origin=Origin |
-	//	axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ | 'reuse'
-	//	isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse)?;
+	//	axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 'reuse'
+	//	isReuseOf=[Joint] 'ChildOf' childOf=[Link] 'ParentOf' parentOf=[Link] reuse=Reuse?)?;
 	public JointElements getJointAccess() {
 		return pJoint;
 	}

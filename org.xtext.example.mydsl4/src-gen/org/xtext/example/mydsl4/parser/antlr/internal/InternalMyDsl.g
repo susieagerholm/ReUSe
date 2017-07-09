@@ -2523,7 +2523,7 @@ ruleJoint returns [EObject current=null]
 							}
 						)
 					)
-				)+
+				)*
 			)
 			    |
 			(
@@ -2596,7 +2596,7 @@ ruleJoint returns [EObject current=null]
 							afterParserOrEnumRuleCall();
 						}
 					)
-				)
+				)?
 			)
 		)?
 	)

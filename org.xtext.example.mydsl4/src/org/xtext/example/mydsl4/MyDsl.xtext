@@ -155,17 +155,30 @@ Color:
 	'alpha' alpha=URDFAttrFloat	
 ;
 
+/*Joint:
+	{Joint} 'Joint' name=ID
+			'ChildOf' childOf=[Link] 
+			'ParentOf' parentOf=[Link] 
+	('def' 'Type' type=JointType 
+			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 
+	 //HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
+	 ('reuse' isReuseOf=[Joint] 
+	 		  reuse=Reuse
+	 )
+	)?
+;*/
+
 Joint:
 	'Joint' name=ID
 	(('def'  'ChildOf' childOf=[Link] 
 			 'ParentOf' parentOf=[Link] 
 			 'Type' type=JointType) 
-			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ | 
+			 ( origin=Origin | axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)* | 
 	 //HOW TO REUSE: CHANGE PARENT AND CHILD LINKS??
 	 ('reuse' isReuseOf=[Joint] 
 	 	'ChildOf' childOf=[Link] 
 		'ParentOf' parentOf=[Link] 
-	 	reuse=Reuse
+	 	(reuse=Reuse)?
 	 )
 	)?
 ;
@@ -226,8 +239,6 @@ SafetyController:
 ;*/
 
 URDFAttrSignedNumeric:
-	//{URDFAttrSignedNumeric}
-	//(name=ID)?
 	value = SIGNED_NUMERIC
 ;
 

@@ -14,6 +14,7 @@ import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.CrossReference
 import java.util.function.Predicate
 import org.eclipse.xtext.resource.IEObjectDescription
+import org.eclipse.xtext.RuleCall
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -21,8 +22,12 @@ import org.eclipse.xtext.resource.IEObjectDescription
  */
 class MyDslProposalProvider extends AbstractMyDslProposalProvider {
 	
+ 	override void complete_Robot(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		val test = context
+		val mymy = model
+	}
  
-	override void completeVisual_Geometry( EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	/*override void completeVisual_Geometry( EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		//if (context.lastCompleteNode.grammarElement.equals("Geometry")) {
 		val modello = model
 		val ass_class = assignment.class
@@ -40,7 +45,7 @@ class MyDslProposalProvider extends AbstractMyDslProposalProvider {
   	 //acceptor.accept(createCompletionProposal('hello_world', context))
   	 //val test = acceptor
   	
-    }
+    }*/
    
     static class MyDLSStringProposalDelegate extends Delegate  {
 		
