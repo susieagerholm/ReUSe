@@ -227,7 +227,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Calibration returns Calibration
 	 *
 	 * Constraint:
-	 *     (name=ID? rising=URDFAttrSignedNumeric? falling=URDFAttrSignedNumeric?)
+	 *     (name=ID? (rising=URDFAttrSignedNumeric | falling=URDFAttrSignedNumeric))
 	 */
 	protected void sequence_Calibration(ISerializationContext context, Calibration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -300,7 +300,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Dynamics returns Dynamics
 	 *
 	 * Constraint:
-	 *     (name=ID? friction=URDFAttrSignedNumeric? damping=URDFAttrSignedNumeric?)
+	 *     (name=ID? (friction=URDFAttrSignedNumeric | damping=URDFAttrSignedNumeric)+)
 	 */
 	protected void sequence_Dynamics(ISerializationContext context, Dynamics semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -374,7 +374,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *                 )*
 	 *             ) | 
 	 *             (isReuseOf=[Joint|ID] childOf=[Link|ID] parentOf=[Link|ID] reuse=Reuse?)
-	 *         )?
+	 *         )
 	 *     )
 	 */
 	protected void sequence_Joint(ISerializationContext context, Joint semanticObject) {
@@ -387,7 +387,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Limit returns Limit
 	 *
 	 * Constraint:
-	 *     (name=ID? effort=URDFAttrSignedNumeric velocity=URDFAttrSignedNumeric lower=URDFAttrSignedNumeric? upper=URDFAttrSignedNumeric?)
+	 *     (name=ID? effort=URDFAttrSignedNumeric velocity=URDFAttrSignedNumeric (lower=URDFAttrSignedNumeric | upper=URDFAttrSignedNumeric)*)
 	 */
 	protected void sequence_Limit(ISerializationContext context, Limit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -504,9 +504,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         name=ID? 
 	 *         k_velocity=URDFAttrSignedNumeric 
-	 *         k_position=URDFAttrSignedNumeric? 
-	 *         softLowerLimit=URDFAttrSignedNumeric? 
-	 *         softUpperLimit=URDFAttrSignedNumeric?
+	 *         (k_position=URDFAttrSignedNumeric | softLowerLimit=URDFAttrSignedNumeric | softUpperLimit=URDFAttrSignedNumeric)*
 	 *     )
 	 */
 	protected void sequence_SafetyController(ISerializationContext context, SafetyController semanticObject) {

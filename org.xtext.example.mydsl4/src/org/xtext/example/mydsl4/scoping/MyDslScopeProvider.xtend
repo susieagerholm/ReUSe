@@ -50,16 +50,26 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 			
 		}
 		
-		/*if (context instanceof Topology) {
-			//GET LIST OF LINKS ALREADY USED AS PARENTS IN THIS TOPOLOGY 
-			val parents = EcoreUtil2.getAllContainers(context).filter(Topology).map[x | x.parent].toList.toArray()
-			//RETURN AVAILABLE LINKS IF AND ONLY IF! NOT ALREADY USED IN THIS TOPOLOGY OR UPPER NESTING OF TOPOLOGIES!
-			val test = robot.links.removeAll[x | parents].map[z | z.name]
-			Scopes.scopeFor(robot.links.filter[x | parents.forall[y | !y.name.equals(x.name)]])
+		if (context instanceof Topology) {
+			if(context.eContainer instanceof Robot) {
+				val par = context.parent
+				val testt = robot.links.filter[x | !x.name.equals(context.parent.name)]
+ 				Scopes.scopeFor(robot.links.filter[x | !x.name.equals(context.parent.name)])
+			}
+			else /*if(context.eContainer instanceof Topology)*/ {
+				//GET LIST OF LINKS ALREADY USED AS PARENTS IN THIS TOPOLOGY 
+				val previous = EcoreUtil2.getAllContainers(context).filter(Topology).map[x | x.parent].toList
+				//RETURN AVAILABLE LINKS IF AND ONLY IF! NOT ALREADY USED IN THIS TOPOLOGY OR UPPER NESTING OF TOPOLOGIES!
+				val mytest = robot.links.filter[x | !previous.contains(x)].map[z | z.name]
+				var newtest = new BasicEList<EObject>()
+				newtest.add(robot.links.get(0))
+				Scopes.scopeFor(newtest)
 			//super.getScope(context, reference)
+			}
+			//else super.getScope(context, reference)
 			
 		   
-		}*/
+		}
 		
 				
 		//SOMEHOW THIS LINK SCOPING RULE IS NOT USED - EXIST VIA SUPER.GETSCOPE?? 

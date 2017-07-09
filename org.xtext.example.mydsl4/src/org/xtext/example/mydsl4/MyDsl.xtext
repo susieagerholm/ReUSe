@@ -180,7 +180,7 @@ Joint:
 		'ParentOf' parentOf=[Link] 
 	 	(reuse=Reuse)?
 	 )
-	)?
+	)
 ;
 
 enum JointType:
@@ -200,29 +200,26 @@ Limit:
 	'Limit' (name=ID)?
 	'effort' effort=URDFAttrSignedNumeric 
 	'velocity' velocity=URDFAttrSignedNumeric 
-	'lower' lower=(URDFAttrSignedNumeric)?
-	'upper' upper=(URDFAttrSignedNumeric)? 
+	('lower' lower=URDFAttrSignedNumeric | 'upper' upper=URDFAttrSignedNumeric)* 
 ;
 
 Calibration:
 	 {Calibration} 'Calibration' (name=ID)?
-	 ('rising' rising=URDFAttrSignedNumeric)? 
-	 ('falling' falling=URDFAttrSignedNumeric)? 
+	 ('rising' rising=URDFAttrSignedNumeric | 'falling' falling=URDFAttrSignedNumeric) 
 ;
 
 Dynamics:
 	{Dynamics} 'Dynamics' (name=ID)?
-	('friction' friction=URDFAttrSignedNumeric)?
-	('damping' damping=URDFAttrSignedNumeric)?
+	('friction' friction=URDFAttrSignedNumeric | 'damping' damping=URDFAttrSignedNumeric)+
 ;
 
 
 SafetyController:
 	'SafetyController' (name=ID)?
 	'k_velocity' k_velocity=URDFAttrSignedNumeric
-	('k_position' k_position=URDFAttrSignedNumeric)?
-	('softLowerLimit' softLowerLimit=URDFAttrSignedNumeric)?
-	('softUpperLimit' softUpperLimit=URDFAttrSignedNumeric)?
+	('k_position' k_position=URDFAttrSignedNumeric |
+	 'softLowerLimit' softLowerLimit=URDFAttrSignedNumeric | 
+	 'softUpperLimit' softUpperLimit=URDFAttrSignedNumeric)*
 ;
 
 

@@ -2598,7 +2598,7 @@ ruleJoint returns [EObject current=null]
 					)
 				)?
 			)
-		)?
+		)
 	)
 ;
 
@@ -2796,52 +2796,59 @@ ruleLimit returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_6='lower'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getLimitAccess().getLowerKeyword_6());
-		}
 		(
 			(
+				otherlv_6='lower'
 				{
-					newCompositeNode(grammarAccess.getLimitAccess().getLowerURDFAttrSignedNumericParserRuleCall_7_0());
+					newLeafNode(otherlv_6, grammarAccess.getLimitAccess().getLowerKeyword_6_0_0());
 				}
-				lv_lower_7_0=ruleURDFAttrSignedNumeric
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getLimitRule());
-					}
-					set(
-						$current,
-						"lower",
-						lv_lower_7_0,
-						"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-					afterParserOrEnumRuleCall();
-				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLimitAccess().getLowerURDFAttrSignedNumericParserRuleCall_6_0_1_0());
+						}
+						lv_lower_7_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLimitRule());
+							}
+							set(
+								$current,
+								"lower",
+								lv_lower_7_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)
-		)?
-		otherlv_8='upper'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getLimitAccess().getUpperKeyword_8());
-		}
-		(
+			    |
 			(
+				otherlv_8='upper'
 				{
-					newCompositeNode(grammarAccess.getLimitAccess().getUpperURDFAttrSignedNumericParserRuleCall_9_0());
+					newLeafNode(otherlv_8, grammarAccess.getLimitAccess().getUpperKeyword_6_1_0());
 				}
-				lv_upper_9_0=ruleURDFAttrSignedNumeric
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getLimitRule());
-					}
-					set(
-						$current,
-						"upper",
-						lv_upper_9_0,
-						"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-					afterParserOrEnumRuleCall();
-				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLimitAccess().getUpperURDFAttrSignedNumericParserRuleCall_6_1_1_0());
+						}
+						lv_upper_9_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLimitRule());
+							}
+							set(
+								$current,
+								"upper",
+								lv_upper_9_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)
-		)?
+		)*
 	)
 ;
 
@@ -2891,55 +2898,58 @@ ruleCalibration returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_3='rising'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getCalibrationAccess().getRisingKeyword_3_0());
-			}
 			(
+				otherlv_3='rising'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getCalibrationAccess().getRisingKeyword_3_0_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getRisingURDFAttrSignedNumericParserRuleCall_3_1_0());
-					}
-					lv_rising_4_0=ruleURDFAttrSignedNumeric
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getCalibrationAccess().getRisingURDFAttrSignedNumericParserRuleCall_3_0_1_0());
 						}
-						set(
-							$current,
-							"rising",
-							lv_rising_4_0,
-							"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-						afterParserOrEnumRuleCall();
-					}
+						lv_rising_4_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getCalibrationRule());
+							}
+							set(
+								$current,
+								"rising",
+								lv_rising_4_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)?
-		(
-			otherlv_5='falling'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getCalibrationAccess().getFallingKeyword_4_0());
-			}
+			    |
 			(
+				otherlv_5='falling'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getCalibrationAccess().getFallingKeyword_3_1_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getFallingURDFAttrSignedNumericParserRuleCall_4_1_0());
-					}
-					lv_falling_6_0=ruleURDFAttrSignedNumeric
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getCalibrationAccess().getFallingURDFAttrSignedNumericParserRuleCall_3_1_1_0());
 						}
-						set(
-							$current,
-							"falling",
-							lv_falling_6_0,
-							"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-						afterParserOrEnumRuleCall();
-					}
+						lv_falling_6_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getCalibrationRule());
+							}
+							set(
+								$current,
+								"falling",
+								lv_falling_6_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)?
+		)
 	)
 ;
 
@@ -2989,55 +2999,58 @@ ruleDynamics returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_3='friction'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getDynamicsAccess().getFrictionKeyword_3_0());
-			}
 			(
+				otherlv_3='friction'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getDynamicsAccess().getFrictionKeyword_3_0_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getDynamicsAccess().getFrictionURDFAttrSignedNumericParserRuleCall_3_1_0());
-					}
-					lv_friction_4_0=ruleURDFAttrSignedNumeric
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDynamicsRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getDynamicsAccess().getFrictionURDFAttrSignedNumericParserRuleCall_3_0_1_0());
 						}
-						set(
-							$current,
-							"friction",
-							lv_friction_4_0,
-							"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-						afterParserOrEnumRuleCall();
-					}
+						lv_friction_4_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDynamicsRule());
+							}
+							set(
+								$current,
+								"friction",
+								lv_friction_4_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)?
-		(
-			otherlv_5='damping'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getDynamicsAccess().getDampingKeyword_4_0());
-			}
+			    |
 			(
+				otherlv_5='damping'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getDynamicsAccess().getDampingKeyword_3_1_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getDynamicsAccess().getDampingURDFAttrSignedNumericParserRuleCall_4_1_0());
-					}
-					lv_damping_6_0=ruleURDFAttrSignedNumeric
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDynamicsRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getDynamicsAccess().getDampingURDFAttrSignedNumericParserRuleCall_3_1_1_0());
 						}
-						set(
-							$current,
-							"damping",
-							lv_damping_6_0,
-							"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-						afterParserOrEnumRuleCall();
-					}
+						lv_damping_6_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDynamicsRule());
+							}
+							set(
+								$current,
+								"damping",
+								lv_damping_6_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)?
+		)+
 	)
 ;
 
@@ -3103,80 +3116,84 @@ ruleSafetyController returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_4='k_position'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getSafetyControllerAccess().getK_positionKeyword_4_0());
-			}
 			(
+				otherlv_4='k_position'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getSafetyControllerAccess().getK_positionKeyword_4_0_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getK_positionURDFAttrSignedNumericParserRuleCall_4_1_0());
-					}
-					lv_k_position_5_0=ruleURDFAttrSignedNumeric
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getSafetyControllerAccess().getK_positionURDFAttrSignedNumericParserRuleCall_4_0_1_0());
 						}
-						set(
-							$current,
-							"k_position",
-							lv_k_position_5_0,
-							"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-						afterParserOrEnumRuleCall();
-					}
+						lv_k_position_5_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
+							}
+							set(
+								$current,
+								"k_position",
+								lv_k_position_5_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)?
-		(
-			otherlv_6='softLowerLimit'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getSafetyControllerAccess().getSoftLowerLimitKeyword_5_0());
-			}
+			    |
 			(
+				otherlv_6='softLowerLimit'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getSafetyControllerAccess().getSoftLowerLimitKeyword_4_1_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitURDFAttrSignedNumericParserRuleCall_5_1_0());
-					}
-					lv_softLowerLimit_7_0=ruleURDFAttrSignedNumeric
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitURDFAttrSignedNumericParserRuleCall_4_1_1_0());
 						}
-						set(
-							$current,
-							"softLowerLimit",
-							lv_softLowerLimit_7_0,
-							"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-						afterParserOrEnumRuleCall();
-					}
+						lv_softLowerLimit_7_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
+							}
+							set(
+								$current,
+								"softLowerLimit",
+								lv_softLowerLimit_7_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)?
-		(
-			otherlv_8='softUpperLimit'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getSafetyControllerAccess().getSoftUpperLimitKeyword_6_0());
-			}
+			    |
 			(
+				otherlv_8='softUpperLimit'
+				{
+					newLeafNode(otherlv_8, grammarAccess.getSafetyControllerAccess().getSoftUpperLimitKeyword_4_2_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitURDFAttrSignedNumericParserRuleCall_6_1_0());
-					}
-					lv_softUpperLimit_9_0=ruleURDFAttrSignedNumeric
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitURDFAttrSignedNumericParserRuleCall_4_2_1_0());
 						}
-						set(
-							$current,
-							"softUpperLimit",
-							lv_softUpperLimit_9_0,
-							"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
-						afterParserOrEnumRuleCall();
-					}
+						lv_softUpperLimit_9_0=ruleURDFAttrSignedNumeric
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
+							}
+							set(
+								$current,
+								"softUpperLimit",
+								lv_softUpperLimit_9_0,
+								"org.xtext.example.mydsl4.MyDsl.URDFAttrSignedNumeric");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)?
+		)*
 	)
 ;
 
