@@ -21,31 +21,44 @@ import org.xtext.example.mydsl4.myDsl.Robot
 import org.xtext.example.mydsl4.services.MyDslGrammarAccess
 import org.eclipse.xtext.Group
 import org.eclipse.xtext.Keyword
+import org.xtext.example.mydsl4.myDsl.Link
+import org.xtext.example.mydsl4.myDsl.Joint
 
-/**
- * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
- * on how to customize the content assistant.
- */
- 
- 
 class MyDslProposalProvider extends AbstractMyDslProposalProvider {
 	 @Inject extension MyDslGrammarAccess
 	
 	override complete_AddToLink(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-    	addToLinkAccess.group.createKeywordProposal(context,acceptor)
+    	addToLinkAccess.group.createKeywordProposalAddToLink(context,acceptor)
 	}
 	
 	override complete_AddToJoint(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		addToJointAccess.group.createKeywordProposal(context,acceptor)
+		addToJointAccess.group.createKeywordProposalAddToJoint(context,acceptor)
 	}
 	
-	def createKeywordProposal(Group group, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-    if (group == null) {
-        return null
-    }
-    val proposalString = group.elements.filter(Keyword).map[value].join(" ") + " "
-    acceptor.accept(createCompletionProposal(proposalString, proposalString, null, context))
-}
+	def createKeywordProposalAddToLink(Group group, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (group == null || context.currentModel.eContents.filter(Link).empty) {
+			return null
+   		}
+   		//val test = group.elements
+   		//make sure consecutive keywords are presented as one string by content assist
+   		//https://blogs.itemis.com/en/xtext-hint-content-assist-for-multiple-consecutive-keywords
+    	val proposalString = group.elements.filter(Keyword).map[value].join(" ") + " "
+    	acceptor.accept(createCompletionProposal(proposalString, proposalString, null, context))	
+	}
+	
+	def createKeywordProposalAddToJoint(Group group, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (group == null || context.currentModel.eContents.filter(Joint).empty) {
+			return null
+		}	
+		//make sure consecutive keywords are presented as one string by content assist
+   		//https://blogs.itemis.com/en/xtext-hint-content-assist-for-multiple-consecutive-keywords
+		val proposalString = group.elements.filter(Keyword).map[value].join(" ") + " "
+    	acceptor.accept(createCompletionProposal(proposalString, proposalString, null, context))	
+	
+	}
+	
+		
+	
 	/*override completeRobot_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		
 		val bbb = context.copy
@@ -62,52 +75,17 @@ class MyDslProposalProvider extends AbstractMyDslProposalProvider {
 			}		
 		}, [x | createCompletionProposal(x.name.toString + "my_assss", context)]) 
 		
-	}
+	}*/
 	
-	override completeRobot_Links(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		
-		val ff = model
-		val gg = assignment
-		val jj = context
-		val jjjj = context.matcher
-		val bbb = context.copy
-		val ppppp = context.prefix
-		val lll = context.resource
-		val ggg = bbb.toContext
-		val ii = acceptor
-		
-		completeRuleCall((assignment.getTerminal() as RuleCall), ggg, acceptor);
-	}
  	
- 	override completeRobot_Joint(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
- 		val test = model
-		
-		//completeRuleCall((assignment.getTerminal() as RuleCall), bbb.toContext, acceptor);
- 	}
- 	
- 	override completeRobot_Addto(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
- 		
-		
-		//completeRuleCall((assignment.getTerminal() as RuleCall), bbb.toContext, acceptor);
- 	}
- 	
- 	override completeRobot_Topologies(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+ 	//override completeRobot_Topologies(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
  			
 		//completeRuleCall((assignment.getTerminal() as RuleCall), bbb.toContext, acceptor);
- 	}
+ 	//}
  	
 	/*override void completeVisual_Geometry( EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		//if (context.lastCompleteNode.grammarElement.equals("Geometry")) {
 		val modello = model
-		val ass_class = assignment.class
-		val ass_cont = assignment.eContainer
-		val ass_hhh = assignment.eContainingFeature
-		val ctx = context
-		val ctx_a = context.lastCompleteNode.class
-		val ctx_b = context.currentNode
-		val ctx_c = context.firstSetGrammarElements
-		val acc = acceptor
-		val test = "hello world"
 		
 		//}
   	 //super.completeVisual_Geometry(model, assignment, context, new MyDLSStringProposalDelegate(acceptor, context))
