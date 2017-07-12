@@ -169,7 +169,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     AddTo returns AddTo
 	 *
 	 * Constraint:
-	 *     ((link=[Link|ID] (inertial+=Inertial | visual+=Visual | collision+=Collision)+) | (joint=[Joint|ID] origin+=Origin*))
+	 *     ((link=[Link|ID] add=ReUseAbleReduced) | (joint=[Joint|ID] add=ReUseAbleReduce))
 	 */
 	protected void sequence_AddTo(ISerializationContext context, AddTo semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

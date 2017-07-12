@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl4.ui.contentassist
 
+import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
@@ -17,14 +18,35 @@ import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.RuleCall
 import org.eclipse.emf.ecore.EReference
 import org.xtext.example.mydsl4.myDsl.Robot
+import org.xtext.example.mydsl4.services.MyDslGrammarAccess
+import org.eclipse.xtext.Group
+import org.eclipse.xtext.Keyword
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
+ 
+ 
 class MyDslProposalProvider extends AbstractMyDslProposalProvider {
+	 @Inject extension MyDslGrammarAccess
 	
-	override completeRobot_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	override complete_AddToLink(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+    	addToLinkAccess.group.createKeywordProposal(context,acceptor)
+	}
+	
+	override complete_AddToJoint(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		addToJointAccess.group.createKeywordProposal(context,acceptor)
+	}
+	
+	def createKeywordProposal(Group group, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+    if (group == null) {
+        return null
+    }
+    val proposalString = group.elements.filter(Keyword).map[value].join(" ") + " "
+    acceptor.accept(createCompletionProposal(proposalString, proposalString, null, context))
+}
+	/*override completeRobot_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		
 		val bbb = context.copy
 		val ggg = bbb.toContext
@@ -38,7 +60,7 @@ class MyDslProposalProvider extends AbstractMyDslProposalProvider {
 				if (input.name.toString.endsWith("hello_world")) false else true
 				//throw new UnsupportedOperationException("TODO: auto-generated method stub")
 			}		
-		}, [x | createCompletionProposal(x.name.toString + "my_assss", context)]) */
+		}, [x | createCompletionProposal(x.name.toString + "my_assss", context)]) 
 		
 	}
 	

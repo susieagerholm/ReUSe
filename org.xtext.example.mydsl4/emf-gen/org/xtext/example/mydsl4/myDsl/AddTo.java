@@ -18,10 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.AddTo#getLink <em>Link</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.AddTo#getJoint <em>Joint</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.AddTo#getCollision <em>Collision</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.AddTo#getVisual <em>Visual</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.AddTo#getInertial <em>Inertial</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.AddTo#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.AddTo#getAdd <em>Add</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAddTo()
@@ -82,67 +79,29 @@ public interface AddTo extends EObject {
 	void setJoint(Joint value);
 
 	/**
-	 * Returns the value of the '<em><b>Collision</b></em>' containment reference list.
-	 * The list contents are of type {@link org.xtext.example.mydsl4.myDsl.Collision}.
+	 * Returns the value of the '<em><b>Add</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Collision</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Add</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Collision</em>' containment reference list.
-	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAddTo_Collision()
-	 * @model containment="true"
+	 * @return the value of the '<em>Add</em>' containment reference.
+	 * @see #setAdd(ReUseAble)
+	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAddTo_Add()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Collision> getCollision();
+	ReUseAble getAdd();
 
 	/**
-	 * Returns the value of the '<em><b>Visual</b></em>' containment reference list.
-	 * The list contents are of type {@link org.xtext.example.mydsl4.myDsl.Visual}.
+	 * Sets the value of the '{@link org.xtext.example.mydsl4.myDsl.AddTo#getAdd <em>Add</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Visual</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Visual</em>' containment reference list.
-	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAddTo_Visual()
-	 * @model containment="true"
+	 * @param value the new value of the '<em>Add</em>' containment reference.
+	 * @see #getAdd()
 	 * @generated
 	 */
-	EList<Visual> getVisual();
-
-	/**
-	 * Returns the value of the '<em><b>Inertial</b></em>' containment reference list.
-	 * The list contents are of type {@link org.xtext.example.mydsl4.myDsl.Inertial}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Inertial</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inertial</em>' containment reference list.
-	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAddTo_Inertial()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Inertial> getInertial();
-
-	/**
-	 * Returns the value of the '<em><b>Origin</b></em>' containment reference list.
-	 * The list contents are of type {@link org.xtext.example.mydsl4.myDsl.Origin}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Origin</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Origin</em>' containment reference list.
-	 * @see org.xtext.example.mydsl4.myDsl.MyDslPackage#getAddTo_Origin()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Origin> getOrigin();
+	void setAdd(ReUseAble value);
 
 } // AddTo

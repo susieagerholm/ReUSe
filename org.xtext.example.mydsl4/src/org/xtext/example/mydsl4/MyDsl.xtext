@@ -40,16 +40,25 @@ Link:
 ;
 
 AddTo:
-	('add_to' 'link' link=[Link]) 
-		(inertial+=Inertial | visual+=Visual | collision+=Collision)+ | 
-	('add_to' 'joint' joint=[Joint])
-	    ( origin+=Origin)* //| axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ 
-	//)
+	(AddToLink link=[Link] 
+		add = ReUseAbleReduced ) | 
+	(AddToJoint joint=[Joint]
+		add =  ReUseAbleReduce   
+	)
+;
+
+AddToLink:
+	'Add' 'to' 'link'
+;
+
+AddToJoint:
+	'Add' 'to' 'joint'
 ;
 
 Reuse:
-	{Reuse}  'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue
+	{Reuse}  'add' add=ReUseAbleReduced | 'edit' edit=AssignNewValue
 ;
+
 
 AssignNewValue:
 	{AssignNewValue} getRef=DotExpression '=' newReuseable=ReUseAble

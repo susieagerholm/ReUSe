@@ -39,10 +39,7 @@ import org.xtext.example.mydsl4.myDsl.Visual;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl#getLink <em>Link</em>}</li>
  *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl#getJoint <em>Joint</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl#getCollision <em>Collision</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl#getVisual <em>Visual</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl#getInertial <em>Inertial</em>}</li>
- *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl4.myDsl.impl.AddToImpl#getAdd <em>Add</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,44 +66,14 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 	protected Joint joint;
 
 	/**
-	 * The cached value of the '{@link #getCollision() <em>Collision</em>}' containment reference list.
+	 * The cached value of the '{@link #getAdd() <em>Add</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCollision()
+	 * @see #getAdd()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Collision> collision;
-
-	/**
-	 * The cached value of the '{@link #getVisual() <em>Visual</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVisual()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Visual> visual;
-
-	/**
-	 * The cached value of the '{@link #getInertial() <em>Inertial</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInertial()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Inertial> inertial;
-
-	/**
-	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrigin()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Origin> origin;
+	protected ReUseAble add;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,11 +175,8 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Collision> getCollision() {
-		if (collision == null) {
-			collision = new EObjectContainmentEList<Collision>(Collision.class, this, MyDslPackage.ADD_TO__COLLISION);
-		}
-		return collision;
+	public ReUseAble getAdd() {
+		return add;
 	}
 
 	/**
@@ -220,11 +184,14 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Visual> getVisual() {
-		if (visual == null) {
-			visual = new EObjectContainmentEList<Visual>(Visual.class, this, MyDslPackage.ADD_TO__VISUAL);
+	public NotificationChain basicSetAdd(ReUseAble newAdd, NotificationChain msgs) {
+		ReUseAble oldAdd = add;
+		add = newAdd;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.ADD_TO__ADD, oldAdd, newAdd);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return visual;
+		return msgs;
 	}
 
 	/**
@@ -232,23 +199,18 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Inertial> getInertial() {
-		if (inertial == null) {
-			inertial = new EObjectContainmentEList<Inertial>(Inertial.class, this, MyDslPackage.ADD_TO__INERTIAL);
+	public void setAdd(ReUseAble newAdd) {
+		if (newAdd != add) {
+			NotificationChain msgs = null;
+			if (add != null)
+				msgs = ((InternalEObject)add).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ADD_TO__ADD, null, msgs);
+			if (newAdd != null)
+				msgs = ((InternalEObject)newAdd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.ADD_TO__ADD, null, msgs);
+			msgs = basicSetAdd(newAdd, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return inertial;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Origin> getOrigin() {
-		if (origin == null) {
-			origin = new EObjectContainmentEList<Origin>(Origin.class, this, MyDslPackage.ADD_TO__ORIGIN);
-		}
-		return origin;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.ADD_TO__ADD, newAdd, newAdd));
 	}
 
 	/**
@@ -259,14 +221,8 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MyDslPackage.ADD_TO__COLLISION:
-				return ((InternalEList<?>)getCollision()).basicRemove(otherEnd, msgs);
-			case MyDslPackage.ADD_TO__VISUAL:
-				return ((InternalEList<?>)getVisual()).basicRemove(otherEnd, msgs);
-			case MyDslPackage.ADD_TO__INERTIAL:
-				return ((InternalEList<?>)getInertial()).basicRemove(otherEnd, msgs);
-			case MyDslPackage.ADD_TO__ORIGIN:
-				return ((InternalEList<?>)getOrigin()).basicRemove(otherEnd, msgs);
+			case MyDslPackage.ADD_TO__ADD:
+				return basicSetAdd(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -285,14 +241,8 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 			case MyDslPackage.ADD_TO__JOINT:
 				if (resolve) return getJoint();
 				return basicGetJoint();
-			case MyDslPackage.ADD_TO__COLLISION:
-				return getCollision();
-			case MyDslPackage.ADD_TO__VISUAL:
-				return getVisual();
-			case MyDslPackage.ADD_TO__INERTIAL:
-				return getInertial();
-			case MyDslPackage.ADD_TO__ORIGIN:
-				return getOrigin();
+			case MyDslPackage.ADD_TO__ADD:
+				return getAdd();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -312,21 +262,8 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 			case MyDslPackage.ADD_TO__JOINT:
 				setJoint((Joint)newValue);
 				return;
-			case MyDslPackage.ADD_TO__COLLISION:
-				getCollision().clear();
-				getCollision().addAll((Collection<? extends Collision>)newValue);
-				return;
-			case MyDslPackage.ADD_TO__VISUAL:
-				getVisual().clear();
-				getVisual().addAll((Collection<? extends Visual>)newValue);
-				return;
-			case MyDslPackage.ADD_TO__INERTIAL:
-				getInertial().clear();
-				getInertial().addAll((Collection<? extends Inertial>)newValue);
-				return;
-			case MyDslPackage.ADD_TO__ORIGIN:
-				getOrigin().clear();
-				getOrigin().addAll((Collection<? extends Origin>)newValue);
+			case MyDslPackage.ADD_TO__ADD:
+				setAdd((ReUseAble)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,17 +283,8 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 			case MyDslPackage.ADD_TO__JOINT:
 				setJoint((Joint)null);
 				return;
-			case MyDslPackage.ADD_TO__COLLISION:
-				getCollision().clear();
-				return;
-			case MyDslPackage.ADD_TO__VISUAL:
-				getVisual().clear();
-				return;
-			case MyDslPackage.ADD_TO__INERTIAL:
-				getInertial().clear();
-				return;
-			case MyDslPackage.ADD_TO__ORIGIN:
-				getOrigin().clear();
+			case MyDslPackage.ADD_TO__ADD:
+				setAdd((ReUseAble)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -374,14 +302,8 @@ public class AddToImpl extends MinimalEObjectImpl.Container implements AddTo {
 				return link != null;
 			case MyDslPackage.ADD_TO__JOINT:
 				return joint != null;
-			case MyDslPackage.ADD_TO__COLLISION:
-				return collision != null && !collision.isEmpty();
-			case MyDslPackage.ADD_TO__VISUAL:
-				return visual != null && !visual.isEmpty();
-			case MyDslPackage.ADD_TO__INERTIAL:
-				return inertial != null && !inertial.isEmpty();
-			case MyDslPackage.ADD_TO__ORIGIN:
-				return origin != null && !origin.isEmpty();
+			case MyDslPackage.ADD_TO__ADD:
+				return add != null;
 		}
 		return super.eIsSet(featureID);
 	}

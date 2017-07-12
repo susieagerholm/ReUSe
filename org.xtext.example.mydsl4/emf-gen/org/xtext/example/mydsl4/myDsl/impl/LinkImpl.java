@@ -22,6 +22,7 @@ import org.xtext.example.mydsl4.myDsl.Collision;
 import org.xtext.example.mydsl4.myDsl.Inertial;
 import org.xtext.example.mydsl4.myDsl.Link;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
+
 import org.xtext.example.mydsl4.myDsl.Reuse;
 import org.xtext.example.mydsl4.myDsl.Visual;
 

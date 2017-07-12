@@ -1759,40 +1759,13 @@ public interface MyDslPackage extends EPackage {
 	int ADD_TO__JOINT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Collision</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Add</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADD_TO__COLLISION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Visual</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_TO__VISUAL = 3;
-
-	/**
-	 * The feature id for the '<em><b>Inertial</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_TO__INERTIAL = 4;
-
-	/**
-	 * The feature id for the '<em><b>Origin</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADD_TO__ORIGIN = 5;
+	int ADD_TO__ADD = 2;
 
 	/**
 	 * The number of structural features of the '<em>Add To</em>' class.
@@ -1801,7 +1774,7 @@ public interface MyDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADD_TO_FEATURE_COUNT = 6;
+	int ADD_TO_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.
@@ -3176,48 +3149,15 @@ public interface MyDslPackage extends EPackage {
 	EReference getAddTo_Joint();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getCollision <em>Collision</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl4.myDsl.AddTo#getAdd <em>Add</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Collision</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getCollision()
+	 * @return the meta object for the containment reference '<em>Add</em>'.
+	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getAdd()
 	 * @see #getAddTo()
 	 * @generated
 	 */
-	EReference getAddTo_Collision();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getVisual <em>Visual</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Visual</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getVisual()
-	 * @see #getAddTo()
-	 * @generated
-	 */
-	EReference getAddTo_Visual();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getInertial <em>Inertial</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Inertial</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getInertial()
-	 * @see #getAddTo()
-	 * @generated
-	 */
-	EReference getAddTo_Inertial();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl4.myDsl.AddTo#getOrigin <em>Origin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Origin</em>'.
-	 * @see org.xtext.example.mydsl4.myDsl.AddTo#getOrigin()
-	 * @see #getAddTo()
-	 * @generated
-	 */
-	EReference getAddTo_Origin();
+	EReference getAddTo_Add();
 
 	/**
 	 * Returns the meta object for enum '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}'.
@@ -4340,36 +4280,12 @@ public interface MyDslPackage extends EPackage {
 		EReference ADD_TO__JOINT = eINSTANCE.getAddTo_Joint();
 
 		/**
-		 * The meta object literal for the '<em><b>Collision</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Add</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ADD_TO__COLLISION = eINSTANCE.getAddTo_Collision();
-
-		/**
-		 * The meta object literal for the '<em><b>Visual</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ADD_TO__VISUAL = eINSTANCE.getAddTo_Visual();
-
-		/**
-		 * The meta object literal for the '<em><b>Inertial</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ADD_TO__INERTIAL = eINSTANCE.getAddTo_Inertial();
-
-		/**
-		 * The meta object literal for the '<em><b>Origin</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ADD_TO__ORIGIN = eINSTANCE.getAddTo_Origin();
+		EReference ADD_TO__ADD = eINSTANCE.getAddTo_Add();
 
 		/**
 		 * The meta object literal for the '{@link org.xtext.example.mydsl4.myDsl.JointType <em>Joint Type</em>}' enum.

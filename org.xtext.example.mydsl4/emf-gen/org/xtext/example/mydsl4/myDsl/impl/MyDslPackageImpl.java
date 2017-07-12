@@ -38,6 +38,7 @@ import org.xtext.example.mydsl4.myDsl.Origin;
 import org.xtext.example.mydsl4.myDsl.ReUsableRef;
 import org.xtext.example.mydsl4.myDsl.ReUseAble;
 import org.xtext.example.mydsl4.myDsl.Ref;
+
 import org.xtext.example.mydsl4.myDsl.Reuse;
 import org.xtext.example.mydsl4.myDsl.Robot;
 import org.xtext.example.mydsl4.myDsl.SafetyController;
@@ -1526,35 +1527,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAddTo_Collision() {
+	public EReference getAddTo_Add() {
 		return (EReference)addToEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAddTo_Visual() {
-		return (EReference)addToEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAddTo_Inertial() {
-		return (EReference)addToEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAddTo_Origin() {
-		return (EReference)addToEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1756,10 +1730,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		addToEClass = createEClass(ADD_TO);
 		createEReference(addToEClass, ADD_TO__LINK);
 		createEReference(addToEClass, ADD_TO__JOINT);
-		createEReference(addToEClass, ADD_TO__COLLISION);
-		createEReference(addToEClass, ADD_TO__VISUAL);
-		createEReference(addToEClass, ADD_TO__INERTIAL);
-		createEReference(addToEClass, ADD_TO__ORIGIN);
+		createEReference(addToEClass, ADD_TO__ADD);
 
 		// Create enums
 		jointTypeEEnum = createEEnum(JOINT_TYPE);
@@ -1982,10 +1953,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage {
 		initEClass(addToEClass, AddTo.class, "AddTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAddTo_Link(), this.getLink(), null, "link", null, 0, 1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAddTo_Joint(), this.getJoint(), null, "joint", null, 0, 1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAddTo_Collision(), this.getCollision(), null, "collision", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAddTo_Visual(), this.getVisual(), null, "visual", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAddTo_Inertial(), this.getInertial(), null, "inertial", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAddTo_Origin(), this.getOrigin(), null, "origin", null, 0, -1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAddTo_Add(), this.getReUseAble(), null, "add", null, 1, 1, AddTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jointTypeEEnum, JointType.class, "JointType");

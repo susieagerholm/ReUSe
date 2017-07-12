@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.example.mydsl4.myDsl.AssignNewValue;
 import org.xtext.example.mydsl4.myDsl.MyDslPackage;
 import org.xtext.example.mydsl4.myDsl.ReUseAble;
-import org.xtext.example.mydsl4.myDsl.Ref;
 import org.xtext.example.mydsl4.myDsl.Reuse;
 
 /**

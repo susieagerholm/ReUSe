@@ -26,9 +26,34 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getAddToJointRule())
+			return getAddToJointToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getAddToLinkRule())
+			return getAddToLinkToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * AddToJoint:
+	 * 	'Add' 'to' 'joint'
+	 * ;
+	 */
+	protected String getAddToJointToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "Addtojoint";
+	}
+	
+	/**
+	 * AddToLink:
+	 * 	'Add' 'to' 'link'
+	 * ;
+	 */
+	protected String getAddToLinkToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "Addtolink";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

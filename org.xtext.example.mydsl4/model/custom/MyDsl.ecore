@@ -236,13 +236,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AddTo">
     <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="collision" upperBound="-1"
-        eType="#//Collision" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="visual" upperBound="-1"
-        eType="#//Visual" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inertial" upperBound="-1"
-        eType="#//Inertial" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" upperBound="-1"
-        eType="#//Origin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="add" lowerBound="1" eType="#//ReUseAble"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

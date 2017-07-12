@@ -366,110 +366,114 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.AddTo");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Group cGroup_0_0 = (Group)cGroup_0.eContents().get(0);
-		private final Keyword cAdd_toKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
-		private final Keyword cLinkKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
-		private final Assignment cLinkAssignment_0_0_2 = (Assignment)cGroup_0_0.eContents().get(2);
-		private final CrossReference cLinkLinkCrossReference_0_0_2_0 = (CrossReference)cLinkAssignment_0_0_2.eContents().get(0);
-		private final RuleCall cLinkLinkIDTerminalRuleCall_0_0_2_0_1 = (RuleCall)cLinkLinkCrossReference_0_0_2_0.eContents().get(1);
-		private final Alternatives cAlternatives_0_1 = (Alternatives)cGroup_0.eContents().get(1);
-		private final Assignment cInertialAssignment_0_1_0 = (Assignment)cAlternatives_0_1.eContents().get(0);
-		private final RuleCall cInertialInertialParserRuleCall_0_1_0_0 = (RuleCall)cInertialAssignment_0_1_0.eContents().get(0);
-		private final Assignment cVisualAssignment_0_1_1 = (Assignment)cAlternatives_0_1.eContents().get(1);
-		private final RuleCall cVisualVisualParserRuleCall_0_1_1_0 = (RuleCall)cVisualAssignment_0_1_1.eContents().get(0);
-		private final Assignment cCollisionAssignment_0_1_2 = (Assignment)cAlternatives_0_1.eContents().get(2);
-		private final RuleCall cCollisionCollisionParserRuleCall_0_1_2_0 = (RuleCall)cCollisionAssignment_0_1_2.eContents().get(0);
+		private final RuleCall cAddToLinkParserRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Assignment cLinkAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cLinkLinkCrossReference_0_1_0 = (CrossReference)cLinkAssignment_0_1.eContents().get(0);
+		private final RuleCall cLinkLinkIDTerminalRuleCall_0_1_0_1 = (RuleCall)cLinkLinkCrossReference_0_1_0.eContents().get(1);
+		private final Assignment cAddAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cAddReUseAbleReducedParserRuleCall_0_2_0 = (RuleCall)cAddAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Keyword cAdd_toKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
-		private final Keyword cJointKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Assignment cJointAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final CrossReference cJointJointCrossReference_1_0_2_0 = (CrossReference)cJointAssignment_1_0_2.eContents().get(0);
-		private final RuleCall cJointJointIDTerminalRuleCall_1_0_2_0_1 = (RuleCall)cJointJointCrossReference_1_0_2_0.eContents().get(1);
-		private final Assignment cOriginAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOriginOriginParserRuleCall_1_1_0 = (RuleCall)cOriginAssignment_1_1.eContents().get(0);
+		private final RuleCall cAddToJointParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cJointAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cJointJointCrossReference_1_1_0 = (CrossReference)cJointAssignment_1_1.eContents().get(0);
+		private final RuleCall cJointJointIDTerminalRuleCall_1_1_0_1 = (RuleCall)cJointJointCrossReference_1_1_0.eContents().get(1);
+		private final Assignment cAddAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cAddReUseAbleReduceParserRuleCall_1_2_0 = (RuleCall)cAddAssignment_1_2.eContents().get(0);
 		
 		//AddTo:
-		//	('add_to' 'link' link=[Link]) (inertial+=Inertial | visual+=Visual | collision+=Collision)+ | ('add_to' 'joint'
-		//	joint=[Joint]) origin+=Origin*
-		//	//| axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ 
-		//
-		//	//)
-		//;
+		//	AddToLink link=[Link] add=ReUseAbleReduced | AddToJoint joint=[Joint] add=ReUseAbleReduce;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('add_to' 'link' link=[Link]) (inertial+=Inertial | visual+=Visual | collision+=Collision)+ | ('add_to' 'joint'
-		//joint=[Joint]) origin+=Origin*
+		//AddToLink link=[Link] add=ReUseAbleReduced | AddToJoint joint=[Joint] add=ReUseAbleReduce
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//('add_to' 'link' link=[Link]) (inertial+=Inertial | visual+=Visual | collision+=Collision)+
+		//AddToLink link=[Link] add=ReUseAbleReduced
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//('add_to' 'link' link=[Link])
-		public Group getGroup_0_0() { return cGroup_0_0; }
-		
-		//'add_to'
-		public Keyword getAdd_toKeyword_0_0_0() { return cAdd_toKeyword_0_0_0; }
-		
-		//'link'
-		public Keyword getLinkKeyword_0_0_1() { return cLinkKeyword_0_0_1; }
+		//AddToLink
+		public RuleCall getAddToLinkParserRuleCall_0_0() { return cAddToLinkParserRuleCall_0_0; }
 		
 		//link=[Link]
-		public Assignment getLinkAssignment_0_0_2() { return cLinkAssignment_0_0_2; }
+		public Assignment getLinkAssignment_0_1() { return cLinkAssignment_0_1; }
 		
 		//[Link]
-		public CrossReference getLinkLinkCrossReference_0_0_2_0() { return cLinkLinkCrossReference_0_0_2_0; }
+		public CrossReference getLinkLinkCrossReference_0_1_0() { return cLinkLinkCrossReference_0_1_0; }
 		
 		//ID
-		public RuleCall getLinkLinkIDTerminalRuleCall_0_0_2_0_1() { return cLinkLinkIDTerminalRuleCall_0_0_2_0_1; }
+		public RuleCall getLinkLinkIDTerminalRuleCall_0_1_0_1() { return cLinkLinkIDTerminalRuleCall_0_1_0_1; }
 		
-		//(inertial+=Inertial | visual+=Visual | collision+=Collision)+
-		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
+		//add=ReUseAbleReduced
+		public Assignment getAddAssignment_0_2() { return cAddAssignment_0_2; }
 		
-		//inertial+=Inertial
-		public Assignment getInertialAssignment_0_1_0() { return cInertialAssignment_0_1_0; }
+		//ReUseAbleReduced
+		public RuleCall getAddReUseAbleReducedParserRuleCall_0_2_0() { return cAddReUseAbleReducedParserRuleCall_0_2_0; }
 		
-		//Inertial
-		public RuleCall getInertialInertialParserRuleCall_0_1_0_0() { return cInertialInertialParserRuleCall_0_1_0_0; }
-		
-		//visual+=Visual
-		public Assignment getVisualAssignment_0_1_1() { return cVisualAssignment_0_1_1; }
-		
-		//Visual
-		public RuleCall getVisualVisualParserRuleCall_0_1_1_0() { return cVisualVisualParserRuleCall_0_1_1_0; }
-		
-		//collision+=Collision
-		public Assignment getCollisionAssignment_0_1_2() { return cCollisionAssignment_0_1_2; }
-		
-		//Collision
-		public RuleCall getCollisionCollisionParserRuleCall_0_1_2_0() { return cCollisionCollisionParserRuleCall_0_1_2_0; }
-		
-		//('add_to' 'joint' joint=[Joint]) origin+=Origin*
+		//AddToJoint joint=[Joint] add=ReUseAbleReduce
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//('add_to' 'joint' joint=[Joint])
-		public Group getGroup_1_0() { return cGroup_1_0; }
-		
-		//'add_to'
-		public Keyword getAdd_toKeyword_1_0_0() { return cAdd_toKeyword_1_0_0; }
-		
-		//'joint'
-		public Keyword getJointKeyword_1_0_1() { return cJointKeyword_1_0_1; }
+		//AddToJoint
+		public RuleCall getAddToJointParserRuleCall_1_0() { return cAddToJointParserRuleCall_1_0; }
 		
 		//joint=[Joint]
-		public Assignment getJointAssignment_1_0_2() { return cJointAssignment_1_0_2; }
+		public Assignment getJointAssignment_1_1() { return cJointAssignment_1_1; }
 		
 		//[Joint]
-		public CrossReference getJointJointCrossReference_1_0_2_0() { return cJointJointCrossReference_1_0_2_0; }
+		public CrossReference getJointJointCrossReference_1_1_0() { return cJointJointCrossReference_1_1_0; }
 		
 		//ID
-		public RuleCall getJointJointIDTerminalRuleCall_1_0_2_0_1() { return cJointJointIDTerminalRuleCall_1_0_2_0_1; }
+		public RuleCall getJointJointIDTerminalRuleCall_1_1_0_1() { return cJointJointIDTerminalRuleCall_1_1_0_1; }
 		
-		//origin+=Origin*
-		public Assignment getOriginAssignment_1_1() { return cOriginAssignment_1_1; }
+		//add=ReUseAbleReduce
+		public Assignment getAddAssignment_1_2() { return cAddAssignment_1_2; }
 		
-		//Origin
-		public RuleCall getOriginOriginParserRuleCall_1_1_0() { return cOriginOriginParserRuleCall_1_1_0; }
+		//ReUseAbleReduce
+		public RuleCall getAddReUseAbleReduceParserRuleCall_1_2_0() { return cAddReUseAbleReduceParserRuleCall_1_2_0; }
+	}
+	public class AddToLinkElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.AddToLink");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAddKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLinkKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//AddToLink:
+		//	'Add' 'to' 'link';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Add' 'to' 'link'
+		public Group getGroup() { return cGroup; }
+		
+		//'Add'
+		public Keyword getAddKeyword_0() { return cAddKeyword_0; }
+		
+		//'to'
+		public Keyword getToKeyword_1() { return cToKeyword_1; }
+		
+		//'link'
+		public Keyword getLinkKeyword_2() { return cLinkKeyword_2; }
+	}
+	public class AddToJointElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.AddToJoint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAddKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cJointKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//AddToJoint:
+		//	'Add' 'to' 'joint';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Add' 'to' 'joint'
+		public Group getGroup() { return cGroup; }
+		
+		//'Add'
+		public Keyword getAddKeyword_0() { return cAddKeyword_0; }
+		
+		//'to'
+		public Keyword getToKeyword_1() { return cToKeyword_1; }
+		
+		//'joint'
+		public Keyword getJointKeyword_2() { return cJointKeyword_2; }
 	}
 	public class ReuseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.Reuse");
@@ -480,15 +484,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAddAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cAddReUseAbleReducedParserRuleCall_0_2_0 = (RuleCall)cAddAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cEdit2Keyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cEditKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cEditAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cEditAssignNewValueParserRuleCall_1_1_0 = (RuleCall)cEditAssignment_1_1.eContents().get(0);
 		
 		//Reuse:
-		//	{Reuse} 'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue;
+		//	{Reuse} 'add' add=ReUseAbleReduced | 'edit' edit=AssignNewValue;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Reuse} 'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue
+		//{Reuse} 'add' add=ReUseAbleReduced | 'edit' edit=AssignNewValue
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{Reuse} 'add' add=ReUseAbleReduced
@@ -506,11 +510,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ReUseAbleReduced
 		public RuleCall getAddReUseAbleReducedParserRuleCall_0_2_0() { return cAddReUseAbleReducedParserRuleCall_0_2_0; }
 		
-		//'edit2' edit=AssignNewValue
+		//'edit' edit=AssignNewValue
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'edit2'
-		public Keyword getEdit2Keyword_1_0() { return cEdit2Keyword_1_0; }
+		//'edit'
+		public Keyword getEditKeyword_1_0() { return cEditKeyword_1_0; }
 		
 		//edit=AssignNewValue
 		public Assignment getEditAssignment_1_1() { return cEditAssignment_1_1; }
@@ -2198,6 +2202,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ReUseAbleReduceElements pReUseAbleReduce;
 	private final LinkElements pLink;
 	private final AddToElements pAddTo;
+	private final AddToLinkElements pAddToLink;
+	private final AddToJointElements pAddToJoint;
 	private final ReuseElements pReuse;
 	private final AssignNewValueElements pAssignNewValue;
 	private final DotExpressionElements pDotExpression;
@@ -2250,6 +2256,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pReUseAbleReduce = new ReUseAbleReduceElements();
 		this.pLink = new LinkElements();
 		this.pAddTo = new AddToElements();
+		this.pAddToLink = new AddToLinkElements();
+		this.pAddToJoint = new AddToJointElements();
 		this.pReuse = new ReuseElements();
 		this.pAssignNewValue = new AssignNewValueElements();
 		this.pDotExpression = new DotExpressionElements();
@@ -2385,12 +2393,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AddTo:
-	//	('add_to' 'link' link=[Link]) (inertial+=Inertial | visual+=Visual | collision+=Collision)+ | ('add_to' 'joint'
-	//	joint=[Joint]) origin+=Origin*
-	//	//| axis=Axis | limit=Limit | calibration=Calibration | dynamics=Dynamics | safetycontroller=SafetyController)+ 
-	//
-	//	//)
-	//;
+	//	AddToLink link=[Link] add=ReUseAbleReduced | AddToJoint joint=[Joint] add=ReUseAbleReduce;
 	public AddToElements getAddToAccess() {
 		return pAddTo;
 	}
@@ -2399,8 +2402,28 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAddToAccess().getRule();
 	}
 	
+	//AddToLink:
+	//	'Add' 'to' 'link';
+	public AddToLinkElements getAddToLinkAccess() {
+		return pAddToLink;
+	}
+	
+	public ParserRule getAddToLinkRule() {
+		return getAddToLinkAccess().getRule();
+	}
+	
+	//AddToJoint:
+	//	'Add' 'to' 'joint';
+	public AddToJointElements getAddToJointAccess() {
+		return pAddToJoint;
+	}
+	
+	public ParserRule getAddToJointRule() {
+		return getAddToJointAccess().getRule();
+	}
+	
 	//Reuse:
-	//	{Reuse} 'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue;
+	//	{Reuse} 'add' add=ReUseAbleReduced | 'edit' edit=AssignNewValue;
 	public ReuseElements getReuseAccess() {
 		return pReuse;
 	}
