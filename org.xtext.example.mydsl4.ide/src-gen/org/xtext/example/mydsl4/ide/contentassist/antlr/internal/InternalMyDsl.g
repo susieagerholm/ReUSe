@@ -149,6 +149,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleReUseAbleReduced
+entryRuleReUseAbleReduced
+:
+{ before(grammarAccess.getReUseAbleReducedRule()); }
+	 ruleReUseAbleReduced
+{ after(grammarAccess.getReUseAbleReducedRule()); } 
+	 EOF 
+;
+
+// Rule ReUseAbleReduced
+ruleReUseAbleReduced 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getReUseAbleReducedAccess().getAlternatives()); }
+		(rule__ReUseAbleReduced__Alternatives)
+		{ after(grammarAccess.getReUseAbleReducedAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleLink
 entryRuleLink
 :
@@ -1133,6 +1158,33 @@ rule__ReUseAble__Alternatives
 		{ before(grammarAccess.getReUseAbleAccess().getCollisionParserRuleCall_3()); }
 		ruleCollision
 		{ after(grammarAccess.getReUseAbleAccess().getCollisionParserRuleCall_3()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ReUseAbleReduced__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getReUseAbleReducedAccess().getVisualParserRuleCall_0()); }
+		ruleVisual
+		{ after(grammarAccess.getReUseAbleReducedAccess().getVisualParserRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getReUseAbleReducedAccess().getInertialParserRuleCall_1()); }
+		ruleInertial
+		{ after(grammarAccess.getReUseAbleReducedAccess().getInertialParserRuleCall_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getReUseAbleReducedAccess().getCollisionParserRuleCall_2()); }
+		ruleCollision
+		{ after(grammarAccess.getReUseAbleReducedAccess().getCollisionParserRuleCall_2()); }
 	)
 ;
 finally {
@@ -7717,9 +7769,9 @@ rule__Reuse__AddAssignment_0_2
 	}
 :
 	(
-		{ before(grammarAccess.getReuseAccess().getAddReUseAbleParserRuleCall_0_2_0()); }
-		ruleReUseAble
-		{ after(grammarAccess.getReuseAccess().getAddReUseAbleParserRuleCall_0_2_0()); }
+		{ before(grammarAccess.getReuseAccess().getAddReUseAbleReducedParserRuleCall_0_2_0()); }
+		ruleReUseAbleReduced
+		{ after(grammarAccess.getReuseAccess().getAddReUseAbleReducedParserRuleCall_0_2_0()); }
 	)
 ;
 finally {

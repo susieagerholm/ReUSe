@@ -24,6 +24,13 @@ ReUseAble:
  	Link | Visual | Inertial | Collision
 ;
 
+ReUseAbleReduced returns ReUseAble:
+	Visual | Inertial | Collision
+;
+
+ReUseAbleReduce returns ReUseAble:
+	Origin | Axis | Limit | Calibration | Dynamics | SafetyController
+;
   
 Link:
 	{Link} 'Link' name=ID
@@ -41,7 +48,7 @@ AddTo:
 ;
 
 Reuse:
-	{Reuse}  'add' add=ReUseAble | 'edit2' edit=AssignNewValue
+	{Reuse}  'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue
 ;
 
 AssignNewValue:

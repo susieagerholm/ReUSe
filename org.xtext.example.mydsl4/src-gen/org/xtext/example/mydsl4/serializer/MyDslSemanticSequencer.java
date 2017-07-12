@@ -199,6 +199,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReUseAbleReduce returns Axis
 	 *     Axis returns Axis
 	 *
 	 * Constraint:
@@ -224,6 +225,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReUseAbleReduce returns Calibration
 	 *     Calibration returns Calibration
 	 *
 	 * Constraint:
@@ -237,6 +239,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     ReUseAble returns Collision
+	 *     ReUseAbleReduced returns Collision
 	 *     Collision returns Collision
 	 *
 	 * Constraint:
@@ -297,6 +300,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReUseAbleReduce returns Dynamics
 	 *     Dynamics returns Dynamics
 	 *
 	 * Constraint:
@@ -330,6 +334,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     ReUseAble returns Inertial
+	 *     ReUseAbleReduced returns Inertial
 	 *     Inertial returns Inertial
 	 *
 	 * Constraint:
@@ -384,6 +389,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReUseAbleReduce returns Limit
 	 *     Limit returns Limit
 	 *
 	 * Constraint:
@@ -434,6 +440,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReUseAbleReduce returns Origin
 	 *     Origin returns Origin
 	 *
 	 * Constraint:
@@ -477,7 +484,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Reuse returns Reuse
 	 *
 	 * Constraint:
-	 *     (add=ReUseAble | edit=AssignNewValue)
+	 *     (add=ReUseAbleReduced | edit=AssignNewValue)
 	 */
 	protected void sequence_Reuse(ISerializationContext context, Reuse semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -498,6 +505,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ReUseAbleReduce returns SafetyController
 	 *     SafetyController returns SafetyController
 	 *
 	 * Constraint:
@@ -643,6 +651,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     ReUseAble returns Visual
+	 *     ReUseAbleReduced returns Visual
 	 *     Visual returns Visual
 	 *
 	 * Constraint:

@@ -393,6 +393,51 @@ ruleReUseAble returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleReUseAbleReduced
+entryRuleReUseAbleReduced returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReUseAbleReducedRule()); }
+	iv_ruleReUseAbleReduced=ruleReUseAbleReduced
+	{ $current=$iv_ruleReUseAbleReduced.current; }
+	EOF;
+
+// Rule ReUseAbleReduced
+ruleReUseAbleReduced returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getReUseAbleReducedAccess().getVisualParserRuleCall_0());
+		}
+		this_Visual_0=ruleVisual
+		{
+			$current = $this_Visual_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getReUseAbleReducedAccess().getInertialParserRuleCall_1());
+		}
+		this_Inertial_1=ruleInertial
+		{
+			$current = $this_Inertial_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getReUseAbleReducedAccess().getCollisionParserRuleCall_2());
+		}
+		this_Collision_2=ruleCollision
+		{
+			$current = $this_Collision_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
 // Entry rule entryRuleLink
 entryRuleLink returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getLinkRule()); }
@@ -730,9 +775,9 @@ ruleReuse returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getReuseAccess().getAddReUseAbleParserRuleCall_0_2_0());
+						newCompositeNode(grammarAccess.getReuseAccess().getAddReUseAbleReducedParserRuleCall_0_2_0());
 					}
-					lv_add_2_0=ruleReUseAble
+					lv_add_2_0=ruleReUseAbleReduced
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getReuseRule());
@@ -741,7 +786,7 @@ ruleReuse returns [EObject current=null]
 							$current,
 							"add",
 							lv_add_2_0,
-							"org.xtext.example.mydsl4.MyDsl.ReUseAble");
+							"org.xtext.example.mydsl4.MyDsl.ReUseAbleReduced");
 						afterParserOrEnumRuleCall();
 					}
 				)

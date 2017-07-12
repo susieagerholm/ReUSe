@@ -207,6 +207,64 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Collision
 		public RuleCall getCollisionParserRuleCall_3() { return cCollisionParserRuleCall_3; }
 	}
+	public class ReUseAbleReducedElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.ReUseAbleReduced");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cVisualParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cInertialParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCollisionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//ReUseAbleReduced ReUseAble:
+		//	Visual | Inertial | Collision
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Visual | Inertial | Collision
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Visual
+		public RuleCall getVisualParserRuleCall_0() { return cVisualParserRuleCall_0; }
+		
+		//Inertial
+		public RuleCall getInertialParserRuleCall_1() { return cInertialParserRuleCall_1; }
+		
+		//Collision
+		public RuleCall getCollisionParserRuleCall_2() { return cCollisionParserRuleCall_2; }
+	}
+	public class ReUseAbleReduceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.ReUseAbleReduce");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cOriginParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cAxisParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLimitParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCalibrationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDynamicsParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSafetyControllerParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		
+		//ReUseAbleReduce ReUseAble:
+		//	Origin | Axis | Limit | Calibration | Dynamics | SafetyController
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Origin | Axis | Limit | Calibration | Dynamics | SafetyController
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Origin
+		public RuleCall getOriginParserRuleCall_0() { return cOriginParserRuleCall_0; }
+		
+		//Axis
+		public RuleCall getAxisParserRuleCall_1() { return cAxisParserRuleCall_1; }
+		
+		//Limit
+		public RuleCall getLimitParserRuleCall_2() { return cLimitParserRuleCall_2; }
+		
+		//Calibration
+		public RuleCall getCalibrationParserRuleCall_3() { return cCalibrationParserRuleCall_3; }
+		
+		//Dynamics
+		public RuleCall getDynamicsParserRuleCall_4() { return cDynamicsParserRuleCall_4; }
+		
+		//SafetyController
+		public RuleCall getSafetyControllerParserRuleCall_5() { return cSafetyControllerParserRuleCall_5; }
+	}
 	public class LinkElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl4.MyDsl.Link");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -420,20 +478,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cReuseAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Keyword cAddKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cAddAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cAddReUseAbleParserRuleCall_0_2_0 = (RuleCall)cAddAssignment_0_2.eContents().get(0);
+		private final RuleCall cAddReUseAbleReducedParserRuleCall_0_2_0 = (RuleCall)cAddAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cEdit2Keyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cEditAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cEditAssignNewValueParserRuleCall_1_1_0 = (RuleCall)cEditAssignment_1_1.eContents().get(0);
 		
 		//Reuse:
-		//	{Reuse} 'add' add=ReUseAble | 'edit2' edit=AssignNewValue;
+		//	{Reuse} 'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Reuse} 'add' add=ReUseAble | 'edit2' edit=AssignNewValue
+		//{Reuse} 'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Reuse} 'add' add=ReUseAble
+		//{Reuse} 'add' add=ReUseAbleReduced
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{Reuse}
@@ -442,11 +500,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'add'
 		public Keyword getAddKeyword_0_1() { return cAddKeyword_0_1; }
 		
-		//add=ReUseAble
+		//add=ReUseAbleReduced
 		public Assignment getAddAssignment_0_2() { return cAddAssignment_0_2; }
 		
-		//ReUseAble
-		public RuleCall getAddReUseAbleParserRuleCall_0_2_0() { return cAddReUseAbleParserRuleCall_0_2_0; }
+		//ReUseAbleReduced
+		public RuleCall getAddReUseAbleReducedParserRuleCall_0_2_0() { return cAddReUseAbleReducedParserRuleCall_0_2_0; }
 		
 		//'edit2' edit=AssignNewValue
 		public Group getGroup_1() { return cGroup_1; }
@@ -2136,6 +2194,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TopologyElements pTopology;
 	private final JointRefElements pJointRef;
 	private final ReUseAbleElements pReUseAble;
+	private final ReUseAbleReducedElements pReUseAbleReduced;
+	private final ReUseAbleReduceElements pReUseAbleReduce;
 	private final LinkElements pLink;
 	private final AddToElements pAddTo;
 	private final ReuseElements pReuse;
@@ -2186,6 +2246,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTopology = new TopologyElements();
 		this.pJointRef = new JointRefElements();
 		this.pReUseAble = new ReUseAbleElements();
+		this.pReUseAbleReduced = new ReUseAbleReducedElements();
+		this.pReUseAbleReduce = new ReUseAbleReduceElements();
 		this.pLink = new LinkElements();
 		this.pAddTo = new AddToElements();
 		this.pReuse = new ReuseElements();
@@ -2291,6 +2353,26 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getReUseAbleAccess().getRule();
 	}
 	
+	//ReUseAbleReduced ReUseAble:
+	//	Visual | Inertial | Collision
+	public ReUseAbleReducedElements getReUseAbleReducedAccess() {
+		return pReUseAbleReduced;
+	}
+	
+	public ParserRule getReUseAbleReducedRule() {
+		return getReUseAbleReducedAccess().getRule();
+	}
+	
+	//ReUseAbleReduce ReUseAble:
+	//	Origin | Axis | Limit | Calibration | Dynamics | SafetyController
+	public ReUseAbleReduceElements getReUseAbleReduceAccess() {
+		return pReUseAbleReduce;
+	}
+	
+	public ParserRule getReUseAbleReduceRule() {
+		return getReUseAbleReduceAccess().getRule();
+	}
+	
 	//Link:
 	//	{Link} 'Link' name=ID ('def' (inertial=Inertial | visual+=Visual | collision+=Collision)+ | 'reuse' isReuseOf=[Link]
 	//	reuse=Reuse?)?;
@@ -2318,7 +2400,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Reuse:
-	//	{Reuse} 'add' add=ReUseAble | 'edit2' edit=AssignNewValue;
+	//	{Reuse} 'add' add=ReUseAbleReduced | 'edit2' edit=AssignNewValue;
 	public ReuseElements getReuseAccess() {
 		return pReuse;
 	}

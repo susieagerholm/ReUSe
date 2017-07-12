@@ -12,9 +12,11 @@ import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 import org.eclipse.jface.text.contentassist.CompletionProposal
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.CrossReference
-import java.util.function.Predicate
+import com.google.common.base.Predicate
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.RuleCall
+import org.eclipse.emf.ecore.EReference
+import org.xtext.example.mydsl4.myDsl.Robot
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -22,11 +24,56 @@ import org.eclipse.xtext.RuleCall
  */
 class MyDslProposalProvider extends AbstractMyDslProposalProvider {
 	
- 	override void complete_Robot(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		val test = context
-		val mymy = model
+	override completeRobot_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		
+		val bbb = context.copy
+		val ggg = bbb.toContext
+		val fff = context.firstSetGrammarElements.map[x | x.class]
+			val ii = acceptor
+		
+		completeRuleCall((assignment.getTerminal() as RuleCall), bbb.toContext, acceptor);
+		/*lookupCrossReference(model, reffi, acceptor, new Predicate<IEObjectDescription>() {
+			
+			override apply(IEObjectDescription input) {
+				if (input.name.toString.endsWith("hello_world")) false else true
+				//throw new UnsupportedOperationException("TODO: auto-generated method stub")
+			}		
+		}, [x | createCompletionProposal(x.name.toString + "my_assss", context)]) */
+		
 	}
- 
+	
+	override completeRobot_Links(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		
+		val ff = model
+		val gg = assignment
+		val jj = context
+		val jjjj = context.matcher
+		val bbb = context.copy
+		val ppppp = context.prefix
+		val lll = context.resource
+		val ggg = bbb.toContext
+		val ii = acceptor
+		
+		completeRuleCall((assignment.getTerminal() as RuleCall), ggg, acceptor);
+	}
+ 	
+ 	override completeRobot_Joint(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+ 		val test = model
+		
+		//completeRuleCall((assignment.getTerminal() as RuleCall), bbb.toContext, acceptor);
+ 	}
+ 	
+ 	override completeRobot_Addto(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+ 		
+		
+		//completeRuleCall((assignment.getTerminal() as RuleCall), bbb.toContext, acceptor);
+ 	}
+ 	
+ 	override completeRobot_Topologies(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+ 			
+		//completeRuleCall((assignment.getTerminal() as RuleCall), bbb.toContext, acceptor);
+ 	}
+ 	
 	/*override void completeVisual_Geometry( EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		//if (context.lastCompleteNode.grammarElement.equals("Geometry")) {
 		val modello = model
