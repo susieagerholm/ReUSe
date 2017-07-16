@@ -3,6 +3,15 @@
  */
 package org.xtext.example.mydsl4.validation
 
+import org.xtext.example.mydsl4.myDsl.Robot
+import org.xtext.example.mydsl4.myDsl.Link
+import org.xtext.example.mydsl4.myDsl.Topology
+import org.xtext.example.mydsl4.myDsl.MyDslPackage
+import org.eclipse.emf.common.util.EList
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.validation.Check
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.EObject
 
 /**
  * This class contains custom validation rules. 
@@ -11,18 +20,152 @@ package org.xtext.example.mydsl4.validation
  */
 class MyDslValidator extends AbstractMyDslValidator {
 	
-	//Check if Topology is correct
+	/**Check if Topology is correct
+	1. Make sure there is unique root for the total topology = 
+	* a. all roots links - but one!! - must be non-root link in other topology
+	* b. no link must be outside of topologies
+	* 
+	2. Make sure no cyclic reference in total topology :
+	* a. link is not already parent upstream in this topology - 
+	* b. link is not already parent in upstream of other topology/topologies this current topology is connected to
+	* 
+	3. Make sure no duplicate joints = 
+	* no two joints have same parentOf/childOf combination
+	* 
+	4. Make sure links only have one parent = 
+	* link may only appear once as non root in a topology chain  
+	**/
 	
 	
-//	public static val INVALID_NAME = 'invalidName'
+	//@Check
+	//1.b New link may not be outside of Topology...multiple roots problem
+	def noLinksDefinedOutsideOfTopology_1b (Robot robot) {
+		//check if more than one link defined...
+		if(robot.links.length > 1) {
+			if (robot.joint.empty) 
+			error("Multiple roots problem: This robot contains multiple link, but it has no joints connecting the links. A robot may have only one root link, that is not referenced as the child of a joint node", 
+				MyDslPackage.Literals.ROBOT__LINKS
+			)
+			else if (!robot.links.forall[l |  
+				val hej = robot.joint.map[parentOf.name].contains(l.name)
+				val hejj = robot.joint.map[childOf.name].contains(l.name)
+				robot.joint.map[parentOf.name].contains(l.name) || 
+				robot.joint.map[childOf.name].contains(l.name)
+			]) 
+			error("Multiple roots problem: One or more links are potential roots of this robot. A robot may have only one root link, that is not referenced as the child of a joint node", 
+				MyDslPackage.Literals.ROBOT__LINKS
+			)
+        }		
+        		
+	}
+	
+	
+	//1.a Only one link may be true root = not child of any joint 
+	@Check
+	def allLinksButOneMustBeChildOfJoint_1a (Robot robot) {
+		val testt = robot.links.filter[x | !robot.joint.map[y | y.parentOf].toSet.contains(x)]
+		if (robot.links.length > 1) {
+			if (robot.joint.empty) 
+				error("Multiple roots problem: This robot contains multiple link, but it has no joints connecting the links. A robot may have only one root link, that is not referenced as the child of a joint node", 
+					MyDslPackage.Literals.ROBOT__LINKS
+			)
+			
+			else if(robot.links.filter[x | !robot.joint.map[y | y.parentOf].toSet.contains(x)].length > 1) 
+				error("Multiple roots problem: One or more links are potential roots of this robot, since they are not referenced as child of a joint node in topology or in joint definition. Only one link may be root", 
+					MyDslPackage.Literals.ROBOT__LINKS)
+		}
+	}
+	
+	@Check
+	//2.a Link added to parent reference of a given topology may not be present upstream in that same topology
+	def checkNoCyclicReferencesIntraTopology(Topology topos) {
+		//for each link added to topology, check it is not already parent upstream in same topology
+		if(EcoreUtil2.getAllContainers(topos).filter(Topology).map[x | x.parent].toSet.contains(topos.parent))	
+			error("Multiple roots problem: One or more links are potential roots of this robot, since they are not referenced as child of a joint node in topology or in joint definition. Only one link may be root", 
+					MyDslPackage.Literals.ROBOT__TOPOLOGIES)
+	}
+	
+	@Check
+	//2.b Link added to parent reference of a given topology may not be present upstream in other, adjacent topology
+	def checkNoCyclicReferencesExtraTopology(Topology topos) {
+		val robot = EcoreUtil2.getContainerOfType(topos, Robot)
+		//for each link added to topology, check it is not already parent upstream other topology
+		val ancestors = EcoreUtil2.getAllContainers(topos).filter(Topology).map[x | x.parent].toSet
+		val local_root = EcoreUtil2.getAllContainers(topos).filter(Topology).filter[z | z.eContainer instanceof Robot]   
+		//for each link in upstream
+		//check if referenced in other topology
+		//if yes, check if current topos is parent reference in upstream topology
+		EcoreUtil2.getAllContainers(topos).filter(Topology).map[x | x.parent].toSet.
+			forEach[n | robot.topologies.forEach[q | q.eAllContents.filter(Topology).forEach[t | 
+				if(t.parent === n) {
+					if(EcoreUtil2.getAllContainers(t).filter(Topology).map[l | l.parent].toSet.contains(topos.parent))
+					error("Multiple roots problem: One or more links are potential roots of this robot, since they are not referenced as child of a joint node in topology or in joint definition. Only one link may be root", 
+					MyDslPackage.Literals.ROBOT__TOPOLOGIES)
+			}
+		]]]
+		
+	}
+	
+}	
+	
+	
+	
+	//CHECK UNIQUE ROOT FROM ROBOT VANTAGE POINT
+	/*@Check
+	def checkIfMoreThanOneRootIsNotChildOfJoint(Robot robot) {
+	//find root of all topologies in robot
+		
+		
+		val whats_my_roots = robot.topologies.filter[x | !robot.topologies.map[z | z.eAllContents.toList].flatten.filter(Topology).map[q | q.parent].toSet.contains(x.parent)]
+		
+		//val test4 = robot.topologies.map[z | z.eAllContents.toList]
+		
+		val potentialRoots = robot.topologies.map[y | y.parent].toSet
+		if (potentialRoots.get(0).eIsProxy == true) {
+			for (topo : robot.topologies) {
+				var yyy = robot.eResource.getURIFragment(topo)
+				val url = robot.eResource.resourceSet.URIConverter
+				
+				//val iii = robot.eResource.resourceSet.getEObject(yyy, true)
+				//val this_resource = EObject.getResource(yyy)
+				val uu = "hello" 
+			}
+		}
+		
+		val test_proxy = potentialRoots.get(0).eIsProxy
+		
+		
+		val all_nonRoots = robot.topologies.map[z | z.eAllContents.toList].flatten.filter(Topology).map[q | q.parent].toSet
+		
+		val testyy = "hello"
+		
+		if (robot.topologies.map[x | x.parent].filter[y | !robot.topologies.map[z | z.eAllContents.toList].flatten.filter(Topology).map[q | q.parent].toSet.contains(y)].length > 1)
+		error("There may be only one root topology in the total topology", 
+        		MyDslPackage.Literals.ROBOT__LINKS)
+		
+		//foreach of roots - run through all topologies one at a time
+		//val all_non_root_parents = r.topologies.map[y | helperFindAllLinksInTopologyChain(y, mylist = new List<Link> ())]
+		//check if this root link (base link) is mentioned as parent (but not root) in other topology
+		//make sure only one remains... 
+	}
+	
+    
+	/**def EList<Link> helperFindAllLinksInTopologyChain(Topology topo, EList<Link> result) {
+		//if topology is not container of base/root link, add parent to list of links 
+		if(!topo.eContainer.equals(Robot) && topo.child != null) {
+			result.add(topo.parent)
+			helperFindAllLinksInTopologyChain(topo.child, result)
+		} 
+		else return result
+	}
+	
+	**/
+	
+	
+	
+	
+
 //
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+//	
 	
-}
+

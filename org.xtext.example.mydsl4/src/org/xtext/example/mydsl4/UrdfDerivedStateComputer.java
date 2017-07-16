@@ -109,10 +109,16 @@ public class UrdfDerivedStateComputer implements IDerivedStateComputer {
 							aJoint.setName(topo.getParent().getName() + "_" + getNodeText(topo.getChild(), 1));
 							aJoint.setChildOf(topo.getParent());
 							aJoint.setParentOf(topo.getChild().getParent());
-
+							
+							if (topo.getJoint().getRev() != null) aJoint.setType(JointType.REVOLUTE);
+							else if (topo.getJoint().getPris() != null) aJoint.setType(JointType.PRISMATIC);
+							else if (topo.getJoint().getCont() != null) aJoint.setType(JointType.CONTINUOUS);
+							else aJoint.setType(JointType.FIXED);
+							
 							rob.getJoint().add(aJoint);
 							
-							if (topo.getJoint().getRev() != null) {
+							//looks like type is not being added - or?
+							/*if (topo.getJoint().getRev() != null) {
 								topo.getJoint().setRev(JointType.REVOLUTE.toString());
 							} else if(topo.getJoint().getPris() != null) {
 								topo.getJoint().setPris(JointType.PRISMATIC.toString());
@@ -120,7 +126,7 @@ public class UrdfDerivedStateComputer implements IDerivedStateComputer {
 								topo.getJoint().setCont(JointType.CONTINUOUS.toString());
 							} else {
 								topo.getJoint().setFix(JointType.FIXED.toString());
-							}
+							}*/
 						}
 					}
 				}
